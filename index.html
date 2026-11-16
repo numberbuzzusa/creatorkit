@@ -1,0 +1,1590 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="CreatorKit by Shahiryar Munir — free AI-style tools for social media creators: captions, hashtags, hooks, YouTube titles, bios, content ideas and best posting times. No sign-up, works in your browser." />
+<link rel="icon" href="data:," />
+<title>CreatorKit — AI Social Media &amp; Creator Toolkit</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5963284443577039" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f6f7f4;
+    --surface:#ffffff;
+    --surface-2:#eef1ea;
+    --ink:#17201a;
+    --ink-2:#4c5a50;
+    --ink-3:#718075;
+    --line:#dde3da;
+    --coral:#e8492f;
+    --coral-dark:#c93a24;
+    --coral-soft:#fdeee9;
+    --teal:#0d7a6f;
+    --teal-soft:#e2f3f0;
+    --sun:#b97e0a;
+    --sun-soft:#fdf3da;
+    --radius:18px;
+    --shadow:0 10px 30px rgba(23,32,26,.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#101512;
+      --surface:#1a211c;
+      --surface-2:#232c25;
+      --ink:#eef3ee;
+      --ink-2:#b9c6bb;
+      --ink-3:#8b9a8e;
+      --line:#2e3a30;
+      --coral:#ff6a4d;
+      --coral-dark:#ff8266;
+      --coral-soft:#33201b;
+      --teal:#3ec2b2;
+      --teal-soft:#173330;
+      --sun:#f0b93e;
+      --sun-soft:#332a12;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-serif;line-height:1.12;margin:0}
+  a{color:var(--teal)}
+  button,[role="button"],select,input,summary{min-height:44px}
+  :focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:6px}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-in{
+    max-width:1120px;margin:0 auto;padding:10px 20px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .brand-mark{
+    width:42px;height:42px;flex:none;display:block;line-height:0;
+    filter:drop-shadow(0 6px 14px rgba(232,73,47,.28));
+  }
+  .brand-mark svg,.logo-hero svg{width:100%;height:100%;display:block}
+  .logo-hero{width:72px;height:72px;margin-bottom:18px;filter:drop-shadow(0 10px 22px rgba(232,73,47,.22))}
+  .brand-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;letter-spacing:-.01em}
+  .brand-by{font-size:12px;color:var(--ink-3);font-weight:600}
+  .topnav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  .topnav a{
+    color:var(--ink-2);text-decoration:none;font-size:13.5px;font-weight:700;
+    padding:10px 10px;border-radius:9px;min-height:44px;display:inline-flex;align-items:center;
+  }
+  .topnav a:hover{background:var(--surface-2);color:var(--ink)}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:52px 0 8px}
+  .hero h1{font-size:clamp(38px,6.5vw,62px);font-weight:800;letter-spacing:-.02em;max-width:14ch}
+  .hero h1 .hl{color:var(--coral)}
+  .hero p.lede{font-size:clamp(17px,2.4vw,20px);color:var(--ink-2);max-width:56ch;margin:16px 0 0}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;
+    background:var(--surface);border:1px solid var(--line);border-radius:999px;
+    padding:8px 14px;font-size:13.5px;font-weight:700;color:var(--ink);
+  }
+  .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex:none}
+  .chip:nth-child(2) .dot{background:var(--coral)}
+  .chip:nth-child(3) .dot{background:var(--sun)}
+  .hero-credit{margin-top:14px;font-size:14px;color:var(--ink-3);font-weight:600}
+  .hero-credit strong{color:var(--ink)}
+
+  /* quick jump grid */
+  .jump{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;
+    margin:34px 0 10px;
+  }
+  .jump a{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:14px;text-decoration:none;color:var(--ink);
+    display:flex;flex-direction:column;gap:6px;min-height:44px;
+  }
+  .jump a:hover{border-color:var(--coral)}
+  .jump .j-ico{font-size:22px;line-height:1}
+  .jump .j-name{font-weight:800;font-size:14.5px}
+  .jump .j-sub{font-size:12.5px;color:var(--ink-3);font-weight:600}
+
+  /* ---------- tool sections ---------- */
+  .tool{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px;margin:26px 0;scroll-margin-top:96px;
+  }
+  .tool-head{display:flex;gap:16px;align-items:flex-start}
+  .tool-num{
+    flex:none;width:44px;height:44px;border-radius:13px;
+    display:grid;place-items:center;font-size:22px;
+    background:var(--coral-soft);
+  }
+  .tool:nth-of-type(odd) .tool-num{background:var(--teal-soft)}
+  .tool h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.01em}
+  .tool-desc{color:var(--ink-2);margin:6px 0 0;max-width:62ch;font-size:15px}
+  .controls{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;
+    margin-top:20px;
+  }
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:13px;font-weight:800;letter-spacing:.02em;color:var(--ink-2);text-transform:uppercase}
+  .field select,.field input[type="text"]{
+    width:100%;padding:11px 13px;border-radius:11px;
+    border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+    font:inherit;font-size:15.5px;font-weight:600;
+  }
+  .field select:focus,.field input[type="text"]:focus{border-color:var(--teal);outline:none}
+  .gen-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;align-items:center}
+  .btn{
+    border:0;cursor:pointer;font:inherit;font-weight:800;font-size:15px;
+    border-radius:12px;padding:12px 22px;min-height:48px;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{background:var(--coral);color:#fff}
+  .btn-primary:hover{background:var(--coral-dark)}
+  .btn-ghost{background:var(--surface-2);color:var(--ink)}
+  .btn-ghost:hover{background:var(--line)}
+  .hint{font-size:13px;color:var(--ink-3);font-weight:600}
+  .error{font-size:14px;color:var(--coral);font-weight:700;display:none;margin-top:10px}
+  .error.show{display:block}
+
+  .results{margin-top:20px;display:none;flex-direction:column;gap:10px}
+  .results.show{display:flex}
+  .results-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3)}
+  .result-item{
+    display:flex;gap:10px;align-items:flex-start;
+    background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:14px 14px 14px 16px;
+  }
+  .result-text{flex:1;font-size:15.5px;font-weight:600;overflow-wrap:anywhere;white-space:pre-line}
+  .result-text .meta{display:block;margin-top:5px;font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .copy-btn{
+    flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);
+    font:inherit;font-size:13px;font-weight:800;border-radius:9px;
+    padding:8px 13px;cursor:pointer;min-height:40px;
+  }
+  .copy-btn:hover{border-color:var(--teal);color:var(--teal)}
+  .copy-btn.copied{background:var(--teal);border-color:var(--teal);color:#fff}
+
+  /* hashtag groups */
+  .tag-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+  .tag-group{background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:16px}
+  .tag-group h3{font-size:15px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .tag-group h3 .reach{font-size:11.5px;font-weight:800;padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em}
+  .reach-big{background:var(--coral-soft);color:var(--coral)}
+  .reach-med{background:var(--sun-soft);color:var(--sun)}
+  .reach-niche{background:var(--teal-soft);color:var(--teal)}
+  .tags{margin-top:10px;font-size:14.5px;font-weight:600;line-height:1.9;overflow-wrap:anywhere;color:var(--ink-2)}
+  .tags span{color:var(--ink)}
+  .tag-group .copy-btn{margin-top:12px}
+
+  /* format chip for ideas */
+  .fmt{
+    display:inline-block;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;
+    background:var(--sun-soft);color:var(--sun);border-radius:999px;padding:3px 9px;margin-bottom:6px;
+  }
+
+  /* best time */
+  .platform-picker{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  .plat-btn{
+    border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+    font:inherit;font-weight:800;font-size:14.5px;border-radius:999px;
+    padding:10px 18px;cursor:pointer;min-height:46px;
+  }
+  .plat-btn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .time-panel{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:18px}
+  .time-panel h3{font-size:19px;font-weight:800}
+  .time-panel .tz{font-size:13px;color:var(--ink-3);font-weight:700;margin-top:2px}
+  .time-rows{margin-top:14px;display:flex;flex-direction:column}
+  .time-row{
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    padding:11px 2px;border-top:1px solid var(--line);font-size:15px;
+  }
+  .time-row:first-child{border-top:0}
+  .time-row .when{font-weight:800}
+  .time-row .window{font-weight:700;color:var(--teal)}
+  .time-row .why{flex-basis:100%;font-size:13.5px;color:var(--ink-2)}
+  .best-days{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .best-days .bd-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-3)}
+  .day-pill{background:var(--teal-soft);color:var(--teal);font-weight:800;font-size:13.5px;border-radius:999px;padding:6px 12px}
+
+  /* thumbnails */
+  .thumb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:20px}
+  .thumb-grid:empty{display:none}
+  .thumb-card{background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:12px;display:flex;flex-direction:column;gap:10px}
+  .thumb-card img{width:100%;height:auto;border-radius:9px;display:block;background:var(--surface-2)}
+  .thumb-meta{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .thumb-size{font-weight:800;font-size:14.5px}
+  .thumb-dims{font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .dl-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    background:var(--teal);color:#fff;text-decoration:none;
+    font-weight:800;font-size:14px;border-radius:10px;padding:10px 16px;min-height:44px;
+  }
+  .dl-btn:hover{filter:brightness(1.08)}
+
+  /* fancy fonts */
+  .font-rows{margin-top:20px;display:none;flex-direction:column;gap:10px}
+  .font-rows.show{display:flex}
+  .font-row{
+    display:flex;gap:10px;align-items:center;
+    background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:12px 12px 12px 16px;
+  }
+  .font-style-name{
+    flex:none;width:104px;font-size:11.5px;font-weight:800;text-transform:uppercase;
+    letter-spacing:.04em;color:var(--ink-3);
+  }
+  .font-sample{flex:1;font-size:19px;font-weight:600;overflow-wrap:anywhere;min-width:0}
+  @media (max-width:640px){
+    .font-row{flex-wrap:wrap}
+    .font-style-name{width:100%}
+  }
+
+  /* ---------- hero visual / brand showcase ---------- */
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:40px;align-items:center}
+  .hero-visual{position:relative;min-height:460px}
+  .hero-visual-bg{position:absolute;inset:8px 0 0 18px;border-radius:28px;background:var(--teal-soft);border:1px solid var(--line)}
+  .hero-visual-bg::after{content:"";position:absolute;right:22px;top:18px;width:74px;height:74px;border-radius:50%;background:var(--sun-soft);border:1px solid var(--line)}
+  .phone-frame{position:absolute;left:50%;top:6px;transform:translateX(-58%);width:236px;height:430px;background:#111814;border-radius:34px;padding:10px;box-shadow:0 24px 50px rgba(23,32,26,.22);z-index:3}
+  .phone-screen{position:relative;height:100%;border-radius:26px;overflow:hidden;background:#1a211c;color:#fff;display:flex;flex-direction:column}
+  .phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:74px;height:18px;border-radius:999px;background:#111814;z-index:4}
+  .reel-art{position:relative;height:272px;flex:none;overflow:hidden;background:#f3c96b}
+  .reel-art svg{width:100%;height:100%;display:block}
+  .reel-live{position:absolute;top:28px;left:12px;background:var(--coral);color:#fff;font-size:10px;font-weight:800;letter-spacing:.08em;padding:4px 8px;border-radius:999px}
+  .reel-body{padding:12px 13px 10px;background:#fff;color:#17201a;flex:1}
+  @media (prefers-color-scheme: dark){.reel-body{background:#1e2821;color:#eef3ee}}
+  .reel-user{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800}
+  .reel-avatar{width:26px;height:26px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-size:12px;flex:none}
+  .reel-follow{margin-left:auto;background:var(--ink);color:var(--bg);font-size:11px;padding:5px 9px;border-radius:999px}
+  .reel-cap{font-size:12.8px;line-height:1.45;margin-top:8px;font-weight:600}
+  .reel-cap b{color:var(--coral)}
+  .reel-tags{font-size:11.5px;color:var(--teal);font-weight:700;margin-top:5px;line-height:1.5}
+  .reel-actions{display:flex;gap:14px;margin-top:9px;font-size:11px;font-weight:800;color:var(--ink-2)}
+  .float-chip{position:absolute;z-index:4;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:14px;padding:10px 12px;max-width:190px}
+  .float-chip .fc-label{font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+  .float-chip .fc-text{font-size:13px;font-weight:800;line-height:1.3;margin-top:3px}
+  .fc-hook{right:0;top:22px;transform:rotate(2deg)}
+  .fc-hook .fc-text{color:var(--coral)}
+  .fc-font{right:2px;bottom:92px;transform:rotate(-2deg)}
+  .fc-font .fc-text{font-size:16px;letter-spacing:.02em}
+  .fc-stat{left:0;bottom:18px}
+  .fc-stat .fc-num{font-family:"Bricolage Grotesque",sans-serif;font-size:22px;font-weight:800;line-height:1;color:var(--teal)}
+  .fc-stat .fc-sub{font-size:11.5px;font-weight:700;color:var(--ink-2);margin-top:3px}
+  .yt-mini{position:absolute;left:0;top:64px;width:168px;z-index:4;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(-3deg)}
+  .yt-mini-art{height:88px;background:var(--teal);color:#fff;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+  .yt-mini-art strong{font-family:"Bricolage Grotesque",sans-serif;font-size:15px;line-height:1.05}
+  .yt-mini-art span{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.9}
+  .yt-mini-play{position:absolute;right:10px;top:10px;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--teal);display:grid;place-items:center;font-size:11px}
+  .yt-mini-meta{padding:8px 10px 10px}
+  .yt-mini-meta div{height:7px;border-radius:99px;background:var(--surface-2)}
+  .yt-mini-meta div+div{margin-top:6px;width:68%}
+  .hero-visual-caption{position:absolute;left:50%;transform:translateX(-50%);bottom:-6px;z-index:5;background:var(--ink);color:var(--bg);font-size:12px;font-weight:800;padding:7px 12px;border-radius:999px;white-space:normal;text-align:center;width:max-content;max-width:94%}
+  /* ---------- in-tool examples ---------- */
+  .example-box{margin-top:20px;border:1px dashed var(--line);border-radius:14px;padding:14px;background:color-mix(in srgb, var(--surface-2) 55%, transparent)}
+  .example-head{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
+  .example-head::before{content:"";width:22px;height:3px;border-radius:99px;background:var(--coral);display:inline-block}
+  .example-post{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .example-post-art{width:86px;height:86px;border-radius:10px;flex:none;overflow:hidden;position:relative}
+  .example-post-art svg{width:100%;height:100%;display:block}
+  .example-post-body{min-width:0;flex:1}
+  .example-post-user{font-size:13px;font-weight:800;display:flex;gap:6px;align-items:center}
+  .example-post-user span{font-weight:600;color:var(--ink-3);font-size:12px}
+  .example-post-text{font-size:13.5px;line-height:1.5;font-weight:600;margin-top:4px}
+  .example-post-text em{color:var(--teal);font-style:normal;font-weight:800}
+  .sample-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .sample-thumb{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--surface);text-align:left}
+  .sample-thumb-art{aspect-ratio:16/9;padding:10px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+  .sample-thumb-art.coral{background:var(--coral)} .sample-thumb-art.teal{background:var(--teal)} .sample-thumb-art.ink{background:#243128}
+  .sample-thumb-art strong{font-family:"Bricolage Grotesque",sans-serif;font-size:15px;line-height:1.05;max-width:11ch}
+  .sample-thumb-art small{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.92;margin-bottom:4px}
+  .sample-thumb-art .play{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;background:#fff;color:#17201a;display:grid;place-items:center;font-size:10px}
+  .sample-thumb-meta{padding:8px 10px;font-size:12px;font-weight:700;line-height:1.35}
+  .sample-thumb-meta span{display:block;color:var(--ink-3);font-size:11px;font-weight:700;margin-top:2px}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-visual{max-width:520px;width:100%;margin:6px auto 0}}
+  @media (max-width:560px){.hero-visual{min-height:440px}.phone-frame{width:218px;height:408px;transform:translateX(-50%)}.yt-mini{display:none}.fc-hook{right:0;top:8px}.fc-font{bottom:76px}.fc-stat{bottom:6px}.sample-thumbs{grid-template-columns:1fr}.sample-thumb-art strong{font-size:17px;max-width:16ch}.example-post{flex-direction:column}.example-post-art{width:100%;height:110px}}
+
+  /* ---------- trust / legal pages ---------- */
+  .page-section{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin:26px 0;scroll-margin-top:96px}
+  .page-section h2{font-size:clamp(24px,3.6vw,32px);font-weight:800;letter-spacing:-.01em}
+  .page-section h3{font-size:17px;font-weight:800;margin:22px 0 6px}
+  .page-section p,.page-section li{color:var(--ink-2);font-size:15px}
+  .page-section p{margin:8px 0 0;max-width:72ch}
+  .page-section ul{margin:8px 0 0;padding-left:20px;max-width:72ch}
+  .page-section li{margin-top:5px}
+  .page-kicker{display:inline-flex;align-items:center;gap:7px;background:var(--teal-soft);color:var(--teal);font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;margin-bottom:12px}
+  .page-meta{font-size:13px;color:var(--ink-3);font-weight:700;margin-top:6px}
+  .contact-card{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .contact-card .cc-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3)}
+  .contact-card .cc-email{font-size:18px;font-weight:800;color:var(--ink);overflow-wrap:anywhere}
+  .back-tools{display:inline-flex;margin-top:20px;font-weight:800;font-size:14px;text-decoration:none}
+  .back-tools:hover{text-decoration:underline}
+
+  footer{border-top:1px solid var(--line);margin-top:44px;background:var(--surface)}
+  .footer-in{max-width:1120px;margin:0 auto;padding:34px 20px 40px;display:flex;flex-direction:column;gap:22px}
+  .footer-top{display:flex;gap:28px;flex-wrap:wrap;justify-content:space-between}
+  .footer-brand-wrap{max-width:300px}
+  .footer-brand-row{display:flex;align-items:center;gap:10px}
+  .footer-logo{width:36px;height:36px;flex:none}
+  .footer-logo svg{width:100%;height:100%;display:block}
+  .footer-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:19px}
+  .footer-in p{margin:8px 0 0;font-size:13.5px;color:var(--ink-3);max-width:70ch}
+  .footer-in .by{font-size:14px;color:var(--ink-2);font-weight:700}
+  .footer-cols{display:flex;gap:36px;flex-wrap:wrap}
+  .footer-col h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+  .footer-col a{display:flex;align-items:center;min-height:36px;color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;padding:2px 0}
+  .footer-col a:hover{color:var(--coral)}
+  .footer-bottom{border-top:1px solid var(--line);padding-top:16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;font-size:13px;color:var(--ink-3);font-weight:600}
+  .footer-bottom a{color:var(--ink-2);font-weight:800}
+
+  @media (max-width:640px){
+    .hero{padding-top:36px}
+    .tool{padding:20px 16px}
+    .topnav{display:none}
+    .result-item{flex-direction:column}
+    .copy-btn{align-self:flex-start}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top" aria-label="CreatorKit home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" role="img" aria-label="CreatorKit logo"><rect width="48" height="48" rx="13" fill="#E8492F"/><path d="M10 7h17a5 5 0 0 1 2 9.6A5.5 5.5 0 0 1 24.5 27H14a4 4 0 0 1-4-4V7Z" fill="#0D7A6F" opacity=".28"/><path d="M18.5 14.8v18.4c0 .9 1 1.5 1.8 1L35 24.9a1.25 1.25 0 0 0 0-2L20.3 13.9c-.8-.5-1.8 0-1.8.9Z" fill="#fff"/><path d="M37.2 5.2l.9 2.5 2.5.9-2.5.9-.9 2.5-.9-2.5-2.5-.9 2.5-.9.9-2.5Z" fill="#F6C445"/><circle cx="40.5" cy="35.5" r="2.2" fill="#F6C445"/><path d="M7 38.5c5-2.2 9.5 1.8 14.5-.4 3.4-1.5 6.8.6 10.5-.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".9"/></svg></span>
+      <span>
+        <span class="brand-name">CreatorKit</span><br />
+        <span class="brand-by">by Shahiryar Munir</span>
+      </span>
+    </a>
+    <nav class="topnav" aria-label="Tools">
+      <a href="#captions">Captions</a>
+      <a href="#hashtags">Hashtags</a>
+      <a href="#hooks">Hooks</a>
+      <a href="#titles">Titles</a>
+      <a href="#bios">Bios</a>
+      <a href="#ideas">Ideas</a>
+      <a href="#best-time">Best Time</a>
+      <a href="#thumbnails">Thumbnails</a>
+      <a href="#fonts">Fancy Fonts</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="logo-hero" aria-hidden="true"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="13" fill="#E8492F"/><path d="M18.5 14.8v18.4c0 .9 1 1.5 1.8 1L35 24.9a1.25 1.25 0 0 0 0-2L20.3 13.9c-.8-.5-1.8 0-1.8.9Z" fill="#fff"/><path d="M37.2 5.2l.9 2.5 2.5.9-2.5.9-.9 2.5-.9-2.5-2.5-.9 2.5-.9.9-2.5Z" fill="#F6C445"/><circle cx="40.5" cy="35.5" r="2.2" fill="#F6C445"/><path d="M7 38.5c5-2.2 9.5 1.8 14.5-.4 3.4-1.5 6.8.6 10.5-.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".9"/></svg></div>
+        <h1>Post more. <span class="hl">Stress less.</span></h1>
+        <p class="lede">Nine free, AI-style tools that write your captions, hashtags, hooks, titles and bios in seconds — plus a YouTube thumbnail downloader, a fancy font maker, and the best times to post. Built for creators on Instagram, Facebook, TikTok and YouTube.</p>
+        <div class="chips">
+          <span class="chip"><span class="dot"></span>Free forever</span>
+          <span class="chip"><span class="dot"></span>No sign-up</span>
+          <span class="chip"><span class="dot"></span>Works in your browser</span>
+        </div>
+        <p class="hero-credit">A free toolkit by <strong>Shahiryar Munir</strong> — pick a tool below and hit Generate.</p>
+      </div>
+
+      <div class="hero-visual" aria-label="Preview of a creator post made with CreatorKit">
+        <div class="hero-visual-bg" aria-hidden="true"></div>
+        <div class="yt-mini" aria-hidden="true">
+          <div class="yt-mini-art"><span class="yt-mini-play">▶</span><span>YouTube idea</span><strong>I Tried It for 7 Days</strong></div>
+          <div class="yt-mini-meta"><div></div><div></div></div>
+        </div>
+        <div class="phone-frame" aria-hidden="true">
+          <div class="phone-screen">
+            <span class="phone-notch"></span>
+            <div class="reel-art">
+              <svg viewBox="0 0 236 272" preserveAspectRatio="xMidYMid slice"><rect width="236" height="272" fill="#FDE9B8"/><circle cx="182" cy="58" r="30" fill="#F6C445"/><path d="M0 168 L62 96 L112 150 L152 104 L236 178 V272 H0 Z" fill="#0D7A6F"/><path d="M0 208 L72 152 L138 204 L190 164 L236 202 V272 H0 Z" fill="#E8492F" opacity=".88"/><path d="M28 238c18-10 30 6 48-3 14-7 24 5 40-1 16-6 26 7 44 1 14-5 24 4 40-2" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none" opacity=".8"/><circle cx="62" cy="72" r="5" fill="#17201A"/><path d="M48 96c8-12 22-12 28 0l-4 16H52L48 96Z" fill="#17201A"/><circle cx="86" cy="104" r="4" fill="#17201A"/></svg>
+              <span class="reel-live">REEL • 0:10</span>
+            </div>
+            <div class="reel-body">
+              <div class="reel-user"><span class="reel-avatar">S</span> @yourcreatorpage <span class="reel-follow">Follow</span></div>
+              <p class="reel-cap">Wait for the end… you won't see it coming 👀 <b>Follow for daily moments ✨</b></p>
+              <p class="reel-tags">#funnyanimals #viral #reels #dailycontent</p>
+              <div class="reel-actions"><span>♥ 12.4k</span><span>💬 842</span><span>↗ Share</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="float-chip fc-hook" aria-hidden="true"><div class="fc-label">Hook that stops the scroll</div><div class="fc-text">“Stop scrolling — watch the last 3 seconds”</div></div>
+        <div class="float-chip fc-font" aria-hidden="true"><div class="fc-label">Fancy font</div><div class="fc-text">𝓒𝓻𝓮𝓪𝓽𝓸𝓻 𝓚𝓲𝓽</div></div>
+        <div class="float-chip fc-stat" aria-hidden="true"><div class="fc-num">9 tools</div><div class="fc-sub">Captions • Hashtags • Hooks<br />Titles • Bios • Thumbnails</div></div>
+        <span class="hero-visual-caption">Made with CreatorKit — copy the style, make it yours</span>
+      </div>
+    </div>
+
+    <div class="jump" aria-label="Jump to a tool">
+      <a href="#captions"><span class="j-ico" aria-hidden="true">✍️</span><span class="j-name">Caption Generator</span><span class="j-sub">5 captions per click</span></a>
+      <a href="#hashtags"><span class="j-ico" aria-hidden="true">#️⃣</span><span class="j-name">Hashtag Generator</span><span class="j-sub">25 tags, 3 reach levels</span></a>
+      <a href="#hooks"><span class="j-ico" aria-hidden="true">🪝</span><span class="j-name">Reel Hook Generator</span><span class="j-sub">First lines that stop the scroll</span></a>
+      <a href="#titles"><span class="j-ico" aria-hidden="true">▶️</span><span class="j-name">YouTube Titles</span><span class="j-sub">10 clickable title ideas</span></a>
+      <a href="#bios"><span class="j-ico" aria-hidden="true">👤</span><span class="j-name">Bio Generator</span><span class="j-sub">5 profile bio options</span></a>
+      <a href="#ideas"><span class="j-ico" aria-hidden="true">💡</span><span class="j-name">Content Ideas</span><span class="j-sub">10 ready-to-film ideas</span></a>
+      <a href="#best-time"><span class="j-ico" aria-hidden="true">🕒</span><span class="j-name">Best Time to Post</span><span class="j-sub">US audience windows</span></a>
+      <a href="#thumbnails"><span class="j-ico" aria-hidden="true">🖼️</span><span class="j-name">Thumbnail Downloader</span><span class="j-sub">YouTube thumbnails in HD</span></a>
+      <a href="#fonts"><span class="j-ico" aria-hidden="true">🔤</span><span class="j-name">Fancy Font Generator</span><span class="j-sub">13 stylish text styles</span></a>
+    </div>
+  </section>
+
+  <!-- 1. CAPTIONS -->
+  <section class="tool" id="captions">
+    <div class="tool-head">
+      <span class="tool-num" aria-hidden="true">✍️</span>
+      <div>
+        <h2>Caption Generator</h2>
+        <p class="tool-desc">Pick your platform, niche and tone — get 5 ready-to-post captions with emojis and a call to action baked in. Hit Generate again for a fresh set.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="cap-platform">Platform</label>
+        <select id="cap-platform">
+          <option>Instagram</option><option>Facebook</option><option>TikTok</option><option>YouTube</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="cap-niche">Niche</label>
+        <select id="cap-niche"></select>
+      </div>
+      <div class="field">
+        <label for="cap-tone">Tone</label>
+        <select id="cap-tone">
+          <option value="funny">Funny</option>
+          <option value="inspirational">Inspirational</option>
+          <option value="curiosity">Curiosity</option>
+          <option value="question">Question</option>
+        </select>
+      </div>
+    </div>
+    <div class="gen-row">
+      <button class="btn btn-primary" id="cap-gen" type="button">Generate 5 captions</button>
+      <span class="hint">Tap Copy on any caption to use it.</span>
+    </div>
+    <div class="results" id="cap-results" aria-live="polite"></div>
+    <div class="example-box" aria-label="Example caption post">
+      <div class="example-head">Example — what your post can look like</div>
+      <div class="example-post">
+        <div class="example-post-art" aria-hidden="true"><svg viewBox="0 0 86 86" preserveAspectRatio="xMidYMid slice"><rect width="86" height="86" fill="#F6C445"/><circle cx="64" cy="20" r="13" fill="#fff" opacity=".75"/><path d="M0 58 L24 34 L44 52 L60 38 L86 60 V86 H0Z" fill="#0D7A6F"/><path d="M0 70 L30 54 L56 68 L86 56 V86 H0Z" fill="#E8492F"/></svg></div>
+        <div class="example-post-body">
+          <div class="example-post-user">yourcreatorpage <span>• Instagram Reel</span></div>
+          <p class="example-post-text">Nobody warned me this could be THIS entertaining 😂 <em>Follow for daily moments ✨</em> — a short hook, one clear feeling, and a call to action. Generate yours above, then swap in your own niche and voice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. HASHTAGS -->
+  <section class="tool" id="hashtags">
+    <div class="tool-head">
+      <span class="tool-num" aria-hidden="true">#️⃣</span>
+      <div>
+        <h2>Hashtag Generator</h2>
+        <p class="tool-desc">Type your topic and get about 25 hashtags sorted by reach — big ones for discovery, medium ones for steady traffic, niche ones where your real audience lives.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="tag-topic">Your topic</label>
+        <input type="text" id="tag-topic" placeholder="e.g. funny cat videos, road trip, home workout" maxlength="60" />
+      </div>
+      <div class="field">
+        <label for="tag-platform">Platform</label>
+        <select id="tag-platform">
+          <option>Instagram</option><option>Facebook</option><option>TikTok</option><option>YouTube</option>
+        </select>
+      </div>
+    </div>
+    <p class="error" id="tag-error">Type a topic first — even two words is enough.</p>
+    <div class="gen-row">
+      <button class="btn btn-primary" id="tag-gen" type="button">Generate hashtags</button>
+      <button class="btn btn-ghost" id="tag-copyall" type="button" style="display:none">Copy all 25</button>
+    </div>
+    <div class="results" id="tag-results" aria-live="polite"></div>
+  </section>
+
+  <!-- 3. HOOKS -->
+  <section class="tool" id="hooks">
+    <div class="tool-head">
+      <span class="tool-num" aria-hidden="true">🪝</span>
+      <div>
+        <h2>Reel Hook Generator</h2>
+        <p class="tool-desc">The first 2 seconds decide everything. Get 8 scroll-stopping opening lines for your next Reel, TikTok or Short — say it on camera or put it as on-screen text.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="hook-niche">Niche</label>
+        <select id="hook-niche"></select>
+      </div>
+      <div class="field">
+        <label for="hook-tone">Tone</label>
+        <select id="hook-tone">
+          <option value="mixed">Mixed — all styles</option>
+          <option value="curiosity">Curiosity gap</option>
+          <option value="question">Question</option>
+          <option value="bold">Bold claim</option>
+          <option value="stop">“Stop scrolling”</option>
+        </select>
+      </div>
+    </div>
+    <div class="gen-row">
+      <button class="btn btn-primary" id="hook-gen" type="button">Generate 8 hooks</button>
+      <span class="hint">Generate again for a different set.</span>
+    </div>
+    <div class="results" id="hook-results" aria-live="polite"></div>
+    <div class="example-box" aria-label="Example reel hook on a post">
+      <div class="example-head">Example — hook as on-screen text</div>
+      <div class="example-post">
+        <div class="example-post-art" aria-hidden="true"><svg viewBox="0 0 86 86" preserveAspectRatio="xMidYMid slice"><rect width="86" height="86" fill="#17201A"/><rect x="10" y="12" width="66" height="30" rx="7" fill="#E8492F"/><text x="43" y="26" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="9" fill="#fff">STOP</text><text x="43" y="37" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="9" fill="#fff">SCROLLING</text><circle cx="43" cy="62" r="11" fill="#fff"/><path d="M39 55 L50 62 L39 69Z" fill="#0D7A6F"/></svg></div>
+        <div class="example-post-body">
+          <div class="example-post-user">On-screen text <span>• first 2 seconds</span></div>
+          <p class="example-post-text"><em>“STOP scrolling — this moment is worth 10 seconds 🛑”</em> Big, bold text at the top of the frame, spoken out loud too. Pick a hook above and open your next video with it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. YOUTUBE TITLES -->
+  <section class="tool" id="titles">
+    <div class="tool-head">
+      <span class="tool-num" aria-hidden="true">▶️</span>
+      <div>
+        <h2>YouTube Title Generator</h2>
+        <p class="tool-desc">Type what your video is about and get 10 clickable title ideas — curiosity, numbers, how-to and warning styles, kept under 70 characters where possible so nothing gets cut off.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="title-topic">Your video topic</label>
+        <input type="text" id="title-topic" placeholder="e.g. adopting a rescue dog, budget travel in Japan" maxlength="70" />
+      </div>
+    </div>
+    <p class="error" id="title-error">Type your video topic first — a few words is enough.</p>
+    <div class="gen-row">
+      <button class="btn btn-primary" id="title-gen" type="button">Generate 10 titles</button>
+      <span class="hint">Character count shown on every title.</span>
+    </div>
+    <div class="results" id="title-results" aria-live="polite"></div>
+    <div class="example-box" aria-label="Example YouTube thumbnail styles">
+      <div class="example-head">Example — thumbnail styles that earn the click</div>
+      <div class="sample-thumbs">
+        <div class="sample-thumb"><div class="sample-thumb-art coral"><span class="play">▶</span><small>Challenge</small><strong>I Tried It for 7 Days</strong></div><div class="sample-thumb-meta">Big promise, short words<span>Pair with a curiosity title</span></div></div>
+        <div class="sample-thumb"><div class="sample-thumb-art teal"><span class="play">▶</span><small>Mistakes</small><strong>5 Mistakes Beginners Make</strong></div><div class="sample-thumb-meta">Number + clear problem<span>Works for almost any niche</span></div></div>
+        <div class="sample-thumb"><div class="sample-thumb-art ink"><span class="play">▶</span><small>Before / After</small><strong>Nobody Expected THIS…</strong></div><div class="sample-thumb-meta">Open loop, payoff in video<span>Keep the title under 70 characters</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. BIOS -->
+  <section class="tool" id="bios">
+    <div class="tool-head">
+      <span class="tool-num" aria-hidden="true">👤</span>
+      <div>
+        <h2>Bio Generator</h2>
+        <p class="tool-desc">A good bio says who you are, what you post and why to follow — in two lines. Pick your creator type and vibe, get 5 options.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="bio-type">Creator type</label>
+        <select id="bio-type">
+          <option value="comedy">Comedy</option>
+          <option value="travel">Travel</option>
+          <option value="fitness">Fitness</option>
+          <option value="food">Food</option>
+          <option value="business">Business</option>
+          <option value="pets">Pets</option>
+          <option value="education">Education</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="bio-vibe">Vibe</label>
+        <select id="bio-vibe">
+          <option value="funny">Funny</option>
+          <option value="professional">Professional</option>
+          <option value="friendly">Friendly</option>
+        </select>
+      </div>
+    </div>
+    <div class="gen-row">
+      <button class="btn btn-primary" id="bio-gen" type="button">Generate 5 bios</button>
+      <span class="hint">Swap in your name, city or posting days to make it yours.</span>
+    </div>
+    <div class="results" id="bio-results" aria-live="polite"></div>
+  </section>
+
+  <!-- 6. CONTENT IDEAS -->
+  <section class="tool" id="ideas">
+    <div class="tool-head">
+      <span class="tool-num" aria-hidden="true">💡</span>
+      <div>
+        <h2>Content Idea Generator</h2>
+        <p class="tool-desc">Never stare at a blank content calendar again. Get 10 ready-to-film ideas in proven formats — challenges, before/afters, myth vs fact, mistakes, top lists and more.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="idea-niche">Niche</label>
+        <select id="idea-niche"></select>
+      </div>
+      <div class="field">
+        <label for="idea-platform">Platform</label>
+        <select id="idea-platform">
+          <option>Instagram</option><option>Facebook</option><option>TikTok</option><option>YouTube</option>
+        </select>
+      </div>
+    </div>
+    <div class="gen-row">
+      <button class="btn btn-primary" id="idea-gen" type="button">Generate 10 ideas</button>
+      <span class="hint">Each idea names its format so you can plan the shoot.</span>
+    </div>
+    <div class="results" id="idea-results" aria-live="polite"></div>
+  </section>
+
+  <!-- 7. BEST TIME -->
+  <section class="tool" id="best-time">
+    <div class="tool-head">
+      <span class="tool-num" aria-hidden="true">🕒</span>
+      <div>
+        <h2>Best Time to Post</h2>
+        <p class="tool-desc">Recommended posting windows for a US audience. Pick a platform — then post 30–60 minutes <em>before</em> the peak so your content is already moving when everyone scrolls.</p>
+      </div>
+    </div>
+    <div class="platform-picker" role="group" aria-label="Choose a platform">
+      <button class="plat-btn" type="button" data-plat="Instagram" aria-pressed="true">Instagram</button>
+      <button class="plat-btn" type="button" data-plat="Facebook" aria-pressed="false">Facebook</button>
+      <button class="plat-btn" type="button" data-plat="TikTok" aria-pressed="false">TikTok</button>
+      <button class="plat-btn" type="button" data-plat="YouTube" aria-pressed="false">YouTube</button>
+    </div>
+    <div class="time-panel" id="time-panel" aria-live="polite"></div>
+  </section>
+
+  <!-- 8. THUMBNAIL DOWNLOADER -->
+  <section class="tool" id="thumbnails">
+    <div class="tool-head">
+      <span class="tool-num" aria-hidden="true">🖼️</span>
+      <div>
+        <h2>YouTube Thumbnail Downloader</h2>
+        <p class="tool-desc">Paste any YouTube video link — or just the video ID — and get its thumbnail in every size YouTube offers. Study what top creators use, or save a thumbnail for reference.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="thumb-input">YouTube URL or video ID</label>
+        <input type="text" id="thumb-input" placeholder="e.g. https://www.youtube.com/watch?v=… or youtu.be/…" maxlength="300" />
+      </div>
+    </div>
+    <p class="error" id="thumb-error">That doesn't look like a YouTube link or video ID — check it and try again.</p>
+    <div class="gen-row">
+      <button class="btn btn-primary" id="thumb-gen" type="button">Get thumbnails</button>
+      <span class="hint">Works with watch links, youtu.be links and Shorts.</span>
+    </div>
+    <div class="thumb-grid" id="thumb-grid" aria-live="polite"></div>
+    <p class="hint" id="thumb-note" style="display:none;margin-top:12px">Some older or low-resolution videos don't have the biggest sizes — only the sizes that exist are shown. Thumbnails belong to their video owners; use them for reference and inspiration.</p>
+    <div class="example-box" aria-label="Example thumbnails to study">
+      <div class="example-head">Study the style — then make your own</div>
+      <div class="sample-thumbs">
+        <div class="sample-thumb"><div class="sample-thumb-art coral"><span class="play">▶</span><small>1280 × 720</small><strong>MAX HD</strong></div><div class="sample-thumb-meta">Use for your own videos<span>Best size for reference &amp; re-uploads</span></div></div>
+        <div class="sample-thumb"><div class="sample-thumb-art teal"><span class="play">▶</span><small>Face + 3 words</small><strong>READABLE AT SMALL SIZE</strong></div><div class="sample-thumb-meta">The rule top creators follow<span>If it reads on mobile, it works</span></div></div>
+        <div class="sample-thumb"><div class="sample-thumb-art ink"><span class="play">▶</span><small>One idea only</small><strong>DON'T CROWD IT</strong></div><div class="sample-thumb-meta">One subject, one emotion<span>Download above, learn, create yours</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FANCY FONTS -->
+  <section class="tool" id="fonts">
+    <div class="tool-head">
+      <span class="tool-num" aria-hidden="true">🔤</span>
+      <div>
+        <h2>Fancy Font &amp; Stylish Text Generator</h2>
+        <p class="tool-desc">Type anything and see it in 13 stylish Unicode fonts — bold, script, bubble, squared, upside-down and more. Copy a style and paste it into your bio, caption or username anywhere.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="font-input">Your text</label>
+        <input type="text" id="font-input" placeholder="Type here — styles update as you type" maxlength="80" />
+      </div>
+    </div>
+    <div class="font-rows" id="font-rows" aria-live="polite"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="page-section" id="about">
+    <span class="page-kicker">About us</span>
+    <h2>About CreatorKit</h2>
+    <p class="page-meta">CreatorKit — free AI-style tools for social media creators, by Shahiryar Munir.</p>
+    <p>CreatorKit was built for one simple problem every creator knows: the video is ready, but the caption, hashtags, title and posting time still take longer than the edit. CreatorKit gives you nine small, fast tools that handle that last mile — so you can post more, stress less, and stay consistent on Instagram, Facebook, TikTok and YouTube.</p>
+    <h3>What you can do here</h3>
+    <ul>
+      <li><strong>Caption Generator</strong> — ready-to-post captions by platform, niche and tone.</li>
+      <li><strong>Hashtag Generator</strong> — around 25 hashtags grouped by reach.</li>
+      <li><strong>Reel Hook Generator</strong> — opening lines designed to stop the scroll.</li>
+      <li><strong>YouTube Title Generator, Bio Generator &amp; Content Idea Generator</strong> — titles, profile bios and ready-to-film ideas.</li>
+      <li><strong>Best Time to Post</strong> — recommended US-audience posting windows by platform.</li>
+      <li><strong>YouTube Thumbnail Downloader &amp; Fancy Font Generator</strong> — thumbnails for your own videos and reference, plus stylish text for bios and captions.</li>
+    </ul>
+    <h3>How it works</h3>
+    <p>Every generator runs entirely in your browser. There is no sign-up, no account and no upload — you pick your options, tap Generate, copy the result, and make it yours. Suggestions are starting points: the best creators always add their own voice before posting.</p>
+    <h3>Who made it</h3>
+    <p>CreatorKit is created and maintained by <strong>Shahiryar Munir</strong>, a creator who runs social media pages and builds free tools for other creators. Questions, suggestions or business enquiries are welcome on the <a href="#contact">Contact page</a>.</p>
+    <a class="back-tools" href="#top">↑ Back to the tools</a>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="page-section" id="contact">
+    <span class="page-kicker">Contact us</span>
+    <h2>Contact Us</h2>
+    <p>Have a question about a tool, a suggestion for a new one, a correction, or a business enquiry? Email is the fastest and only official way to reach CreatorKit — we read every message.</p>
+    <div class="contact-card">
+      <div>
+        <div class="cc-label">Business email</div>
+        <div class="cc-email">hellboy1q11@gmail.com</div>
+      </div>
+      <a class="btn btn-primary" href="mailto:hellboy1q11@gmail.com?subject=CreatorKit%20Enquiry">Email CreatorKit</a>
+    </div>
+    <h3>What to write about</h3>
+    <ul>
+      <li>A tool that is not working, or a result that looks wrong — tell us the tool name and what you selected.</li>
+      <li>Ideas for new free tools creators would use every day.</li>
+      <li>Privacy, copyright or content concerns about this website.</li>
+      <li>Business, advertising or collaboration enquiries.</li>
+    </ul>
+    <p>Please do not send passwords, payment details or personal documents by email. CreatorKit will never ask you for them. We aim to reply within a few working days.</p>
+    <a class="back-tools" href="#top">↑ Back to the tools</a>
+  </section>
+
+  <!-- PRIVACY POLICY -->
+  <section class="page-section" id="privacy">
+    <span class="page-kicker">Legal</span>
+    <h2>Privacy Policy</h2>
+    <p class="page-meta">Last updated: 15 November 2026 · Applies to CreatorKit by Shahiryar Munir.</p>
+    <p>This Privacy Policy explains what information CreatorKit does — and does not — collect when you use this website and its free tools.</p>
+    <h3>1. Tools run in your browser</h3>
+    <p>All CreatorKit generators (captions, hashtags, hooks, titles, bios, content ideas, best posting times and fancy fonts) run entirely on your device, in your browser. The words and options you enter are processed locally by the page's code and are <strong>not sent to, collected by, or stored on any server by the tools</strong>.</p>
+    <h3>2. No accounts, no personal data collected by the tools</h3>
+    <p>CreatorKit has no sign-up, no login and no user accounts. We do not ask for your name, email address, password or payment details to use the tools, and the tools do not store your inputs after you leave the page. If you email us, we will receive your email address and the contents of your message, and we use them only to reply to you.</p>
+    <h3>3. YouTube Thumbnail Downloader</h3>
+    <p>When you use the Thumbnail Downloader, your browser requests the thumbnail image directly from YouTube's public image servers using the video link or ID you paste. That request is made to Google/YouTube, whose own privacy policy applies to it. CreatorKit does not keep a record of the links you enter.</p>
+    <h3>4. Cookies and advertising</h3>
+    <p>CreatorKit itself does not set tracking cookies for the tools. However, this website may display advertising served by third-party advertising partners, including <strong>Google AdSense</strong>. Those partners may use cookies — including the Google advertising (DoubleClick) cookie — to serve ads based on your visits to this and other websites, and to measure ad performance.</p>
+    <ul>
+      <li>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites.</li>
+      <li>Google's use of advertising cookies enables it and its partners to serve ads based on your visits to this site and/or other sites on the Internet.</li>
+      <li>You can opt out of personalised advertising in your Google Ads Settings, and you can block or delete cookies at any time in your browser settings. Blocking cookies will not stop the tools from working.</li>
+    </ul>
+    <h3>5. Third-party links and services</h3>
+    <p>This page loads fonts from Google Fonts and thumbnail images from YouTube's image servers. Those providers may receive your IP address and browser information as part of serving those files, under their own privacy policies. We are not responsible for the privacy practices of external websites linked from CreatorKit.</p>
+    <h3>6. Children's privacy</h3>
+    <p>CreatorKit is a general-audience tool for creators and is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+    <h3>7. Changes to this policy</h3>
+    <p>If this policy changes, the updated version will be posted on this page with a new “Last updated” date. Continued use of the site after a change means you accept the updated policy.</p>
+    <h3>8. Contact</h3>
+    <p>Questions about this Privacy Policy: email <a href="mailto:hellboy1q11@gmail.com">hellboy1q11@gmail.com</a> or see our <a href="#contact">Contact page</a>.</p>
+    <a class="back-tools" href="#top">↑ Back to the tools</a>
+  </section>
+
+  <!-- TERMS -->
+  <section class="page-section" id="terms">
+    <span class="page-kicker">Legal</span>
+    <h2>Terms of Use</h2>
+    <p class="page-meta">Last updated: 15 November 2026 · By using CreatorKit, you agree to these terms.</p>
+    <h3>1. The service</h3>
+    <p>CreatorKit provides free, browser-based tools for social media creators, provided by Shahiryar Munir “as is” and free of charge. We may add, change or remove tools at any time without notice.</p>
+    <h3>2. Your responsibility for what you post</h3>
+    <p>Everything the tools generate is a suggestion. You are solely responsible for reviewing, editing and approving anything you publish, and for making sure your posts comply with the rules, terms and community guidelines of Instagram, Facebook, TikTok, YouTube and any other platform you use.</p>
+    <h3>3. Acceptable use</h3>
+    <ul>
+      <li>Use the tools for lawful, genuine content creation.</li>
+      <li>Do not use generated text to spam, mislead, harass, impersonate or infringe anyone's rights.</li>
+      <li>Do not attempt to disrupt, overload, copy or reverse-engineer this website beyond normal personal use.</li>
+    </ul>
+    <h3>4. Intellectual property</h3>
+    <p>The CreatorKit name, logo, design and tool code belong to their owner. Text you generate for your own posts may be used by you freely in your content. Third-party names and trademarks (such as Instagram, Facebook, TikTok and YouTube) belong to their respective owners; CreatorKit is not affiliated with or endorsed by them.</p>
+    <h3>5. Thumbnail Downloader</h3>
+    <p>The Thumbnail Downloader is provided for thumbnails of <strong>your own videos</strong> and for reference and inspiration. Thumbnails remain the property of their video owners — do not re-use another creator's thumbnail or artwork as your own.</p>
+    <h3>6. No warranty</h3>
+    <p>The tools are provided without warranties of any kind. Generated suggestions, posting-time guidance and other information are general in nature; we do not guarantee reach, views, followers, income or any particular result from using them.</p>
+    <h3>7. Limitation of liability</h3>
+    <p>To the fullest extent permitted by law, CreatorKit and its owner are not liable for any loss or damage arising from your use of the tools or from content you choose to publish.</p>
+    <h3>8. Changes and contact</h3>
+    <p>We may update these Terms; the current version will always be on this page. Questions: <a href="mailto:hellboy1q11@gmail.com">hellboy1q11@gmail.com</a>.</p>
+    <a class="back-tools" href="#top">↑ Back to the tools</a>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <section class="page-section" id="disclaimer">
+    <span class="page-kicker">Legal</span>
+    <h2>Disclaimer</h2>
+    <p class="page-meta">Last updated: 15 November 2026</p>
+    <h3>Generated content is a suggestion, not a guarantee</h3>
+    <p>Captions, hashtags, hooks, titles, bios and content ideas on CreatorKit are generated suggestions to help you start faster. They are not professional marketing, legal or financial advice, and they do not guarantee views, engagement, followers or earnings. Always review and personalise generated text before posting — you are responsible for your own posts.</p>
+    <h3>Respect platform rules and other people's work</h3>
+    <p>Every platform has its own rules about spam, repetitive content, misleading claims and copyright. Make sure anything you publish follows the rules of the platform you post it on, and that you have the right to use any text, image, music or video in your post. If you are unsure whether something is allowed, check the platform's own guidelines first.</p>
+    <h3>Thumbnail tool</h3>
+    <p>The YouTube Thumbnail Downloader is intended for thumbnails of <strong>your own videos</strong> and for reference use — for example, studying layout, text size and style before designing your own. Thumbnails belong to their video owners; downloading one does not give you any right to republish or re-use it as your own.</p>
+    <h3>Posting times and statistics</h3>
+    <p>Best-time-to-post windows are general guidance for a US audience based on widely observed patterns. They are not live data, and your own account analytics should always take priority once you have them.</p>
+    <h3>External links and advertising</h3>
+    <p>CreatorKit may link to external websites and may display third-party advertising. We are not responsible for the content, products or practices of external sites or advertisers.</p>
+    <p>Questions about this Disclaimer: <a href="mailto:hellboy1q11@gmail.com">hellboy1q11@gmail.com</a>.</p>
+    <a class="back-tools" href="#top">↑ Back to the tools</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-in">
+    <div class="footer-top">
+      <div class="footer-brand-wrap">
+        <div class="footer-brand-row">
+          <span class="footer-logo" aria-hidden="true"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="13" fill="#E8492F"/><path d="M18.5 14.8v18.4c0 .9 1 1.5 1.8 1L35 24.9a1.25 1.25 0 0 0 0-2L20.3 13.9c-.8-.5-1.8 0-1.8.9Z" fill="#fff"/><path d="M37.2 5.2l.9 2.5 2.5.9-2.5.9-.9 2.5-.9-2.5-2.5-.9 2.5-.9.9-2.5Z" fill="#F6C445"/><circle cx="40.5" cy="35.5" r="2.2" fill="#F6C445"/><path d="M7 38.5c5-2.2 9.5 1.8 14.5-.4 3.4-1.5 6.8.6 10.5-.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".9"/></svg></span>
+          <span class="footer-brand">CreatorKit</span>
+        </div>
+        <span class="by">Free creator tools by Shahiryar Munir</span>
+        <p>Nine free tools for Instagram, Facebook, TikTok and YouTube creators. No sign-up — everything runs in your browser.</p>
+        <p>Contact: <a href="mailto:hellboy1q11@gmail.com"><strong>hellboy1q11@gmail.com</strong></a></p>
+      </div>
+      <nav class="footer-cols" aria-label="Footer">
+        <div class="footer-col">
+          <h3>Tools</h3>
+          <a href="#captions">Caption Generator</a>
+          <a href="#hashtags">Hashtag Generator</a>
+          <a href="#hooks">Reel Hooks</a>
+          <a href="#titles">YouTube Titles</a>
+          <a href="#thumbnails">Thumbnail Downloader</a>
+          <a href="#fonts">Fancy Fonts</a>
+        </div>
+        <div class="footer-col">
+          <h3>CreatorKit</h3>
+          <a href="#about">About</a>
+          <a href="#contact">Contact Us</a>
+          <a href="#best-time">Best Time to Post</a>
+          <a href="#ideas">Content Ideas</a>
+          <a href="#bios">Bio Generator</a>
+        </div>
+        <div class="footer-col">
+          <h3>Legal</h3>
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms of Use</a>
+          <a href="#disclaimer">Disclaimer</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CreatorKit by Shahiryar Munir. All rights reserved.</span>
+      <span><a href="#privacy">Privacy</a> · <a href="#terms">Terms</a> · <a href="#disclaimer">Disclaimer</a> · <a href="#contact">Contact</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ================= helpers ================= */
+function shuffle(arr){
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--){
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+function pick(arr, n){ return shuffle(arr).slice(0, n); }
+function cap1(s){ return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+function fill(tpl, map){
+  return tpl.replace(/\{(\w+)\}/g, function(m, k){ return (k in map) ? map[k] : m; });
+}
+function copyText(text, btn){
+  function done(){
+    if (!btn) return;
+    var old = btn.textContent;
+    btn.textContent = "Copied ✓";
+    btn.classList.add("copied");
+    setTimeout(function(){ btn.textContent = old; btn.classList.remove("copied"); }, 1600);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done, function(){ fallback(); });
+  } else { fallback(); }
+  function fallback(){
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch(e){}
+    document.body.removeChild(ta); done();
+  }
+}
+function renderResults(container, items){
+  container.innerHTML = "";
+  items.forEach(function(item){
+    var row = document.createElement("div");
+    row.className = "result-item";
+    var txt = document.createElement("div");
+    txt.className = "result-text";
+    if (item.format){
+      var f = document.createElement("span");
+      f.className = "fmt"; f.textContent = item.format;
+      txt.appendChild(f); txt.appendChild(document.createElement("br"));
+    }
+    txt.appendChild(document.createTextNode(item.text));
+    if (item.meta){
+      var m = document.createElement("span");
+      m.className = "meta"; m.textContent = item.meta;
+      txt.appendChild(m);
+    }
+    var btn = document.createElement("button");
+    btn.type = "button"; btn.className = "copy-btn"; btn.textContent = "Copy";
+    btn.setAttribute("aria-label", "Copy this result");
+    btn.addEventListener("click", function(){ copyText(item.copyText || item.text, btn); });
+    row.appendChild(txt); row.appendChild(btn);
+    container.appendChild(row);
+  });
+  container.classList.add("show");
+}
+
+/* ================= shared data ================= */
+var NICHES = ["funny animals","travel","nature facts","food","fitness","fashion","business","pets","gaming","motivation"];
+var NICHE_EMOJI = {
+  "funny animals":"🐾","travel":"✈️","nature facts":"🌿","food":"🍽️","fitness":"💪",
+  "fashion":"👗","business":"💼","pets":"🐶","gaming":"🎮","motivation":"🌟"
+};
+var NICHE_NOUN = {
+  "funny animals":"funny animal moments","travel":"travel moments","nature facts":"nature facts",
+  "food":"food moments","fitness":"fitness wins","fashion":"style moments","business":"business lessons",
+  "pets":"pet moments","gaming":"gaming moments","motivation":"mindset shifts"
+};
+["cap-niche","hook-niche","idea-niche"].forEach(function(id){
+  var sel = document.getElementById(id);
+  NICHES.forEach(function(n){
+    var o = document.createElement("option");
+    o.value = n; o.textContent = cap1(n);
+    sel.appendChild(o);
+  });
+});
+
+/* ================= 1. Captions ================= */
+var CAPTION_TEMPLATES = {
+  funny: [
+    "Nobody warned me {noun} could be THIS entertaining 😂 {emoji}",
+    "I was having a normal day… then this happened 😭😂 {emoji}",
+    "POV: you opened this app for 5 minutes and now you're fully invested 😂 {emoji}",
+    "Zero budget. Zero planning. 100% comedy gold 😂 {emoji}",
+    "Tell me this isn't the most relatable thing you'll see today 😂 {emoji}",
+    "The way I watched this 6 times and it got funnier every time 🤣 {emoji}",
+    "Some people pay for entertainment. You just follow this page 😌😂 {emoji}",
+    "This is your sign to take a 10-second laugh break 😂 {emoji}"
+  ],
+  inspirational: [
+    "Small steps, every single day. That's how the big change happens ✨ {emoji}",
+    "You don't have to be perfect. You just have to start 🌱 {emoji}",
+    "One day you'll look back and be so glad you didn't quit 💛 {emoji}",
+    "Progress looks quiet from the outside. Keep going anyway 🌅 {emoji}",
+    "Your future self is watching this moment. Make them proud ✨ {emoji}",
+    "Dream it. Start it. Stay consistent. That's the whole formula 🔑 {emoji}",
+    "Somewhere between 'I can't' and 'I did' is one brave decision 💫 {emoji}",
+    "Let this be the reminder you needed today 🤍 {emoji}"
+  ],
+  curiosity: [
+    "Wait for the end… you won't see it coming 👀 {emoji}",
+    "Most people scroll past this. The ones who stop find out why 🤯 {emoji}",
+    "There's something in this video 90% of people miss. Did you catch it? 🔍 {emoji}",
+    "I bet you can't guess what happens next… watch till the end 👀 {emoji}",
+    "This starts normal. It does NOT end normal 😳 {emoji}",
+    "Fun fact: almost nobody knows this about {niche}. Watch closely 🧐 {emoji}",
+    "The last 3 seconds change everything. Don't blink ⏱️ {emoji}",
+    "Something here is not what it seems… can you spot it? 👀 {emoji}"
+  ],
+  question: [
+    "Okay, real question — would YOU try this? 👇 {emoji}",
+    "Be honest: team YES or team NO on this one? Drop it in the comments 💬 {emoji}",
+    "What's the first word that comes to your mind? 👇 {emoji}",
+    "Rate this from 1 to 10 — I'm reading every comment ⭐ {emoji}",
+    "Have you ever seen anything like this before? Tell me below 👇 {emoji}",
+    "If you could share this with one person, who gets it? Tag them 💬 {emoji}",
+    "Which one are you — the first type or the second type? 😄👇 {emoji}",
+    "What would YOU do in this situation? Best answer gets pinned 📌 {emoji}"
+  ]
+};
+var CAPTION_CTA = {
+  Instagram: ["Follow for daily {niche} ✨","Save this for later & follow for more 🔖","Follow along — new posts every day 💛"],
+  Facebook: ["Follow the page for more like this 👍","Share this with someone who needs to see it 🔁","Follow for a new one every day 🙌"],
+  TikTok: ["Follow for part 2 👀","Follow — I post every day 🔥","Stick around, it gets better from here 😏"],
+  YouTube: ["Subscribe for more — new videos every week ▶️","Watch the full video on the channel 🎬","Subscribe so you never miss one 🔔"]
+};
+document.getElementById("cap-gen").addEventListener("click", function(){
+  var platform = document.getElementById("cap-platform").value;
+  var niche = document.getElementById("cap-niche").value;
+  var tone = document.getElementById("cap-tone").value;
+  var map = { niche: niche, noun: NICHE_NOUN[niche], emoji: NICHE_EMOJI[niche] };
+  var ctas = shuffle(CAPTION_CTA[platform]);
+  var items = pick(CAPTION_TEMPLATES[tone], 5).map(function(t, i){
+    var body = fill(t, map);
+    var cta = fill(ctas[i % ctas.length], map);
+    return { text: body + "\n" + cta };
+  });
+  renderResults(document.getElementById("cap-results"), items);
+});
+
+/* ================= 2. Hashtags ================= */
+var HASHTAG_BANK = {
+  animals: {
+    big:["funnyanimals","cuteanimals","animals","animallovers","funnyvideos","viral","fyp","reels"],
+    medium:["funnyanimalvideos","animalmemes","wildlifehumor","sillyanimals","animalcomedy","dailydoseofcute","petsoftheworld","animalantics"],
+    niche:["funnyfarm","goofyanimals","animalbloopers","crittercomedy","laughinganimals","unexpectedanimals","animalfails","sillycritters"]
+  },
+  travel: {
+    big:["travel","travelgram","wanderlust","traveltheworld","explore","vacation","travelphotography","instatravel"],
+    medium:["travelusa","usatravel","roadtripusa","hiddenGems","travelreels","bucketlisttravel","weekendgetaway","travelguide"],
+    niche:["slowtravel","smalltownusa","scenicroutes","travelonabudget","solotraveler","vanlifediaries","nationalparkgeek","offthebeatenpath"]
+  },
+  nature: {
+    big:["nature","naturelovers","earth","wildlife","naturephotography","planetearth","science","facts"],
+    medium:["didyouknow","naturefacts","amazingnature","earthfacts","wildlifefacts","learnontiktok","mindblowingfacts","natureisamazing"],
+    niche:["dailyfact","factoftheday","weirdnature","oceanfacts","spaceandnature","animalfactsdaily","curiousearth","factcheckfriday"]
+  },
+  food: {
+    big:["food","foodie","foodporn","instafood","yummy","foodlover","delicious","foodstagram"],
+    medium:["easyrecipes","homecooking","foodreels","quickrecipes","comfortfood","foodhacks","tastyrecipes","cookingathome"],
+    niche:["15minutemeals","budgetmeals","mealprepmonday","onepanwonder","airfryerrecipes","familydinners","snackideas","fromscratchcooking"]
+  },
+  fitness: {
+    big:["fitness","gym","workout","fitnessmotivation","gymlife","training","healthylifestyle","fitfam"],
+    medium:["homeworkout","gymtok","workoutroutine","fitnessjourney","strengthtraining","bodyweightworkout","fitnesstips","trainhard"],
+    niche:["beginnerfitness","30daychallenge","morningworkoutclub","fitnessover40","dumbbellonly","garagegymlife","consistencyiskey","smallwinsdaily"]
+  },
+  fashion: {
+    big:["fashion","style","ootd","fashionstyle","outfit","fashionista","instafashion","lookbook"],
+    medium:["outfitinspo","dailyoutfit","fashionreels","styleinspo","affordablefashion","capsulewardrobe","outfitideas","streetstylelook"],
+    niche:["thriftedstyle","petitefashion","workwearchic","vintagerevival","onepiece3ways","budgetstylefinds","colorfulwardrobe","slowfashionstyle"]
+  },
+  business: {
+    big:["business","entrepreneur","smallbusiness","marketing","success","businesstips","startup","entrepreneurlife"],
+    medium:["smallbusinessowner","businessgrowth","marketingtips","contentmarketing","sidehustleideas","onlinebusiness","brandingtips","growyourbusiness"],
+    niche:["solopreneurlife","bootstrappedbusiness","creatorbusiness","localbusinesslove","onepersonbusiness","busineslessons","founderdiaries","quietgrowth"]
+  },
+  pets: {
+    big:["pets","dogsofinstagram","catsofinstagram","petlover","dogs","cats","cute","petsofinstagram"],
+    medium:["doglife","catlife","petsoftiktok","dogmomlife","rescuedog","indoorcatlife","petreels","furryfriends"],
+    niche:["seniordogclub","adoptdontshop","funnycatvideosdaily","dogsoftheusa","cattitudeclub","petparentlife","spoiledpets","weeklyfluff"]
+  },
+  gaming: {
+    big:["gaming","gamer","videogames","gamingcommunity","twitch","xbox","playstation","pcgaming"],
+    medium:["gamingclips","gamerlife","gamingreels","indiegames","retrogaming","gamingmoments","streamclips","consolegaming"],
+    niche:["cozygaming","speedruncommunity","indiegamespotlight","gamingfailsdaily","bossfightclub","pixelartgames","gamingwithfriends","underratedgames"]
+  },
+  motivation: {
+    big:["motivation","motivationalquotes","success","mindset","inspiration","selfgrowth","dailymotivation","nevergiveup"],
+    medium:["growthmindset","selfimprovement","motivationalreels","mindsetmatters","personalgrowth","dailyinspiration","stayfocused","disciplineovermotivation"],
+    niche:["morningmindset","onepercentbetter","quietdiscipline","mindsetshift","smallstepsdaily","becomingher","focusfriday","innerworkclub"]
+  },
+  generic: {
+    big:["viral","fyp","reels","explorepage","trending","viralvideos","foryou","creator"],
+    medium:["contentcreator","dailypost","reelsdaily","creatorsupport","smallcreator","watchthis","dailycontent","newpost"],
+    niche:["creatorsjourney","postingeveryday","buildinginpublic","creativelife","microcreator","contentdiary","growingtogether","dayoneenergy"]
+  }
+};
+function detectCategory(topic){
+  var t = " " + topic.toLowerCase() + " ";
+  var tests = [
+    ["animals", ["animal","cat","dog","funny pet","wildlife video","zoo","farm"]],
+    ["pets", ["pet","puppy","kitten","dog","cat","parrot","hamster"]],
+    ["travel", ["travel","trip","vacation","road trip","beach","mountain","city","tour","holiday","camping"]],
+    ["nature", ["nature","fact","science","ocean","space","planet","earth","forest","river","volcano"]],
+    ["food", ["food","recipe","cooking","bake","cake","burger","pizza","meal","kitchen","chef"]],
+    ["fitness", ["fitness","gym","workout","muscle","yoga","running","weight","exercise","health"]],
+    ["fashion", ["fashion","style","outfit","dress","makeup","beauty","skincare","hair"]],
+    ["business", ["business","money","marketing","startup","sales","shop","store","entrepreneur","income"]],
+    ["gaming", ["gaming","game","gamer","minecraft","fortnite","xbox","playstation","stream"]],
+    ["motivation", ["motivat","success","mindset","life lesson","inspir","discipline","habit"]]
+  ];
+  for (var i = 0; i < tests.length; i++){
+    var words = tests[i][1];
+    for (var j = 0; j < words.length; j++){
+      if (t.indexOf(words[j]) !== -1) return tests[i][0];
+    }
+  }
+  return "generic";
+}
+function topicTags(topic){
+  var words = topic.toLowerCase().replace(/[^a-z0-9\s]/g,"").split(/\s+/).filter(function(w){ return w.length > 2; });
+  var tags = [];
+  if (words.length){
+    tags.push(words.join(""));
+    if (words.length > 1) tags.push(words.slice(0,2).join(""));
+    words.forEach(function(w){ if (tags.length < 5) tags.push(w); });
+  }
+  return tags.filter(function(v, i, a){ return a.indexOf(v) === i; });
+}
+var lastTagSet = null;
+document.getElementById("tag-gen").addEventListener("click", function(){
+  var topic = document.getElementById("tag-topic").value.trim();
+  var err = document.getElementById("tag-error");
+  if (!topic){ err.classList.add("show"); return; }
+  err.classList.remove("show");
+  var platform = document.getElementById("tag-platform").value;
+  var bank = HASHTAG_BANK[detectCategory(topic)];
+  var tt = topicTags(topic);
+  function build(pool, count, extra, fallback){
+    var out = [];
+    (extra || []).forEach(function(x){ if (out.length < count && out.indexOf(x) === -1) out.push(x); });
+    shuffle(pool).forEach(function(x){ if (out.length < count && out.indexOf(x) === -1) out.push(x); });
+    if (fallback) shuffle(fallback).forEach(function(x){ if (out.length < count && out.indexOf(x) === -1) out.push(x); });
+    return out;
+  }
+  var gen = HASHTAG_BANK.generic;
+  var groups = [
+    { name:"Big reach", cls:"reach-big", note:"High-volume tags — broad discovery", tags: build(bank.big, 8, null, gen.big) },
+    { name:"Medium reach", cls:"reach-med", note:"Active tags — steady, targeted traffic", tags: build(bank.medium, 9, null, gen.medium) },
+    { name:"Niche", cls:"reach-niche", note:"Small tags + your topic — where loyal fans find you", tags: build(bank.niche, 8, tt, gen.niche) }
+  ];
+  if (platform === "TikTok"){
+    groups[0].tags[0] = "fyp";
+    if (groups[0].tags.indexOf("foryoupage") === -1) groups[0].tags[1] = "foryoupage";
+  }
+  if (platform === "YouTube"){
+    groups[0].tags[0] = "shorts";
+    if (groups[0].tags.indexOf("youtubeshorts") === -1) groups[0].tags[1] = "youtubeshorts";
+  }
+  lastTagSet = groups;
+  var container = document.getElementById("tag-results");
+  container.innerHTML = "";
+  var wrap = document.createElement("div");
+  wrap.className = "tag-groups";
+  groups.forEach(function(g){
+    var card = document.createElement("div");
+    card.className = "tag-group";
+    var h = document.createElement("h3");
+    h.textContent = g.name + " ";
+    var pill = document.createElement("span");
+    pill.className = "reach " + g.cls; pill.textContent = g.tags.length + " tags";
+    h.appendChild(pill);
+    var note = document.createElement("div");
+    note.className = "hint"; note.textContent = g.note;
+    var tags = document.createElement("div");
+    tags.className = "tags";
+    tags.innerHTML = g.tags.map(function(t){ return "<span>#" + t + "</span>"; }).join(" ");
+    var btn = document.createElement("button");
+    btn.type = "button"; btn.className = "copy-btn"; btn.textContent = "Copy group";
+    btn.addEventListener("click", function(){
+      copyText(g.tags.map(function(t){ return "#" + t; }).join(" "), btn);
+    });
+    card.appendChild(h); card.appendChild(note); card.appendChild(tags); card.appendChild(btn);
+    wrap.appendChild(card);
+  });
+  container.appendChild(wrap);
+  container.classList.add("show");
+  var allBtn = document.getElementById("tag-copyall");
+  allBtn.style.display = "inline-flex";
+  var total = groups.reduce(function(s,g){ return s + g.tags.length; }, 0);
+  allBtn.textContent = "Copy all " + total;
+});
+document.getElementById("tag-copyall").addEventListener("click", function(){
+  if (!lastTagSet) return;
+  var all = [];
+  lastTagSet.forEach(function(g){ g.tags.forEach(function(t){ all.push("#" + t); }); });
+  copyText(all.join(" "), this);
+});
+
+/* ================= 3. Hooks ================= */
+var HOOK_TEMPLATES = {
+  curiosity: [
+    "Nobody talks about this side of {niche}… 👀",
+    "Watch what happens at the end of this {niche} moment 😳",
+    "There's one detail in this {niche} clip everyone misses…",
+    "This {niche} fact sounds fake, but it's 100% real 🤯",
+    "I found something about {niche} that changes everything…",
+    "The last second of this {niche} video is the whole point ⏱️",
+    "You think you know {niche}? This will change your mind…",
+    "Something in this {niche} moment is not what it seems 👀",
+    "I almost scrolled past this {niche} clip. Big mistake 😳",
+    "Stay for the twist in this {niche} story…"
+  ],
+  question: [
+    "Have you ever seen {noun} like THIS before? 😳",
+    "Be honest — did you know this about {niche}? 👇",
+    "Would you try this {niche} challenge? Yes or no? 🤔",
+    "What's the first thing YOU notice in this {niche} clip? 👀",
+    "Can you guess what happens next in this {niche} moment?",
+    "Team 'love it' or team 'no way' — where do you stand on {niche}? 👇",
+    "Why does nobody talk about this in {niche}? 🤔",
+    "How is this {niche} moment even real?? 😱"
+  ],
+  bold: [
+    "This is the best {niche} moment on the internet today. Period. 🔥",
+    "Everything you believe about {niche} is wrong. Here's proof 👇",
+    "This one {niche} clip just broke the internet 😱",
+    "I said it: {niche} content doesn't get better than this 🏆",
+    "Delete every other {niche} video. You only need this one 😤",
+    "This {niche} moment deserves a million views. Watch why 🔥",
+    "Hot take: this is peak {niche} and nobody can convince me otherwise 😌",
+    "The greatest {niche} comeback you'll see this week 👑"
+  ],
+  stop: [
+    "STOP scrolling — this {niche} moment is worth 10 seconds 🛑",
+    "If you love {niche}, do NOT skip this one ⛔",
+    "Wait. Before you scroll — watch this {niche} clip ✋",
+    "POV: the algorithm knew you needed this {niche} moment today 😌",
+    "Hold on. This {niche} video starts in 3… 2… 1… ⏱️",
+    "Your daily dose of {niche} just arrived. You're welcome 💌",
+    "Scrolling won't find you anything better than this {niche} gem 💎",
+    "This is your sign to take a {niche} break right now 🛑✨"
+  ]
+};
+document.getElementById("hook-gen").addEventListener("click", function(){
+  var niche = document.getElementById("hook-niche").value;
+  var tone = document.getElementById("hook-tone").value;
+  var map = { niche: niche, noun: NICHE_NOUN[niche] };
+  var chosen;
+  if (tone === "mixed"){
+    chosen = [];
+    ["curiosity","question","bold","stop"].forEach(function(k){
+      pick(HOOK_TEMPLATES[k], 2).forEach(function(t){ chosen.push(t); });
+    });
+    chosen = shuffle(chosen);
+  } else {
+    chosen = pick(HOOK_TEMPLATES[tone], 8);
+  }
+  var items = chosen.map(function(t){
+    return { text: fill(t, map) };
+  });
+  renderResults(document.getElementById("hook-results"), items);
+});
+
+/* ================= 4. YouTube titles ================= */
+function trimTitle(s){
+  if (s.length <= 70) return s;
+  var cut = s.slice(0, 70);
+  var lastSpace = cut.lastIndexOf(" ");
+  if (lastSpace > 40) cut = cut.slice(0, lastSpace);
+  return cut.replace(/[\s—–:,|]+$/,"");
+}
+var TITLE_TEMPLATES = [
+  "I Tried {T} for 7 Days — Here's What Happened",
+  "{Tc}: 5 Things Nobody Tells You",
+  "The Truth About {T} (Watch Before You Start)",
+  "How to Master {T} — Beginner to Pro",
+  "7 Mistakes Everyone Makes With {T}",
+  "Why {T} Is Harder Than You Think",
+  "I Wish I Knew This About {T} Sooner",
+  "{Tc} in 24 Hours: My Honest Results",
+  "Stop Doing {T} Wrong — Do THIS Instead",
+  "What $0 vs $100 Gets You in {T}",
+  "The Untold Story of {T}",
+  "10 {Tc} Hacks That Actually Work",
+  "Nobody Expected THIS From {T}…",
+  "{Tc} Explained in 10 Minutes (Simple Guide)",
+  "Is {T} Worth It in 2026? Honest Review",
+  "From Zero to Results: My {Tc} Journey"
+];
+document.getElementById("title-gen").addEventListener("click", function(){
+  var raw = document.getElementById("title-topic").value.trim();
+  var err = document.getElementById("title-error");
+  if (!raw){ err.classList.add("show"); return; }
+  err.classList.remove("show");
+  var lower = raw.charAt(0).toLowerCase() + raw.slice(1);
+  var items = pick(TITLE_TEMPLATES, 10).map(function(t){
+    var filled = t.split("{Tc}").join(cap1(raw)).split("{T}").join(lower);
+    var finalTitle = trimTitle(filled);
+    return { text: finalTitle, meta: finalTitle.length + " characters" };
+  });
+  renderResults(document.getElementById("title-results"), items);
+});
+
+/* ================= 5. Bios ================= */
+var BIO_DATA = {
+  comedy:   { who:["Professional laugh dealer","Chief chaos officer","Full-time funny person"], what:"daily comedy & relatable moments", emoji:"😂" },
+  travel:   { who:["Wandering storyteller","Chasing places, not things","Full-time explorer"], what:"hidden spots, road trips & travel tips", emoji:"✈️" },
+  fitness:  { who:["Your daily push to move","Coach for real people","Stronger every day"], what:"workouts, form tips & honest progress", emoji:"💪" },
+  food:     { who:["Taste-tester in chief","Cooking joy, daily","Here for the flavor"], what:"easy recipes & food worth traveling for", emoji:"🍽️" },
+  business: { who:["Building in public","Small business, big lessons","Helping owners grow"], what:"practical tips for business & marketing", emoji:"💼" },
+  pets:     { who:["Owned by my pets","Professional pet servant","Documenting furry chaos"], what:"daily pet moments & happy tails", emoji:"🐾" },
+  education:{ who:["Making hard things simple","Learn something daily","Teacher at heart"], what:"quick lessons & facts that stick", emoji:"📚" }
+};
+var BIO_VIBE = {
+  funny: {
+    line2:["Serious content? Never met it 😌","Warning: highly bingeable ⚠️","My mom says I'm famous-adjacent ⭐"],
+    cta:["Follow before I get too famous 😎","Hit follow, thank me later 👇","New chaos daily — follow along 🔥"]
+  },
+  professional: {
+    line2:["New content every Mon · Wed · Fri","Trusted by a growing community of followers","Quality content, posted consistently"],
+    cta:["Follow for weekly value 👇","DM 'START' to work with me ✉️","Follow & turn on notifications 🔔"]
+  },
+  friendly: {
+    line2:["So glad you found this little corner 💛","Come for the content, stay for the community 🤗","Pull up a chair, you're family here ☕"],
+    cta:["Follow along — new posts every day 🌼","Say hi in the comments, I reply 💬","Join us — follow for daily posts 💛"]
+  }
+};
+document.getElementById("bio-gen").addEventListener("click", function(){
+  var type = document.getElementById("bio-type").value;
+  var vibe = document.getElementById("bio-vibe").value;
+  var d = BIO_DATA[type], v = BIO_VIBE[vibe];
+  var whos = shuffle(d.who), l2 = shuffle(v.line2), ctas = shuffle(v.cta);
+  var items = [];
+  for (var i = 0; i < 5; i++){
+    var text = d.emoji + " " + whos[i % whos.length] +
+      "\nPosting " + d.what +
+      "\n" + l2[i % l2.length] +
+      "\n" + ctas[i % ctas.length];
+    items.push({ text: text });
+  }
+  renderResults(document.getElementById("bio-results"), items);
+});
+
+/* ================= 6. Content ideas ================= */
+var IDEA_TEMPLATES = [
+  { format:"Challenge", text:"The 7-day {niche} challenge — film a short update every day and post the final results roundup" },
+  { format:"Before / After", text:"Before vs after: show your {niche} starting point next to where you are now — same angle, same spot" },
+  { format:"Myth vs Fact", text:"Myth vs fact: bust the 3 biggest myths about {niche} in one fast video" },
+  { format:"Day in the Life", text:"A realistic day in the life of someone deep into {niche} — no filters, real moments" },
+  { format:"Mistakes", text:"5 mistakes beginners make in {niche} (you're probably making #3)" },
+  { format:"Top List", text:"Top 7 {niche} favorites, ranked — save the most controversial pick for last" },
+  { format:"Tutorial", text:"Teach one {niche} skill in under 60 seconds, step by step, no fluff" },
+  { format:"POV", text:"POV video: the viewer experiences {noun} exactly the way you do" },
+  { format:"Reaction", text:"React to your very first {niche} post vs your latest one — show the growth" },
+  { format:"Storytime", text:"Storytime: the {niche} moment that changed everything for you" },
+  { format:"This or That", text:"This or that: rapid-fire {niche} choices — followers vote in the comments" },
+  { format:"Behind the Scenes", text:"Behind the scenes: what a real {niche} content day actually looks like" },
+  { format:"Q&A", text:"Answer the 5 questions your followers ask most about {niche}" },
+  { format:"Expectation vs Reality", text:"Expectation vs reality of {niche} — the funny, honest version" }
+];
+var IDEA_PLATFORM_TWIST = {
+  Instagram:" — end with a question to boost comments",
+  Facebook:" — ask followers to share it with someone who'd love it",
+  TikTok:" — open with the hook in the first 2 seconds",
+  YouTube:" — film it as a full video and cut a Short from the best moment"
+};
+document.getElementById("idea-gen").addEventListener("click", function(){
+  var niche = document.getElementById("idea-niche").value;
+  var platform = document.getElementById("idea-platform").value;
+  var map = { niche: niche, noun: NICHE_NOUN[niche] };
+  var items = pick(IDEA_TEMPLATES, 10).map(function(t){
+    return { format: t.format, text: fill(t.text, map) + IDEA_PLATFORM_TWIST[platform] };
+  });
+  renderResults(document.getElementById("idea-results"), items);
+});
+
+/* ================= 7. Best time to post ================= */
+var TIME_DATA = {
+  Instagram: {
+    rows: [
+      { when:"Weekday lunch scroll", window:"11 AM – 1 PM ET", why:"People check their phones on lunch breaks — Reels and photos both peak here." },
+      { when:"Weekday evenings", window:"7 PM – 9 PM ET", why:"Prime couch-scrolling time after dinner. Great for Reels and carousels." },
+      { when:"Saturday morning", window:"10 AM – 12 PM ET", why:"Relaxed weekend browsing — strong saves and shares." }
+    ],
+    best:["Tuesday","Wednesday","Thursday"],
+    tip:"Post 30–45 minutes before the window opens so the post is already gathering likes when the peak hits."
+  },
+  Facebook: {
+    rows: [
+      { when:"Weekday mornings", window:"9 AM – 12 PM ET", why:"Facebook's US audience skews older and checks in during the morning." },
+      { when:"Weekday early afternoon", window:"1 PM – 3 PM ET", why:"A second steady wave during work breaks." },
+      { when:"Sunday morning", window:"10 AM – 12 PM ET", why:"Weekend catch-up scrolling — good for longer videos and stories." }
+    ],
+    best:["Tuesday","Wednesday","Thursday"],
+    tip:"Video posts do especially well in the morning window. Avoid late nights — reach drops off fast."
+  },
+  TikTok: {
+    rows: [
+      { when:"Weekday evenings", window:"6 PM – 9 PM ET", why:"TikTok's biggest US wave — after school and after work, all in one window." },
+      { when:"Weekday mornings", window:"7 AM – 9 AM ET", why:"The wake-up scroll. Short, punchy videos win here." },
+      { when:"Friday & weekend evenings", window:"7 PM – 10 PM ET", why:"People stay on longer, so watch time (TikTok's #1 signal) goes up." }
+    ],
+    best:["Tuesday","Thursday","Friday"],
+    tip:"Post about an hour before the evening peak — TikTok needs time to test your video on a small audience first."
+  },
+  YouTube: {
+    rows: [
+      { when:"Weekday afternoons", window:"2 PM – 4 PM ET", why:"Publishing here puts your video in feeds right before the evening viewing peak." },
+      { when:"Weekend mornings", window:"10 AM – 12 PM ET", why:"Weekend viewers watch longer sessions — great for longer videos." },
+      { when:"Shorts — evenings", window:"6 PM – 9 PM ET", why:"Shorts ride the same evening scroll wave as TikTok and Reels." }
+    ],
+    best:["Friday","Saturday","Sunday"],
+    tip:"YouTube rewards the first 24–48 hours. Publish, then share the link to your other platforms right away."
+  }
+};
+function renderTimePanel(platform){
+  var d = TIME_DATA[platform];
+  var panel = document.getElementById("time-panel");
+  var html = "<h3>" + platform + " — best windows</h3>" +
+    "<div class='tz'>All times Eastern (ET) · US audience · general guidance</div><div class='time-rows'>";
+  d.rows.forEach(function(r){
+    html += "<div class='time-row'><span class='when'>" + r.when + "</span><span class='window'>" + r.window + "</span><span class='why'>" + r.why + "</span></div>";
+  });
+  html += "</div><div class='best-days'><span class='bd-label'>Best days</span>";
+  d.best.forEach(function(day){ html += "<span class='day-pill'>" + day + "</span>"; });
+  html += "</div><p class='hint' style='margin-top:12px'>💡 " + d.tip + "</p>";
+  panel.innerHTML = html;
+}
+document.querySelectorAll(".plat-btn").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".plat-btn").forEach(function(b){ b.setAttribute("aria-pressed","false"); });
+    btn.setAttribute("aria-pressed","true");
+    renderTimePanel(btn.getAttribute("data-plat"));
+  });
+});
+renderTimePanel("Instagram");
+
+/* ================= 8. Thumbnail downloader ================= */
+function extractVideoId(raw){
+  var s = (raw || "").trim();
+  if (!s) return null;
+  if (/^[A-Za-z0-9_-]{11}$/.test(s)) return s;
+  var m = s.match(/[?&]v=([A-Za-z0-9_-]{11})/);
+  if (m) return m[1];
+  m = s.match(/youtu\.be\/([A-Za-z0-9_-]{11})/);
+  if (m) return m[1];
+  m = s.match(/\/(?:shorts|embed|live|v)\/([A-Za-z0-9_-]{11})/);
+  if (m) return m[1];
+  return null;
+}
+var THUMB_SIZES = [
+  { file:"maxresdefault.jpg", name:"Max HD", dims:"1280 × 720" },
+  { file:"sddefault.jpg", name:"SD", dims:"640 × 480" },
+  { file:"hqdefault.jpg", name:"HQ", dims:"480 × 360" },
+  { file:"mqdefault.jpg", name:"MQ", dims:"320 × 180" }
+];
+document.getElementById("thumb-gen").addEventListener("click", function(){
+  var raw = document.getElementById("thumb-input").value;
+  var err = document.getElementById("thumb-error");
+  var grid = document.getElementById("thumb-grid");
+  var note = document.getElementById("thumb-note");
+  var id = extractVideoId(raw);
+  grid.innerHTML = "";
+  note.style.display = "none";
+  if (!id){ err.classList.add("show"); return; }
+  err.classList.remove("show");
+  THUMB_SIZES.forEach(function(sz){
+    var url = "https://i.ytimg.com/vi/" + id + "/" + sz.file;
+    var card = document.createElement("div");
+    card.className = "thumb-card";
+    var img = document.createElement("img");
+    img.alt = "YouTube thumbnail — " + sz.name + " (" + sz.dims + ")";
+    img.loading = "lazy";
+    img.addEventListener("error", function(){ card.style.display = "none"; });
+    img.addEventListener("load", function(){
+      /* YouTube serves a tiny 120x90 placeholder when a big size doesn't exist */
+      if ((sz.file === "maxresdefault.jpg" || sz.file === "sddefault.jpg") && img.naturalWidth <= 120){
+        card.style.display = "none";
+      }
+    });
+    img.src = url;
+    var meta = document.createElement("div");
+    meta.className = "thumb-meta";
+    var left = document.createElement("div");
+    var nm = document.createElement("div");
+    nm.className = "thumb-size"; nm.textContent = sz.name;
+    var dm = document.createElement("div");
+    dm.className = "thumb-dims"; dm.textContent = sz.dims;
+    left.appendChild(nm); left.appendChild(dm);
+    var a = document.createElement("a");
+    a.className = "dl-btn";
+    a.href = url; a.target = "_blank"; a.rel = "noopener";
+    a.setAttribute("download", "");
+    a.textContent = "⬇ Download";
+    a.setAttribute("aria-label", "Download " + sz.name + " thumbnail (" + sz.dims + ")");
+    meta.appendChild(left); meta.appendChild(a);
+    card.appendChild(img); card.appendChild(meta);
+    grid.appendChild(card);
+  });
+  note.style.display = "block";
+});
+document.getElementById("thumb-input").addEventListener("keydown", function(e){
+  if (e.key === "Enter"){ e.preventDefault(); document.getElementById("thumb-gen").click(); }
+});
+
+/* ================= 9. Fancy fonts ================= */
+function mathMap(upperStart, lowerStart, digitStart, exceptions){
+  return function(text){
+    var out = "";
+    for (var i = 0; i < text.length; i++){
+      var ch = text.charAt(i), code = text.charCodeAt(i);
+      if (exceptions && exceptions[ch]){ out += exceptions[ch]; continue; }
+      if (code >= 65 && code <= 90 && upperStart) out += String.fromCodePoint(upperStart + code - 65);
+      else if (code >= 97 && code <= 122 && lowerStart) out += String.fromCodePoint(lowerStart + code - 97);
+      else if (code >= 48 && code <= 57 && digitStart) out += String.fromCodePoint(digitStart + code - 48);
+      else out += ch;
+    }
+    return out;
+  };
+}
+var SCRIPT_EXC = {"B":"ℬ","E":"ℰ","F":"ℱ","H":"ℋ","I":"ℐ","L":"ℒ","M":"ℳ","R":"ℛ","e":"ℯ","g":"ℊ","o":"ℴ"};
+var DS_EXC = {"C":"ℂ","H":"ℍ","N":"ℕ","P":"ℙ","Q":"ℚ","R":"ℝ","Z":"ℤ"};
+var ITALIC_EXC = {"h":"ℎ"};
+var SMALLCAPS_MAP = {"a":"ᴀ","b":"ʙ","c":"ᴄ","d":"ᴅ","e":"ᴇ","f":"ꜰ","g":"ɢ","h":"ʜ","i":"ɪ","j":"ᴊ","k":"ᴋ","l":"ʟ","m":"ᴍ","n":"ɴ","o":"ᴏ","p":"ᴘ","q":"ǫ","r":"ʀ","s":"ꜱ","t":"ᴛ","u":"ᴜ","v":"ᴠ","w":"ᴡ","x":"x","y":"ʏ","z":"ᴢ"};
+var FLIP_MAP = {"a":"ɐ","b":"q","c":"ɔ","d":"p","e":"ǝ","f":"ɟ","g":"ƃ","h":"ɥ","i":"ᴉ","j":"ɾ","k":"ʞ","l":"l","m":"ɯ","n":"u","o":"o","p":"d","q":"b","r":"ɹ","s":"s","t":"ʇ","u":"n","v":"ʌ","w":"ʍ","x":"x","y":"ʎ","z":"z","A":"∀","B":"𐐒","C":"Ɔ","D":"ᗡ","E":"Ǝ","F":"Ⅎ","G":"⅁","H":"H","I":"I","J":"ſ","K":"ʞ","L":"˥","M":"W","N":"N","O":"O","P":"Ԁ","Q":"Ό","R":"ᴚ","S":"S","T":"⊥","U":"∩","V":"Λ","W":"M","X":"X","Y":"⅄","Z":"Z","0":"0","1":"Ɩ","2":"ᄅ","3":"Ɛ","4":"ㄣ","5":"ϛ","6":"9","7":"ㄥ","8":"8","9":"6",".":"˙",",":"'","?":"¿","!":"¡","'":",","\"":"„","(" : ")"," ) ":"(",")":"(","[":"]","]":"[","{":"}","}":"{","<":">",">":"<","&":"⅋","_":"‾"};
+var FONT_STYLES = [
+  { name:"Bold", fn: mathMap(0x1D400, 0x1D41A, 0x1D7CE) },
+  { name:"Italic", fn: mathMap(0x1D434, 0x1D44E, null, ITALIC_EXC) },
+  { name:"Bold Italic", fn: mathMap(0x1D468, 0x1D482, null) },
+  { name:"Script", fn: mathMap(0x1D49C, 0x1D4B6, null, SCRIPT_EXC) },
+  { name:"Double-Struck", fn: mathMap(0x1D538, 0x1D552, 0x1D7D8, DS_EXC) },
+  { name:"Monospace", fn: mathMap(0x1D670, 0x1D68A, 0x1D7F6) },
+  { name:"Fraktur", fn: mathMap(0x1D504, 0x1D51E, null, {"C":"ℭ","H":"ℌ","I":"ℑ","R":"ℜ","Z":"ℨ"}) },
+  { name:"Bubble", fn: mathMap(0x24B6, 0x24D0, null) },
+  { name:"Squared", fn: mathMap(0x1F130, null, null) },
+  { name:"Small Caps", fn: function(t){ return t.split("").map(function(c){ return SMALLCAPS_MAP[c.toLowerCase()] && c.length === 1 && /[a-zA-Z]/.test(c) ? SMALLCAPS_MAP[c.toLowerCase()] : c; }).join(""); } },
+  { name:"Strikethrough", fn: function(t){ return t.split("").map(function(c){ return c + "̶"; }).join(""); } },
+  { name:"Underline", fn: function(t){ return t.split("").map(function(c){ return c + "̲"; }).join(""); } },
+  { name:"Upside Down", fn: function(t){ return t.split("").map(function(c){ return FLIP_MAP[c] || c; }).reverse().join(""); } }
+];
+/* Bubble digits need their own pass (circled numbers aren't in the letter ranges) */
+FONT_STYLES[7].fn = function(t){
+  var out = "";
+  for (var i = 0; i < t.length; i++){
+    var ch = t.charAt(i), code = t.charCodeAt(i);
+    if (code >= 65 && code <= 90) out += String.fromCodePoint(0x24B6 + code - 65);
+    else if (code >= 97 && code <= 122) out += String.fromCodePoint(0x24D0 + code - 97);
+    else if (ch === "0") out += "⓪";
+    else if (code >= 49 && code <= 57) out += String.fromCodePoint(0x2460 + code - 49);
+    else out += ch;
+  }
+  return out;
+};
+var fontRowsEl = document.getElementById("font-rows");
+var fontRowSamples = [];
+FONT_STYLES.forEach(function(style){
+  var row = document.createElement("div");
+  row.className = "font-row";
+  var label = document.createElement("span");
+  label.className = "font-style-name"; label.textContent = style.name;
+  var sample = document.createElement("div");
+  sample.className = "font-sample";
+  var btn = document.createElement("button");
+  btn.type = "button"; btn.className = "copy-btn"; btn.textContent = "Copy";
+  btn.setAttribute("aria-label", "Copy " + style.name + " style");
+  btn.addEventListener("click", function(){ copyText(sample.textContent, btn); });
+  row.appendChild(label); row.appendChild(sample); row.appendChild(btn);
+  fontRowsEl.appendChild(row);
+  fontRowSamples.push({ style: style, sample: sample });
+});
+function updateFonts(){
+  var raw = document.getElementById("font-input").value;
+  var text = raw.trim() ? raw : "Creator Kit";
+  fontRowSamples.forEach(function(r){ r.sample.textContent = r.style.fn(text); });
+  fontRowsEl.classList.add("show");
+}
+document.getElementById("font-input").addEventListener("input", updateFonts);
+updateFonts();
+</script>
+</body>
+</html>
