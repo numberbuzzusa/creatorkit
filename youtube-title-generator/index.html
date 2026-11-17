@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="Free YouTube title generator: type your topic and get 10 clickable title ideas — curiosity, numbers, how-to and warning styles — with character counts, trimmed to fit. No sign-up." />
+<link rel="canonical" href="https://creatorkit.numberbuzzusa.xyz/youtube-title-generator/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F6C445'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='27' font-weight='800' fill='%2317201a' text-anchor='middle'%3ECK%3C/text%3E%3C/svg%3E" />
+<title>YouTube Title Generator — Free YouTube Title Generator That Gets Clicks | CreatorKit</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5963284443577039" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f6f7f4;
+    --surface:#ffffff;
+    --surface-2:#eef1ea;
+    --ink:#17201a;
+    --ink-2:#4c5a50;
+    --ink-3:#718075;
+    --line:#dde3da;
+    --coral:#e8492f;
+    --coral-dark:#c93a24;
+    --coral-soft:#fdeee9;
+    --teal:#0d7a6f;
+    --teal-soft:#e2f3f0;
+    --sun:#b97e0a;
+    --sun-soft:#fdf3da;
+    --radius:18px;
+    --shadow:0 10px 30px rgba(23,32,26,.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#101512;
+      --surface:#1a211c;
+      --surface-2:#232c25;
+      --ink:#eef3ee;
+      --ink-2:#b9c6bb;
+      --ink-3:#8b9a8e;
+      --line:#2e3a30;
+      --coral:#ff6a4d;
+      --coral-dark:#ff8266;
+      --coral-soft:#33201b;
+      --teal:#3ec2b2;
+      --teal-soft:#173330;
+      --sun:#f0b93e;
+      --sun-soft:#332a12;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-serif;line-height:1.12;margin:0}
+  a{color:var(--teal)}
+  button,[role="button"],select,input,summary{min-height:44px}
+  :focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:6px}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-in{
+    max-width:1120px;margin:0 auto;padding:10px 20px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .brand-mark{
+    width:42px;height:42px;flex:none;display:block;line-height:0;
+    filter:drop-shadow(0 6px 14px rgba(232,73,47,.28));
+  }
+  .brand-mark svg,.logo-hero svg{width:100%;height:100%;display:block}
+  .logo-hero{width:72px;height:72px;margin-bottom:18px;filter:drop-shadow(0 10px 22px rgba(232,73,47,.22))}
+  .brand-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;letter-spacing:-.01em}
+  .brand-by{font-size:12px;color:var(--ink-3);font-weight:600}
+  .topnav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  .topnav a{
+    color:var(--ink-2);text-decoration:none;font-size:13.5px;font-weight:700;
+    padding:10px 10px;border-radius:9px;min-height:44px;display:inline-flex;align-items:center;
+  }
+  .topnav a:hover{background:var(--surface-2);color:var(--ink)}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:52px 0 8px}
+  .hero h1{font-size:clamp(38px,6.5vw,62px);font-weight:800;letter-spacing:-.02em;max-width:14ch}
+  .hero h1 .hl{color:var(--coral)}
+  .hero p.lede{font-size:clamp(17px,2.4vw,20px);color:var(--ink-2);max-width:56ch;margin:16px 0 0}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;
+    background:var(--surface);border:1px solid var(--line);border-radius:999px;
+    padding:8px 14px;font-size:13.5px;font-weight:700;color:var(--ink);
+  }
+  .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex:none}
+  .chip:nth-child(2) .dot{background:var(--coral)}
+  .chip:nth-child(3) .dot{background:var(--sun)}
+  .hero-credit{margin-top:14px;font-size:14px;color:var(--ink-3);font-weight:600}
+  .hero-credit strong{color:var(--ink)}
+
+  /* quick jump grid */
+  .jump{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;
+    margin:34px 0 10px;
+  }
+  .jump a{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:14px;text-decoration:none;color:var(--ink);
+    display:flex;flex-direction:column;gap:6px;min-height:44px;
+  }
+  .jump a:hover{border-color:var(--coral)}
+  .jump .j-ico{font-size:22px;line-height:1}
+  .jump .j-name{font-weight:800;font-size:14.5px}
+  .jump .j-sub{font-size:12.5px;color:var(--ink-3);font-weight:600}
+
+  /* ---------- tool sections ---------- */
+  .tool{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px;margin:26px 0;scroll-margin-top:96px;
+  }
+  .tool-head{display:flex;gap:16px;align-items:flex-start}
+  .tool-num{
+    flex:none;width:44px;height:44px;border-radius:13px;
+    display:grid;place-items:center;font-size:22px;
+    background:var(--coral-soft);
+  }
+  .tool:nth-of-type(odd) .tool-num{background:var(--teal-soft)}
+  .tool h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.01em}
+  .tool-desc{color:var(--ink-2);margin:6px 0 0;max-width:62ch;font-size:15px}
+  .controls{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;
+    margin-top:20px;
+  }
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:13px;font-weight:800;letter-spacing:.02em;color:var(--ink-2);text-transform:uppercase}
+  .field select,.field input[type="text"]{
+    width:100%;padding:11px 13px;border-radius:11px;
+    border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+    font:inherit;font-size:15.5px;font-weight:600;
+  }
+  .field select:focus,.field input[type="text"]:focus{border-color:var(--teal);outline:none}
+  .gen-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;align-items:center}
+  .btn{
+    border:0;cursor:pointer;font:inherit;font-weight:800;font-size:15px;
+    border-radius:12px;padding:12px 22px;min-height:48px;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{background:var(--coral);color:#fff}
+  .btn-primary:hover{background:var(--coral-dark)}
+  .btn-ghost{background:var(--surface-2);color:var(--ink)}
+  .btn-ghost:hover{background:var(--line)}
+  .hint{font-size:13px;color:var(--ink-3);font-weight:600}
+  .error{font-size:14px;color:var(--coral);font-weight:700;display:none;margin-top:10px}
+  .error.show{display:block}
+
+  .results{margin-top:20px;display:none;flex-direction:column;gap:10px}
+  .results.show{display:flex}
+  .results-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3)}
+  .result-item{
+    display:flex;gap:10px;align-items:flex-start;
+    background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:14px 14px 14px 16px;
+  }
+  .result-text{flex:1;font-size:15.5px;font-weight:600;overflow-wrap:anywhere;white-space:pre-line}
+  .result-text .meta{display:block;margin-top:5px;font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .copy-btn{
+    flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);
+    font:inherit;font-size:13px;font-weight:800;border-radius:9px;
+    padding:8px 13px;cursor:pointer;min-height:40px;
+  }
+  .copy-btn:hover{border-color:var(--teal);color:var(--teal)}
+  .copy-btn.copied{background:var(--teal);border-color:var(--teal);color:#fff}
+
+  /* hashtag groups */
+  .tag-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+  .tag-group{background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:16px}
+  .tag-group h3{font-size:15px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .tag-group h3 .reach{font-size:11.5px;font-weight:800;padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em}
+  .reach-big{background:var(--coral-soft);color:var(--coral)}
+  .reach-med{background:var(--sun-soft);color:var(--sun)}
+  .reach-niche{background:var(--teal-soft);color:var(--teal)}
+  .tags{margin-top:10px;font-size:14.5px;font-weight:600;line-height:1.9;overflow-wrap:anywhere;color:var(--ink-2)}
+  .tags span{color:var(--ink)}
+  .tag-group .copy-btn{margin-top:12px}
+
+  /* format chip for ideas */
+  .fmt{
+    display:inline-block;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;
+    background:var(--sun-soft);color:var(--sun);border-radius:999px;padding:3px 9px;margin-bottom:6px;
+  }
+
+  /* best time */
+  .platform-picker{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  .plat-btn{
+    border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+    font:inherit;font-weight:800;font-size:14.5px;border-radius:999px;
+    padding:10px 18px;cursor:pointer;min-height:46px;
+  }
+  .plat-btn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .time-panel{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:18px}
+  .time-panel h3{font-size:19px;font-weight:800}
+  .time-panel .tz{font-size:13px;color:var(--ink-3);font-weight:700;margin-top:2px}
+  .time-rows{margin-top:14px;display:flex;flex-direction:column}
+  .time-row{
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    padding:11px 2px;border-top:1px solid var(--line);font-size:15px;
+  }
+  .time-row:first-child{border-top:0}
+  .time-row .when{font-weight:800}
+  .time-row .window{font-weight:700;color:var(--teal)}
+  .time-row .why{flex-basis:100%;font-size:13.5px;color:var(--ink-2)}
+  .best-days{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .best-days .bd-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-3)}
+  .day-pill{background:var(--teal-soft);color:var(--teal);font-weight:800;font-size:13.5px;border-radius:999px;padding:6px 12px}
+
+  /* thumbnails */
+  .thumb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:20px}
+  .thumb-grid:empty{display:none}
+  .thumb-card{background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:12px;display:flex;flex-direction:column;gap:10px}
+  .thumb-card img{width:100%;height:auto;border-radius:9px;display:block;background:var(--surface-2)}
+  .thumb-meta{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .thumb-size{font-weight:800;font-size:14.5px}
+  .thumb-dims{font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .dl-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    background:var(--teal);color:#fff;text-decoration:none;
+    font-weight:800;font-size:14px;border-radius:10px;padding:10px 16px;min-height:44px;
+  }
+  .dl-btn:hover{filter:brightness(1.08)}
+
+  /* fancy fonts */
+  .font-rows{margin-top:20px;display:none;flex-direction:column;gap:10px}
+  .font-rows.show{display:flex}
+  .font-row{
+    display:flex;gap:10px;align-items:center;
+    background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:12px 12px 12px 16px;
+  }
+  .font-style-name{
+    flex:none;width:104px;font-size:11.5px;font-weight:800;text-transform:uppercase;
+    letter-spacing:.04em;color:var(--ink-3);
+  }
+  .font-sample{flex:1;font-size:19px;font-weight:600;overflow-wrap:anywhere;min-width:0}
+  @media (max-width:640px){
+    .font-row{flex-wrap:wrap}
+    .font-style-name{width:100%}
+  }
+
+  /* ---------- hero visual / brand showcase ---------- */
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:40px;align-items:center}
+  .hero-visual{position:relative;min-height:460px}
+  .hero-visual-bg{position:absolute;inset:8px 0 0 18px;border-radius:28px;background:var(--teal-soft);border:1px solid var(--line)}
+  .hero-visual-bg::after{content:"";position:absolute;right:22px;top:18px;width:74px;height:74px;border-radius:50%;background:var(--sun-soft);border:1px solid var(--line)}
+  .phone-frame{position:absolute;left:50%;top:6px;transform:translateX(-58%);width:236px;height:430px;background:#111814;border-radius:34px;padding:10px;box-shadow:0 24px 50px rgba(23,32,26,.22);z-index:3}
+  .phone-screen{position:relative;height:100%;border-radius:26px;overflow:hidden;background:#1a211c;color:#fff;display:flex;flex-direction:column}
+  .phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:74px;height:18px;border-radius:999px;background:#111814;z-index:4}
+  .reel-art video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .example-post-art.video-art{width:170px;height:302px;flex:none;padding:0;overflow:hidden;background:#111814}
+  .example-post-art.video-art video{width:100%;height:100%;object-fit:cover;display:block}
+  @media (max-width:560px){.example-post-art.video-art{width:100%;height:320px}}
+  .reel-art{position:relative;height:272px;flex:none;overflow:hidden;background:#f3c96b}
+  .reel-art svg{width:100%;height:100%;display:block}
+  .reel-live{position:absolute;top:28px;left:12px;background:var(--coral);color:#fff;font-size:10px;font-weight:800;letter-spacing:.08em;padding:4px 8px;border-radius:999px}
+  .reel-body{padding:12px 13px 10px;background:#fff;color:#17201a;flex:1}
+  @media (prefers-color-scheme: dark){.reel-body{background:#1e2821;color:#eef3ee}}
+  .reel-user{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800}
+  .reel-avatar{width:26px;height:26px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-size:12px;flex:none}
+  .reel-follow{margin-left:auto;background:var(--ink);color:var(--bg);font-size:11px;padding:5px 9px;border-radius:999px}
+  .reel-cap{font-size:12.8px;line-height:1.45;margin-top:8px;font-weight:600}
+  .reel-cap b{color:var(--coral)}
+  .reel-tags{font-size:11.5px;color:var(--teal);font-weight:700;margin-top:5px;line-height:1.5}
+  .reel-actions{display:flex;gap:14px;margin-top:9px;font-size:11px;font-weight:800;color:var(--ink-2)}
+  .float-chip{position:absolute;z-index:4;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:14px;padding:10px 12px;max-width:190px}
+  .float-chip .fc-label{font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+  .float-chip .fc-text{font-size:13px;font-weight:800;line-height:1.3;margin-top:3px}
+  .fc-hook{right:0;top:22px;transform:rotate(2deg)}
+  .fc-hook .fc-text{color:var(--coral)}
+  .fc-font{right:2px;bottom:92px;transform:rotate(-2deg)}
+  .fc-font .fc-text{font-size:16px;letter-spacing:.02em}
+  .fc-stat{left:0;bottom:18px}
+  .fc-stat .fc-num{font-family:"Bricolage Grotesque",sans-serif;font-size:22px;font-weight:800;line-height:1;color:var(--teal)}
+  .fc-stat .fc-sub{font-size:11.5px;font-weight:700;color:var(--ink-2);margin-top:3px}
+  .yt-mini{position:absolute;left:0;top:64px;width:168px;z-index:4;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(-3deg)}
+  .yt-mini-art{height:88px;background:var(--teal);color:#fff;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+  .yt-mini-art strong{font-family:"Bricolage Grotesque",sans-serif;font-size:15px;line-height:1.05}
+  .yt-mini-art span{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.9}
+  .yt-mini-play{position:absolute;right:10px;top:10px;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--teal);display:grid;place-items:center;font-size:11px}
+  .yt-mini-meta{padding:8px 10px 10px}
+  .yt-mini-meta div{height:7px;border-radius:99px;background:var(--surface-2)}
+  .yt-mini-meta div+div{margin-top:6px;width:68%}
+  .hero-visual-caption{position:absolute;left:50%;transform:translateX(-50%);bottom:-6px;z-index:5;background:var(--ink);color:var(--bg);font-size:12px;font-weight:800;padding:7px 12px;border-radius:999px;white-space:normal;text-align:center;width:max-content;max-width:94%}
+  /* ---------- in-tool examples ---------- */
+  .example-box{margin-top:20px;border:1px dashed var(--line);border-radius:14px;padding:14px;background:color-mix(in srgb, var(--surface-2) 55%, transparent)}
+  .example-head{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
+  .example-head::before{content:"";width:22px;height:3px;border-radius:99px;background:var(--coral);display:inline-block}
+  .example-post{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .example-post-art{width:86px;height:86px;border-radius:10px;flex:none;overflow:hidden;position:relative}
+  .example-post-art svg{width:100%;height:100%;display:block}
+  .example-post-body{min-width:0;flex:1}
+  .example-post-user{font-size:13px;font-weight:800;display:flex;gap:6px;align-items:center}
+  .example-post-user span{font-weight:600;color:var(--ink-3);font-size:12px}
+  .example-post-text{font-size:13.5px;line-height:1.5;font-weight:600;margin-top:4px}
+  .example-post-text em{color:var(--teal);font-style:normal;font-weight:800}
+  .sample-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .sample-thumb{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--surface);text-align:left}
+  .sample-thumb-art{aspect-ratio:16/9;padding:10px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+  .sample-thumb-art.coral{background:var(--coral)} .sample-thumb-art.teal{background:var(--teal)} .sample-thumb-art.ink{background:#243128}
+  .sample-thumb-art strong{font-family:"Bricolage Grotesque",sans-serif;font-size:15px;line-height:1.05;max-width:11ch}
+  .sample-thumb-art small{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.92;margin-bottom:4px}
+  .sample-thumb-art .play{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;background:#fff;color:#17201a;display:grid;place-items:center;font-size:10px}
+  .sample-thumb-meta{padding:8px 10px;font-size:12px;font-weight:700;line-height:1.35}
+  .sample-thumb-meta span{display:block;color:var(--ink-3);font-size:11px;font-weight:700;margin-top:2px}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-visual{max-width:520px;width:100%;margin:6px auto 0}}
+  @media (max-width:560px){.hero-visual{min-height:440px}.phone-frame{width:218px;height:408px;transform:translateX(-50%)}.yt-mini{display:none}.fc-hook{right:0;top:8px}.fc-font{bottom:76px}.fc-stat{bottom:6px}.sample-thumbs{grid-template-columns:1fr}.sample-thumb-art strong{font-size:17px;max-width:16ch}.example-post{flex-direction:column}.example-post-art{width:100%;height:110px}}
+
+  /* ---------- trust / legal pages ---------- */
+  .page-section{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin:26px 0;scroll-margin-top:96px}
+  .page-section h2{font-size:clamp(24px,3.6vw,32px);font-weight:800;letter-spacing:-.01em}
+  .page-section h3{font-size:17px;font-weight:800;margin:22px 0 6px}
+  .page-section p,.page-section li{color:var(--ink-2);font-size:15px}
+  .page-section p{margin:8px 0 0;max-width:72ch}
+  .page-section ul{margin:8px 0 0;padding-left:20px;max-width:72ch}
+  .page-section li{margin-top:5px}
+  .page-kicker{display:inline-flex;align-items:center;gap:7px;background:var(--teal-soft);color:var(--teal);font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;margin-bottom:12px}
+  .page-meta{font-size:13px;color:var(--ink-3);font-weight:700;margin-top:6px}
+  .contact-card{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .contact-card .cc-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3)}
+  .contact-card .cc-email{font-size:18px;font-weight:800;color:var(--ink);overflow-wrap:anywhere}
+  .back-tools{display:inline-flex;margin-top:20px;font-weight:800;font-size:14px;text-decoration:none}
+  .back-tools:hover{text-decoration:underline}
+
+  footer{border-top:1px solid var(--line);margin-top:44px;background:var(--surface)}
+  .footer-in{max-width:1120px;margin:0 auto;padding:34px 20px 40px;display:flex;flex-direction:column;gap:22px}
+  .footer-top{display:flex;gap:28px;flex-wrap:wrap;justify-content:space-between}
+  .footer-brand-wrap{max-width:300px}
+  .footer-brand-row{display:flex;align-items:center;gap:10px}
+  .footer-logo{width:36px;height:36px;flex:none}
+  .footer-logo svg{width:100%;height:100%;display:block}
+  .footer-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:19px}
+  .footer-in p{margin:8px 0 0;font-size:13.5px;color:var(--ink-3);max-width:70ch}
+  .footer-in .by{font-size:14px;color:var(--ink-2);font-weight:700}
+  .footer-cols{display:flex;gap:36px;flex-wrap:wrap}
+  .footer-col h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+  .footer-col a{display:flex;align-items:center;min-height:36px;color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;padding:2px 0}
+  .footer-col a:hover{color:var(--coral)}
+  .footer-bottom{border-top:1px solid var(--line);padding-top:16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;font-size:13px;color:var(--ink-3);font-weight:600}
+  .footer-bottom a{color:var(--ink-2);font-weight:800}
+
+  @media (max-width:640px){
+    .hero{padding-top:36px}
+    .tool{padding:20px 16px}
+    .topnav{display:none}
+    .result-item{flex-direction:column}
+    .copy-btn{align-self:flex-start}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- dedicated tool pages ---------- */
+  :root{ --gold:#F6C445; }
+  .site-header{position:sticky;top:0;z-index:60;background:color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .header-in{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:12px}
+  .ck-brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .ck-logo{width:42px;height:42px;flex:none;display:block;line-height:0;filter:drop-shadow(0 6px 14px rgba(246,196,69,.35))}
+  .ck-logo svg{width:100%;height:100%;display:block}
+  .ck-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:21px;letter-spacing:-.01em}
+  .pro-badge{flex:none;background:var(--gold);color:#17201a;font-size:10.5px;font-weight:800;letter-spacing:.07em;
+    padding:4px 9px;border-radius:999px;text-transform:uppercase}
+  .site-nav{margin-left:auto;display:flex;gap:4px;align-items:center}
+  .site-nav a{color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:9px;
+    min-height:44px;display:inline-flex;align-items:center}
+  .site-nav a:hover{background:var(--surface-2);color:var(--ink)}
+  .nav-toggle{display:none;margin-left:auto;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);
+    font-size:20px;line-height:1;border-radius:10px;padding:8px 13px;cursor:pointer;min-height:44px}
+  @media (max-width:760px){
+    .nav-toggle{display:inline-flex;align-items:center}
+    .site-nav{display:none;position:absolute;top:100%;left:12px;right:12px;flex-direction:column;align-items:stretch;
+      background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px}
+    .site-nav.open{display:flex}
+    .site-nav a{padding:12px}
+  }
+  .crumbs{font-size:13.5px;font-weight:700;color:var(--ink-3);padding:22px 0 0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .crumbs a{color:var(--teal);text-decoration:none}
+  .crumbs a:hover{text-decoration:underline}
+  .page-hero{padding:14px 0 2px}
+  .page-hero h1{font-size:clamp(30px,5vw,44px);font-weight:800;letter-spacing:-.02em;max-width:22ch}
+  .page-hero h1 .hl{color:var(--coral)}
+  .page-intro{font-size:clamp(16px,2.2vw,18.5px);color:var(--ink-2);max-width:64ch;margin:12px 0 0}
+  .guide{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:28px;margin:26px 0}
+  .guide h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.01em;margin-top:30px}
+  .guide h2:first-child{margin-top:0}
+  .guide p,.guide li{color:var(--ink-2);font-size:15.5px}
+  .guide ol,.guide ul{margin:10px 0 0;padding-left:22px;max-width:74ch}
+  .guide li{margin-top:8px}
+  .guide li strong,.guide p strong{color:var(--ink)}
+  .faq-item{border-top:1px solid var(--line);padding:16px 0 4px;margin-top:14px}
+  .faq-item h3{font-size:16.5px;font-weight:800}
+  .faq-item p{margin:6px 0 10px;max-width:74ch}
+  .related{margin:26px 0 6px}
+  .related h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.01em}
+  .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px}
+  .rel-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
+    padding:18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:6px}
+  .rel-card:hover{border-color:var(--coral)}
+  .rel-card .r-ico{font-size:24px;line-height:1}
+  .rel-card .r-name{font-weight:800;font-size:16px}
+  .rel-card .r-sub{font-size:13.5px;color:var(--ink-3);font-weight:600}
+  .rel-card .r-go{font-size:13.5px;font-weight:800;color:var(--coral);margin-top:4px}
+  .site-footer{border-top:1px solid var(--line);margin-top:44px;background:var(--surface)}
+  .site-footer-in{max-width:1120px;margin:0 auto;padding:30px 20px 36px}
+  .site-footer .sf-tag{font-weight:800;font-size:15.5px;color:var(--ink)}
+  .site-footer nav{display:flex;gap:6px 20px;flex-wrap:wrap;margin-top:14px}
+  .site-footer nav a{color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;min-height:36px;display:inline-flex;align-items:center}
+  .site-footer nav a:hover{color:var(--coral)}
+  .site-footer .sf-copy{margin-top:16px;font-size:13px;color:var(--ink-3);font-weight:600}
+  @media (max-width:640px){ .guide{padding:20px 16px} }
+
+</style>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZHDP05H6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ZHDP05H6B');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zevtiaah1y");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long should a YouTube title be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aim for 70 characters or fewer — that is why this generator trims to that range and shows a count on every result. YouTube allows up to 100 characters, but search results and mobile feeds truncate long before that, often around 40–50 characters on phones. If the interesting part sits past the cutoff, it effectively does not exist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do keywords in the title still matter for YouTube search?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The title is one of the strongest relevance signals YouTube has, especially for newer channels without watch-history data. Put your main topic words naturally near the front of the title — the generator does this automatically by building titles around your exact topic phrase — and support them in the description."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this title generator for YouTube Shorts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Shorts titles follow the same curiosity and clarity rules, but shorter is even better because Shorts are browsed in a fast feed. Generate ten, then pick the punchiest short option, and put extra keywords in the Short's description with two or three hashtags including #shorts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does every title show a character count?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because length decides whether your title survives being displayed. A brilliant 95-character title that gets truncated to “I Tried Adopting a Rescue Dog for 7 Days — Here's Wha…” loses its payoff. The count lets you compare titles on equal footing and keep the full promise visible everywhere the video appears."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I copy the title style of big creators in my niche?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Study their structure, never copy their exact titles. Notice how top channels in your niche use numbers, open loops and stakes — those patterns are what this generator is built on. Then write titles in your own words for your own footage. Imitated titles read as derivative, and YouTube viewers are quick to sense it."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-in">
+    <a class="ck-brand" href="/" aria-label="CreatorKit home">
+      <span class="ck-logo"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#F6C445"/><text x="32" y="43" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="800" fill="#17201a" text-anchor="middle">CK</text></svg></span>
+      <span class="ck-name">CreatorKit</span>
+    </a>
+    <span class="pro-badge">Pro Suite</span>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">&#9776;</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="/#tools">All Tools</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/#tools">Tools</a> <span aria-hidden="true">/</span> <span>YouTube Title Generator</span></nav>
+  <div class="page-hero">
+    <h1>YouTube Title Generator — <span class="hl">Titles That Earn the Click</span></h1>
+    <p class="page-intro">Your thumbnail wins the glance; your title wins the click. Type what your video is about and CreatorKit's free YouTube title generator returns ten ideas in the styles that dominate suggested feeds — curiosity, numbers, how-to, mistakes and honest reviews — each with a live character count and trimmed so nothing important gets cut off.</p>
+  </div>
+<section class="tool" id="titles">
+    <div class="tool-head">
+      <span class="tool-num" aria-hidden="true">▶️</span>
+      <div>
+        <h2>YouTube Title Generator</h2>
+        <p class="tool-desc">Type what your video is about and get 10 clickable title ideas — curiosity, numbers, how-to and warning styles, kept under 70 characters where possible so nothing gets cut off.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="title-topic">Your video topic</label>
+        <input type="text" id="title-topic" placeholder="e.g. adopting a rescue dog, budget travel in Japan" maxlength="70" />
+      </div>
+    </div>
+    <p class="error" id="title-error">Type your video topic first — a few words is enough.</p>
+    <div class="gen-row">
+      <button class="btn btn-primary" id="title-gen" type="button">Generate 10 titles</button>
+      <span class="hint">Character count shown on every title.</span>
+    </div>
+    <div class="results" id="title-results" aria-live="polite"></div>
+    <div class="example-box" aria-label="Example YouTube thumbnail styles">
+      <div class="example-head">Example — thumbnail styles that earn the click</div>
+      <div class="sample-thumbs">
+        <div class="sample-thumb"><div class="sample-thumb-art coral"><span class="play">▶</span><small>Challenge</small><strong>I Tried It for 7 Days</strong></div><div class="sample-thumb-meta">Big promise, short words<span>Pair with a curiosity title</span></div></div>
+        <div class="sample-thumb"><div class="sample-thumb-art teal"><span class="play">▶</span><small>Mistakes</small><strong>5 Mistakes Beginners Make</strong></div><div class="sample-thumb-meta">Number + clear problem<span>Works for almost any niche</span></div></div>
+        <div class="sample-thumb"><div class="sample-thumb-art ink"><span class="play">▶</span><small>Before / After</small><strong>Nobody Expected THIS…</strong></div><div class="sample-thumb-meta">Open loop, payoff in video<span>Keep the title under 70 characters</span></div></div>
+      </div>
+    </div>
+  </section>
+<section class="guide" id="guide">
+  <h2>How to Use</h2>
+  <ol>
+    <li><strong>Type your video topic in a few plain words</strong> — “adopting a rescue dog”, “budget travel in Japan”, “building a gaming PC”. Short, natural topics produce the cleanest titles; the generator handles the framing, the numbers and the curiosity angles for you.</li>
+    <li><strong>Click “Generate 10 titles.”</strong> Ten titles appear in proven formats: “I Tried {topic} for 7 Days”, “7 Mistakes Everyone Makes”, honest reviews, how-to guides and open loops that make the click feel necessary.</li>
+    <li><strong>Check the character count on each title.</strong> Every result shows its length, and titles are automatically trimmed to 70 characters or fewer where possible — the range where a title survives search results, suggested sidebar and mobile feeds without being cut mid-thought.</li>
+    <li><strong>Copy your favorite — or blend two.</strong> Take the curiosity frame from one title and the specific number from another. The generator gives you angles; your knowledge of the actual video picks the honest combination.</li>
+    <li><strong>Generate again before you decide.</strong> Each click draws a different ten from the template pool. Brainstorming twenty or thirty angles costs a minute and is the cheapest click-through-rate improvement a creator can make.</li>
+  </ol>
+  <h2>Title Tips That Raise Click-Through Rate</h2>
+  <ul>
+    <li><strong>Front-load what matters.</strong> On mobile, viewers may see only the first 40–50 characters. Put the topic keyword and the tension at the start (“Rescue Dog: 5 Things Nobody Tells You”), and let supporting words trail at the end where a cutoff hurts least.</li>
+    <li><strong>One idea per title.</strong> A title trying to promise a tutorial, a story and a review at once promises nothing clearly. Each generated title carries a single angle — keep it that way when you edit, and save the other angles for the description and pinned comment.</li>
+    <li><strong>Numbers earn their place.</strong> Specific numbers (7 mistakes, 24 hours, $0 vs $100) signal a structured, finite video and consistently lift clicks. Odd and precise numbers feel more honest than round ones. Only use a number your video actually contains.</li>
+    <li><strong>Title and thumbnail are a team, not twins.</strong> If the thumbnail says “I QUIT”, the title should not repeat “I Quit My Job” — it should add the missing piece: “…After 10 Years (What Happened Next)”. Together they form one complete curiosity loop; duplicated, they waste half your click surface.</li>
+    <li><strong>Never promise what the video cannot pay off.</strong> YouTube measures viewer satisfaction, not just clicks. A title that oversells produces fast exits, and fast exits teach the algorithm to stop suggesting your videos. The strongest titles sit exactly at the edge of what the video delivers.</li>
+    <li><strong>Use the year sparingly.</strong> Adding “2026” helps search-driven topics that genuinely update (tools, prices, rules, reviews). On stories, challenges and entertainment, a year stamp makes evergreen content look dated and quietly lowers clicks over time.</li>
+  </ul>
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <h3>How long should a YouTube title be?</h3>
+    <p>Aim for 70 characters or fewer — that is why this generator trims to that range and shows a count on every result. YouTube allows up to 100 characters, but search results and mobile feeds truncate long before that, often around 40–50 characters on phones. If the interesting part sits past the cutoff, it effectively does not exist.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Do keywords in the title still matter for YouTube search?</h3>
+    <p>Yes. The title is one of the strongest relevance signals YouTube has, especially for newer channels without watch-history data. Put your main topic words naturally near the front of the title — the generator does this automatically by building titles around your exact topic phrase — and support them in the description.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can I use this title generator for YouTube Shorts?</h3>
+    <p>Yes. Shorts titles follow the same curiosity and clarity rules, but shorter is even better because Shorts are browsed in a fast feed. Generate ten, then pick the punchiest short option, and put extra keywords in the Short's description with two or three hashtags including #shorts.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Why does every title show a character count?</h3>
+    <p>Because length decides whether your title survives being displayed. A brilliant 95-character title that gets truncated to “I Tried Adopting a Rescue Dog for 7 Days — Here's Wha…” loses its payoff. The count lets you compare titles on equal footing and keep the full promise visible everywhere the video appears.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Should I copy the title style of big creators in my niche?</h3>
+    <p>Study their structure, never copy their exact titles. Notice how top channels in your niche use numbers, open loops and stakes — those patterns are what this generator is built on. Then write titles in your own words for your own footage. Imitated titles read as derivative, and YouTube viewers are quick to sense it.</p>
+  </div>
+</section>
+  <section class="related" aria-label="Related tools">
+    <h2>Related Tools</h2>
+    <div class="related-grid">
+      <a class="rel-card" href="/youtube-thumbnail-downloader/"><span class="r-ico" aria-hidden="true">🖼️</span><span class="r-name">YouTube Thumbnail Downloader</span><span class="r-sub">Thumbnails in every size, up to HD</span><span class="r-go">Try Tool &rarr;</span></a>
+      <a class="rel-card" href="/reel-hook-generator/"><span class="r-ico" aria-hidden="true">🪝</span><span class="r-name">Reel Hook Generator</span><span class="r-sub">First lines that stop the scroll</span><span class="r-go">Try Tool &rarr;</span></a>
+      <a class="rel-card" href="/caption-generator/"><span class="r-ico" aria-hidden="true">✍️</span><span class="r-name">Caption Generator</span><span class="r-sub">5 ready-to-post captions per click</span><span class="r-go">Try Tool &rarr;</span></a>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-in">
+    <div class="sf-tag">CreatorKit — A NumberBuzz USA Digital Product</div>
+    <nav aria-label="Footer">
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+    </nav>
+    <p class="sf-copy">&copy; 2026 CreatorKit by Shahiryar Munir. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+document.getElementById("nav-toggle").addEventListener("click", function(){
+  var nav = document.getElementById("site-nav");
+  var open = nav.classList.toggle("open");
+  this.setAttribute("aria-expanded", open ? "true" : "false");
+});
+</script>
+<script>
+/* ================= helpers ================= */
+function shuffle(arr){
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--){
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+function pick(arr, n){ return shuffle(arr).slice(0, n); }
+function cap1(s){ return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+function fill(tpl, map){
+  return tpl.replace(/\{(\w+)\}/g, function(m, k){ return (k in map) ? map[k] : m; });
+}
+function copyText(text, btn){
+  function done(){
+    if (!btn) return;
+    var old = btn.textContent;
+    btn.textContent = "Copied ✓";
+    btn.classList.add("copied");
+    setTimeout(function(){ btn.textContent = old; btn.classList.remove("copied"); }, 1600);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done, function(){ fallback(); });
+  } else { fallback(); }
+  function fallback(){
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch(e){}
+    document.body.removeChild(ta); done();
+  }
+}
+function renderResults(container, items){
+  container.innerHTML = "";
+  items.forEach(function(item){
+    var row = document.createElement("div");
+    row.className = "result-item";
+    var txt = document.createElement("div");
+    txt.className = "result-text";
+    if (item.format){
+      var f = document.createElement("span");
+      f.className = "fmt"; f.textContent = item.format;
+      txt.appendChild(f); txt.appendChild(document.createElement("br"));
+    }
+    txt.appendChild(document.createTextNode(item.text));
+    if (item.meta){
+      var m = document.createElement("span");
+      m.className = "meta"; m.textContent = item.meta;
+      txt.appendChild(m);
+    }
+    var btn = document.createElement("button");
+    btn.type = "button"; btn.className = "copy-btn"; btn.textContent = "Copy";
+    btn.setAttribute("aria-label", "Copy this result");
+    btn.addEventListener("click", function(){ copyText(item.copyText || item.text, btn); });
+    row.appendChild(txt); row.appendChild(btn);
+    container.appendChild(row);
+  });
+  container.classList.add("show");
+}
+
+/* ================= shared data ================= */
+var NICHES = ["funny animals","travel","nature facts","food","fitness","fashion","business","pets","gaming","motivation"];
+var NICHE_EMOJI = {
+  "funny animals":"🐾","travel":"✈️","nature facts":"🌿","food":"🍽️","fitness":"💪",
+  "fashion":"👗","business":"💼","pets":"🐶","gaming":"🎮","motivation":"🌟"
+};
+var NICHE_NOUN = {
+  "funny animals":"funny animal moments","travel":"travel moments","nature facts":"nature facts",
+  "food":"food moments","fitness":"fitness wins","fashion":"style moments","business":"business lessons",
+  "pets":"pet moments","gaming":"gaming moments","motivation":"mindset shifts"
+};
+["cap-niche","hook-niche","idea-niche"].forEach(function(id){
+  var sel = document.getElementById(id);
+  if (!sel) return;
+  NICHES.forEach(function(n){
+    var o = document.createElement("option");
+    o.value = n; o.textContent = cap1(n);
+    sel.appendChild(o);
+  });
+});
+
+/* ================= 4. YouTube titles ================= */
+function trimTitle(s){
+  if (s.length <= 70) return s;
+  var cut = s.slice(0, 70);
+  var lastSpace = cut.lastIndexOf(" ");
+  if (lastSpace > 40) cut = cut.slice(0, lastSpace);
+  return cut.replace(/[\s—–:,|]+$/,"");
+}
+var TITLE_TEMPLATES = [
+  "I Tried {T} for 7 Days — Here's What Happened",
+  "{Tc}: 5 Things Nobody Tells You",
+  "The Truth About {T} (Watch Before You Start)",
+  "How to Master {T} — Beginner to Pro",
+  "7 Mistakes Everyone Makes With {T}",
+  "Why {T} Is Harder Than You Think",
+  "I Wish I Knew This About {T} Sooner",
+  "{Tc} in 24 Hours: My Honest Results",
+  "Stop Doing {T} Wrong — Do THIS Instead",
+  "What $0 vs $100 Gets You in {T}",
+  "The Untold Story of {T}",
+  "10 {Tc} Hacks That Actually Work",
+  "Nobody Expected THIS From {T}…",
+  "{Tc} Explained in 10 Minutes (Simple Guide)",
+  "Is {T} Worth It in 2026? Honest Review",
+  "From Zero to Results: My {Tc} Journey"
+];
+document.getElementById("title-gen").addEventListener("click", function(){
+  var raw = document.getElementById("title-topic").value.trim();
+  var err = document.getElementById("title-error");
+  if (!raw){ err.classList.add("show"); return; }
+  err.classList.remove("show");
+  var lower = raw.charAt(0).toLowerCase() + raw.slice(1);
+  var items = pick(TITLE_TEMPLATES, 10).map(function(t){
+    var filled = t.split("{Tc}").join(cap1(raw)).split("{T}").join(lower);
+    var finalTitle = trimTitle(filled);
+    return { text: finalTitle, meta: finalTitle.length + " characters" };
+  });
+  renderResults(document.getElementById("title-results"), items);
+});
+</script>
+</body>
+</html>
