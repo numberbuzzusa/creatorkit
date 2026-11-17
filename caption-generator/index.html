@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="Free caption generator for Instagram, TikTok, Facebook and YouTube. Pick a platform, niche and tone and get 5 ready-to-post captions with emojis and a call to action. No sign-up." />
+<link rel="canonical" href="https://creatorkit.numberbuzzusa.xyz/caption-generator/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F6C445'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='27' font-weight='800' fill='%2317201a' text-anchor='middle'%3ECK%3C/text%3E%3C/svg%3E" />
+<title>Caption Generator — Free Caption Generator for Instagram, TikTok &amp; Facebook | CreatorKit</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5963284443577039" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f6f7f4;
+    --surface:#ffffff;
+    --surface-2:#eef1ea;
+    --ink:#17201a;
+    --ink-2:#4c5a50;
+    --ink-3:#718075;
+    --line:#dde3da;
+    --coral:#e8492f;
+    --coral-dark:#c93a24;
+    --coral-soft:#fdeee9;
+    --teal:#0d7a6f;
+    --teal-soft:#e2f3f0;
+    --sun:#b97e0a;
+    --sun-soft:#fdf3da;
+    --radius:18px;
+    --shadow:0 10px 30px rgba(23,32,26,.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#101512;
+      --surface:#1a211c;
+      --surface-2:#232c25;
+      --ink:#eef3ee;
+      --ink-2:#b9c6bb;
+      --ink-3:#8b9a8e;
+      --line:#2e3a30;
+      --coral:#ff6a4d;
+      --coral-dark:#ff8266;
+      --coral-soft:#33201b;
+      --teal:#3ec2b2;
+      --teal-soft:#173330;
+      --sun:#f0b93e;
+      --sun-soft:#332a12;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-serif;line-height:1.12;margin:0}
+  a{color:var(--teal)}
+  button,[role="button"],select,input,summary{min-height:44px}
+  :focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:6px}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-in{
+    max-width:1120px;margin:0 auto;padding:10px 20px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .brand-mark{
+    width:42px;height:42px;flex:none;display:block;line-height:0;
+    filter:drop-shadow(0 6px 14px rgba(232,73,47,.28));
+  }
+  .brand-mark svg,.logo-hero svg{width:100%;height:100%;display:block}
+  .logo-hero{width:72px;height:72px;margin-bottom:18px;filter:drop-shadow(0 10px 22px rgba(232,73,47,.22))}
+  .brand-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;letter-spacing:-.01em}
+  .brand-by{font-size:12px;color:var(--ink-3);font-weight:600}
+  .topnav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  .topnav a{
+    color:var(--ink-2);text-decoration:none;font-size:13.5px;font-weight:700;
+    padding:10px 10px;border-radius:9px;min-height:44px;display:inline-flex;align-items:center;
+  }
+  .topnav a:hover{background:var(--surface-2);color:var(--ink)}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:52px 0 8px}
+  .hero h1{font-size:clamp(38px,6.5vw,62px);font-weight:800;letter-spacing:-.02em;max-width:14ch}
+  .hero h1 .hl{color:var(--coral)}
+  .hero p.lede{font-size:clamp(17px,2.4vw,20px);color:var(--ink-2);max-width:56ch;margin:16px 0 0}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;
+    background:var(--surface);border:1px solid var(--line);border-radius:999px;
+    padding:8px 14px;font-size:13.5px;font-weight:700;color:var(--ink);
+  }
+  .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex:none}
+  .chip:nth-child(2) .dot{background:var(--coral)}
+  .chip:nth-child(3) .dot{background:var(--sun)}
+  .hero-credit{margin-top:14px;font-size:14px;color:var(--ink-3);font-weight:600}
+  .hero-credit strong{color:var(--ink)}
+
+  /* quick jump grid */
+  .jump{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;
+    margin:34px 0 10px;
+  }
+  .jump a{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:14px;text-decoration:none;color:var(--ink);
+    display:flex;flex-direction:column;gap:6px;min-height:44px;
+  }
+  .jump a:hover{border-color:var(--coral)}
+  .jump .j-ico{font-size:22px;line-height:1}
+  .jump .j-name{font-weight:800;font-size:14.5px}
+  .jump .j-sub{font-size:12.5px;color:var(--ink-3);font-weight:600}
+
+  /* ---------- tool sections ---------- */
+  .tool{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px;margin:26px 0;scroll-margin-top:96px;
+  }
+  .tool-head{display:flex;gap:16px;align-items:flex-start}
+  .tool-num{
+    flex:none;width:44px;height:44px;border-radius:13px;
+    display:grid;place-items:center;font-size:22px;
+    background:var(--coral-soft);
+  }
+  .tool:nth-of-type(odd) .tool-num{background:var(--teal-soft)}
+  .tool h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.01em}
+  .tool-desc{color:var(--ink-2);margin:6px 0 0;max-width:62ch;font-size:15px}
+  .controls{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;
+    margin-top:20px;
+  }
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:13px;font-weight:800;letter-spacing:.02em;color:var(--ink-2);text-transform:uppercase}
+  .field select,.field input[type="text"]{
+    width:100%;padding:11px 13px;border-radius:11px;
+    border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+    font:inherit;font-size:15.5px;font-weight:600;
+  }
+  .field select:focus,.field input[type="text"]:focus{border-color:var(--teal);outline:none}
+  .gen-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;align-items:center}
+  .btn{
+    border:0;cursor:pointer;font:inherit;font-weight:800;font-size:15px;
+    border-radius:12px;padding:12px 22px;min-height:48px;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{background:var(--coral);color:#fff}
+  .btn-primary:hover{background:var(--coral-dark)}
+  .btn-ghost{background:var(--surface-2);color:var(--ink)}
+  .btn-ghost:hover{background:var(--line)}
+  .hint{font-size:13px;color:var(--ink-3);font-weight:600}
+  .error{font-size:14px;color:var(--coral);font-weight:700;display:none;margin-top:10px}
+  .error.show{display:block}
+
+  .results{margin-top:20px;display:none;flex-direction:column;gap:10px}
+  .results.show{display:flex}
+  .results-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3)}
+  .result-item{
+    display:flex;gap:10px;align-items:flex-start;
+    background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:14px 14px 14px 16px;
+  }
+  .result-text{flex:1;font-size:15.5px;font-weight:600;overflow-wrap:anywhere;white-space:pre-line}
+  .result-text .meta{display:block;margin-top:5px;font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .copy-btn{
+    flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);
+    font:inherit;font-size:13px;font-weight:800;border-radius:9px;
+    padding:8px 13px;cursor:pointer;min-height:40px;
+  }
+  .copy-btn:hover{border-color:var(--teal);color:var(--teal)}
+  .copy-btn.copied{background:var(--teal);border-color:var(--teal);color:#fff}
+
+  /* hashtag groups */
+  .tag-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+  .tag-group{background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:16px}
+  .tag-group h3{font-size:15px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .tag-group h3 .reach{font-size:11.5px;font-weight:800;padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em}
+  .reach-big{background:var(--coral-soft);color:var(--coral)}
+  .reach-med{background:var(--sun-soft);color:var(--sun)}
+  .reach-niche{background:var(--teal-soft);color:var(--teal)}
+  .tags{margin-top:10px;font-size:14.5px;font-weight:600;line-height:1.9;overflow-wrap:anywhere;color:var(--ink-2)}
+  .tags span{color:var(--ink)}
+  .tag-group .copy-btn{margin-top:12px}
+
+  /* format chip for ideas */
+  .fmt{
+    display:inline-block;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;
+    background:var(--sun-soft);color:var(--sun);border-radius:999px;padding:3px 9px;margin-bottom:6px;
+  }
+
+  /* best time */
+  .platform-picker{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  .plat-btn{
+    border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+    font:inherit;font-weight:800;font-size:14.5px;border-radius:999px;
+    padding:10px 18px;cursor:pointer;min-height:46px;
+  }
+  .plat-btn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .time-panel{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:18px}
+  .time-panel h3{font-size:19px;font-weight:800}
+  .time-panel .tz{font-size:13px;color:var(--ink-3);font-weight:700;margin-top:2px}
+  .time-rows{margin-top:14px;display:flex;flex-direction:column}
+  .time-row{
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    padding:11px 2px;border-top:1px solid var(--line);font-size:15px;
+  }
+  .time-row:first-child{border-top:0}
+  .time-row .when{font-weight:800}
+  .time-row .window{font-weight:700;color:var(--teal)}
+  .time-row .why{flex-basis:100%;font-size:13.5px;color:var(--ink-2)}
+  .best-days{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .best-days .bd-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-3)}
+  .day-pill{background:var(--teal-soft);color:var(--teal);font-weight:800;font-size:13.5px;border-radius:999px;padding:6px 12px}
+
+  /* thumbnails */
+  .thumb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:20px}
+  .thumb-grid:empty{display:none}
+  .thumb-card{background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:12px;display:flex;flex-direction:column;gap:10px}
+  .thumb-card img{width:100%;height:auto;border-radius:9px;display:block;background:var(--surface-2)}
+  .thumb-meta{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .thumb-size{font-weight:800;font-size:14.5px}
+  .thumb-dims{font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .dl-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    background:var(--teal);color:#fff;text-decoration:none;
+    font-weight:800;font-size:14px;border-radius:10px;padding:10px 16px;min-height:44px;
+  }
+  .dl-btn:hover{filter:brightness(1.08)}
+
+  /* fancy fonts */
+  .font-rows{margin-top:20px;display:none;flex-direction:column;gap:10px}
+  .font-rows.show{display:flex}
+  .font-row{
+    display:flex;gap:10px;align-items:center;
+    background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:12px 12px 12px 16px;
+  }
+  .font-style-name{
+    flex:none;width:104px;font-size:11.5px;font-weight:800;text-transform:uppercase;
+    letter-spacing:.04em;color:var(--ink-3);
+  }
+  .font-sample{flex:1;font-size:19px;font-weight:600;overflow-wrap:anywhere;min-width:0}
+  @media (max-width:640px){
+    .font-row{flex-wrap:wrap}
+    .font-style-name{width:100%}
+  }
+
+  /* ---------- hero visual / brand showcase ---------- */
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:40px;align-items:center}
+  .hero-visual{position:relative;min-height:460px}
+  .hero-visual-bg{position:absolute;inset:8px 0 0 18px;border-radius:28px;background:var(--teal-soft);border:1px solid var(--line)}
+  .hero-visual-bg::after{content:"";position:absolute;right:22px;top:18px;width:74px;height:74px;border-radius:50%;background:var(--sun-soft);border:1px solid var(--line)}
+  .phone-frame{position:absolute;left:50%;top:6px;transform:translateX(-58%);width:236px;height:430px;background:#111814;border-radius:34px;padding:10px;box-shadow:0 24px 50px rgba(23,32,26,.22);z-index:3}
+  .phone-screen{position:relative;height:100%;border-radius:26px;overflow:hidden;background:#1a211c;color:#fff;display:flex;flex-direction:column}
+  .phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:74px;height:18px;border-radius:999px;background:#111814;z-index:4}
+  .reel-art video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .example-post-art.video-art{width:170px;height:302px;flex:none;padding:0;overflow:hidden;background:#111814}
+  .example-post-art.video-art video{width:100%;height:100%;object-fit:cover;display:block}
+  @media (max-width:560px){.example-post-art.video-art{width:100%;height:320px}}
+  .reel-art{position:relative;height:272px;flex:none;overflow:hidden;background:#f3c96b}
+  .reel-art svg{width:100%;height:100%;display:block}
+  .reel-live{position:absolute;top:28px;left:12px;background:var(--coral);color:#fff;font-size:10px;font-weight:800;letter-spacing:.08em;padding:4px 8px;border-radius:999px}
+  .reel-body{padding:12px 13px 10px;background:#fff;color:#17201a;flex:1}
+  @media (prefers-color-scheme: dark){.reel-body{background:#1e2821;color:#eef3ee}}
+  .reel-user{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800}
+  .reel-avatar{width:26px;height:26px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-size:12px;flex:none}
+  .reel-follow{margin-left:auto;background:var(--ink);color:var(--bg);font-size:11px;padding:5px 9px;border-radius:999px}
+  .reel-cap{font-size:12.8px;line-height:1.45;margin-top:8px;font-weight:600}
+  .reel-cap b{color:var(--coral)}
+  .reel-tags{font-size:11.5px;color:var(--teal);font-weight:700;margin-top:5px;line-height:1.5}
+  .reel-actions{display:flex;gap:14px;margin-top:9px;font-size:11px;font-weight:800;color:var(--ink-2)}
+  .float-chip{position:absolute;z-index:4;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:14px;padding:10px 12px;max-width:190px}
+  .float-chip .fc-label{font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+  .float-chip .fc-text{font-size:13px;font-weight:800;line-height:1.3;margin-top:3px}
+  .fc-hook{right:0;top:22px;transform:rotate(2deg)}
+  .fc-hook .fc-text{color:var(--coral)}
+  .fc-font{right:2px;bottom:92px;transform:rotate(-2deg)}
+  .fc-font .fc-text{font-size:16px;letter-spacing:.02em}
+  .fc-stat{left:0;bottom:18px}
+  .fc-stat .fc-num{font-family:"Bricolage Grotesque",sans-serif;font-size:22px;font-weight:800;line-height:1;color:var(--teal)}
+  .fc-stat .fc-sub{font-size:11.5px;font-weight:700;color:var(--ink-2);margin-top:3px}
+  .yt-mini{position:absolute;left:0;top:64px;width:168px;z-index:4;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(-3deg)}
+  .yt-mini-art{height:88px;background:var(--teal);color:#fff;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+  .yt-mini-art strong{font-family:"Bricolage Grotesque",sans-serif;font-size:15px;line-height:1.05}
+  .yt-mini-art span{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.9}
+  .yt-mini-play{position:absolute;right:10px;top:10px;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--teal);display:grid;place-items:center;font-size:11px}
+  .yt-mini-meta{padding:8px 10px 10px}
+  .yt-mini-meta div{height:7px;border-radius:99px;background:var(--surface-2)}
+  .yt-mini-meta div+div{margin-top:6px;width:68%}
+  .hero-visual-caption{position:absolute;left:50%;transform:translateX(-50%);bottom:-6px;z-index:5;background:var(--ink);color:var(--bg);font-size:12px;font-weight:800;padding:7px 12px;border-radius:999px;white-space:normal;text-align:center;width:max-content;max-width:94%}
+  /* ---------- in-tool examples ---------- */
+  .example-box{margin-top:20px;border:1px dashed var(--line);border-radius:14px;padding:14px;background:color-mix(in srgb, var(--surface-2) 55%, transparent)}
+  .example-head{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
+  .example-head::before{content:"";width:22px;height:3px;border-radius:99px;background:var(--coral);display:inline-block}
+  .example-post{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .example-post-art{width:86px;height:86px;border-radius:10px;flex:none;overflow:hidden;position:relative}
+  .example-post-art svg{width:100%;height:100%;display:block}
+  .example-post-body{min-width:0;flex:1}
+  .example-post-user{font-size:13px;font-weight:800;display:flex;gap:6px;align-items:center}
+  .example-post-user span{font-weight:600;color:var(--ink-3);font-size:12px}
+  .example-post-text{font-size:13.5px;line-height:1.5;font-weight:600;margin-top:4px}
+  .example-post-text em{color:var(--teal);font-style:normal;font-weight:800}
+  .sample-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .sample-thumb{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--surface);text-align:left}
+  .sample-thumb-art{aspect-ratio:16/9;padding:10px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+  .sample-thumb-art.coral{background:var(--coral)} .sample-thumb-art.teal{background:var(--teal)} .sample-thumb-art.ink{background:#243128}
+  .sample-thumb-art strong{font-family:"Bricolage Grotesque",sans-serif;font-size:15px;line-height:1.05;max-width:11ch}
+  .sample-thumb-art small{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.92;margin-bottom:4px}
+  .sample-thumb-art .play{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;background:#fff;color:#17201a;display:grid;place-items:center;font-size:10px}
+  .sample-thumb-meta{padding:8px 10px;font-size:12px;font-weight:700;line-height:1.35}
+  .sample-thumb-meta span{display:block;color:var(--ink-3);font-size:11px;font-weight:700;margin-top:2px}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-visual{max-width:520px;width:100%;margin:6px auto 0}}
+  @media (max-width:560px){.hero-visual{min-height:440px}.phone-frame{width:218px;height:408px;transform:translateX(-50%)}.yt-mini{display:none}.fc-hook{right:0;top:8px}.fc-font{bottom:76px}.fc-stat{bottom:6px}.sample-thumbs{grid-template-columns:1fr}.sample-thumb-art strong{font-size:17px;max-width:16ch}.example-post{flex-direction:column}.example-post-art{width:100%;height:110px}}
+
+  /* ---------- trust / legal pages ---------- */
+  .page-section{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin:26px 0;scroll-margin-top:96px}
+  .page-section h2{font-size:clamp(24px,3.6vw,32px);font-weight:800;letter-spacing:-.01em}
+  .page-section h3{font-size:17px;font-weight:800;margin:22px 0 6px}
+  .page-section p,.page-section li{color:var(--ink-2);font-size:15px}
+  .page-section p{margin:8px 0 0;max-width:72ch}
+  .page-section ul{margin:8px 0 0;padding-left:20px;max-width:72ch}
+  .page-section li{margin-top:5px}
+  .page-kicker{display:inline-flex;align-items:center;gap:7px;background:var(--teal-soft);color:var(--teal);font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;margin-bottom:12px}
+  .page-meta{font-size:13px;color:var(--ink-3);font-weight:700;margin-top:6px}
+  .contact-card{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .contact-card .cc-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3)}
+  .contact-card .cc-email{font-size:18px;font-weight:800;color:var(--ink);overflow-wrap:anywhere}
+  .back-tools{display:inline-flex;margin-top:20px;font-weight:800;font-size:14px;text-decoration:none}
+  .back-tools:hover{text-decoration:underline}
+
+  footer{border-top:1px solid var(--line);margin-top:44px;background:var(--surface)}
+  .footer-in{max-width:1120px;margin:0 auto;padding:34px 20px 40px;display:flex;flex-direction:column;gap:22px}
+  .footer-top{display:flex;gap:28px;flex-wrap:wrap;justify-content:space-between}
+  .footer-brand-wrap{max-width:300px}
+  .footer-brand-row{display:flex;align-items:center;gap:10px}
+  .footer-logo{width:36px;height:36px;flex:none}
+  .footer-logo svg{width:100%;height:100%;display:block}
+  .footer-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:19px}
+  .footer-in p{margin:8px 0 0;font-size:13.5px;color:var(--ink-3);max-width:70ch}
+  .footer-in .by{font-size:14px;color:var(--ink-2);font-weight:700}
+  .footer-cols{display:flex;gap:36px;flex-wrap:wrap}
+  .footer-col h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+  .footer-col a{display:flex;align-items:center;min-height:36px;color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;padding:2px 0}
+  .footer-col a:hover{color:var(--coral)}
+  .footer-bottom{border-top:1px solid var(--line);padding-top:16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;font-size:13px;color:var(--ink-3);font-weight:600}
+  .footer-bottom a{color:var(--ink-2);font-weight:800}
+
+  @media (max-width:640px){
+    .hero{padding-top:36px}
+    .tool{padding:20px 16px}
+    .topnav{display:none}
+    .result-item{flex-direction:column}
+    .copy-btn{align-self:flex-start}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- dedicated tool pages ---------- */
+  :root{ --gold:#F6C445; }
+  .site-header{position:sticky;top:0;z-index:60;background:color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .header-in{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:12px}
+  .ck-brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .ck-logo{width:42px;height:42px;flex:none;display:block;line-height:0;filter:drop-shadow(0 6px 14px rgba(246,196,69,.35))}
+  .ck-logo svg{width:100%;height:100%;display:block}
+  .ck-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:21px;letter-spacing:-.01em}
+  .pro-badge{flex:none;background:var(--gold);color:#17201a;font-size:10.5px;font-weight:800;letter-spacing:.07em;
+    padding:4px 9px;border-radius:999px;text-transform:uppercase}
+  .site-nav{margin-left:auto;display:flex;gap:4px;align-items:center}
+  .site-nav a{color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:9px;
+    min-height:44px;display:inline-flex;align-items:center}
+  .site-nav a:hover{background:var(--surface-2);color:var(--ink)}
+  .nav-toggle{display:none;margin-left:auto;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);
+    font-size:20px;line-height:1;border-radius:10px;padding:8px 13px;cursor:pointer;min-height:44px}
+  @media (max-width:760px){
+    .nav-toggle{display:inline-flex;align-items:center}
+    .site-nav{display:none;position:absolute;top:100%;left:12px;right:12px;flex-direction:column;align-items:stretch;
+      background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px}
+    .site-nav.open{display:flex}
+    .site-nav a{padding:12px}
+  }
+  .crumbs{font-size:13.5px;font-weight:700;color:var(--ink-3);padding:22px 0 0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .crumbs a{color:var(--teal);text-decoration:none}
+  .crumbs a:hover{text-decoration:underline}
+  .page-hero{padding:14px 0 2px}
+  .page-hero h1{font-size:clamp(30px,5vw,44px);font-weight:800;letter-spacing:-.02em;max-width:22ch}
+  .page-hero h1 .hl{color:var(--coral)}
+  .page-intro{font-size:clamp(16px,2.2vw,18.5px);color:var(--ink-2);max-width:64ch;margin:12px 0 0}
+  .guide{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:28px;margin:26px 0}
+  .guide h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.01em;margin-top:30px}
+  .guide h2:first-child{margin-top:0}
+  .guide p,.guide li{color:var(--ink-2);font-size:15.5px}
+  .guide ol,.guide ul{margin:10px 0 0;padding-left:22px;max-width:74ch}
+  .guide li{margin-top:8px}
+  .guide li strong,.guide p strong{color:var(--ink)}
+  .faq-item{border-top:1px solid var(--line);padding:16px 0 4px;margin-top:14px}
+  .faq-item h3{font-size:16.5px;font-weight:800}
+  .faq-item p{margin:6px 0 10px;max-width:74ch}
+  .related{margin:26px 0 6px}
+  .related h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.01em}
+  .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px}
+  .rel-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
+    padding:18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:6px}
+  .rel-card:hover{border-color:var(--coral)}
+  .rel-card .r-ico{font-size:24px;line-height:1}
+  .rel-card .r-name{font-weight:800;font-size:16px}
+  .rel-card .r-sub{font-size:13.5px;color:var(--ink-3);font-weight:600}
+  .rel-card .r-go{font-size:13.5px;font-weight:800;color:var(--coral);margin-top:4px}
+  .site-footer{border-top:1px solid var(--line);margin-top:44px;background:var(--surface)}
+  .site-footer-in{max-width:1120px;margin:0 auto;padding:30px 20px 36px}
+  .site-footer .sf-tag{font-weight:800;font-size:15.5px;color:var(--ink)}
+  .site-footer nav{display:flex;gap:6px 20px;flex-wrap:wrap;margin-top:14px}
+  .site-footer nav a{color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;min-height:36px;display:inline-flex;align-items:center}
+  .site-footer nav a:hover{color:var(--coral)}
+  .site-footer .sf-copy{margin-top:16px;font-size:13px;color:var(--ink-3);font-weight:600}
+  @media (max-width:640px){ .guide{padding:20px 16px} }
+
+</style>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZHDP05H6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ZHDP05H6B');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zevtiaah1y");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this caption generator really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — completely free, with no sign-up, no credits and no watermark. You can generate unlimited caption sets, and everything runs in your browser, so nothing you type is uploaded or stored anywhere."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which platforms does the caption generator support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Instagram, Facebook, TikTok and YouTube. The platform choice is not cosmetic: each platform gets its own call-to-action style, because a follow prompt that works on Instagram would feel wrong on Facebook, where shares drive reach, or on YouTube, where the goal is a subscription."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I edit a generated caption before posting it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely — and you should. Treat every generated caption as a strong first draft. Add your own names, places, inside jokes or a reference to the exact moment in your video. The structure, hook and call to action are done for you; the personal details make it unmistakably yours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do the captions include emojis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Emojis break up blocks of text, carry emotion faster than words, and make captions scannable on a small screen. The generator uses them sparingly — usually one to three per caption. If your brand voice is strictly plain text, delete them before posting; the caption still works without them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many captions can I generate at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each click generates five captions, and there is no limit on clicks. Most creators generate two or three sets (ten to fifteen captions), pick the strongest hook, and occasionally combine the opening line of one caption with the call to action of another."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-in">
+    <a class="ck-brand" href="/" aria-label="CreatorKit home">
+      <span class="ck-logo"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#F6C445"/><text x="32" y="43" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="800" fill="#17201a" text-anchor="middle">CK</text></svg></span>
+      <span class="ck-name">CreatorKit</span>
+    </a>
+    <span class="pro-badge">Pro Suite</span>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">&#9776;</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="/#tools">All Tools</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/#tools">Tools</a> <span aria-hidden="true">/</span> <span>Caption Generator</span></nav>
+  <div class="page-hero">
+    <h1>Caption Generator — <span class="hl">Free Captions</span> for Instagram, TikTok &amp; Facebook</h1>
+    <p class="page-intro">You finished the video, picked the cover frame, and now the caption box sits empty. CreatorKit's free caption generator ends that stall: choose your platform, niche and tone, and get five ready-to-post captions in one click — each one with a hook line, fitting emojis and a call to action already built in. Copy, paste, post, done.</p>
+  </div>
+<section class="tool" id="captions">
+    <div class="tool-head">
+      <span class="tool-num" aria-hidden="true">✍️</span>
+      <div>
+        <h2>Caption Generator</h2>
+        <p class="tool-desc">Pick your platform, niche and tone — get 5 ready-to-post captions with emojis and a call to action baked in. Hit Generate again for a fresh set.</p>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="cap-platform">Platform</label>
+        <select id="cap-platform">
+          <option>Instagram</option><option>Facebook</option><option>TikTok</option><option>YouTube</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="cap-niche">Niche</label>
+        <select id="cap-niche"></select>
+      </div>
+      <div class="field">
+        <label for="cap-tone">Tone</label>
+        <select id="cap-tone">
+          <option value="funny">Funny</option>
+          <option value="inspirational">Inspirational</option>
+          <option value="curiosity">Curiosity</option>
+          <option value="question">Question</option>
+        </select>
+      </div>
+    </div>
+    <div class="gen-row">
+      <button class="btn btn-primary" id="cap-gen" type="button">Generate 5 captions</button>
+      <span class="hint">Tap Copy on any caption to use it.</span>
+    </div>
+    <div class="results" id="cap-results" aria-live="polite"></div>
+    <div class="example-box" aria-label="Example caption post">
+      <div class="example-head">Example — what your post can look like</div>
+      <div class="example-post">
+        <div class="example-post-art video-art"><video src="../demo.mp4" controls playsinline preload="metadata"></video></div>
+        <div class="example-post-body">
+          <div class="example-post-user">yourcreatorpage <span>• Instagram Reel</span></div>
+          <p class="example-post-text">Nobody warned me this could be THIS entertaining 😂 <em>Follow for daily moments ✨</em> — a short hook, one clear feeling, and a call to action. Generate yours above, then swap in your own niche and voice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="guide" id="guide">
+  <h2>How to Use</h2>
+  <ol>
+    <li><strong>Choose your platform</strong> — Instagram, Facebook, TikTok or YouTube. This matters more than it looks: the call to action changes with the platform, so Instagram captions end with a follow prompt, Facebook captions invite shares, TikTok captions tease a part two, and YouTube captions ask for the subscribe.</li>
+    <li><strong>Pick your niche</strong> — funny animals, travel, nature facts, food, fitness, fashion, business, pets, gaming or motivation. The generator uses your niche to select matching emojis and phrasing, so a fitness caption never sounds like a travel caption.</li>
+    <li><strong>Select a tone</strong> — Funny, Inspirational, Curiosity or Question. The tone decides the shape of the caption: a joke, a motivational lift, a curiosity gap that pushes people to watch, or a direct question engineered to pull comments.</li>
+    <li><strong>Click “Generate 5 captions.”</strong> Five complete captions appear instantly. Each one pairs a hook line with a call to action on its own line, ready to paste as-is.</li>
+    <li><strong>Tap Copy on the caption you like</strong> and paste it straight into your post. Not feeling any of the five? Click Generate again — every click builds a fresh set from new template combinations.</li>
+    <li><strong>Finish with hashtags.</strong> A caption alone is only half the post. Run the same topic through the Hashtag Generator to build a matching set of 25 tags and paste them under your caption or into the first comment.</li>
+  </ol>
+  <h2>Caption Tips That Get More Comments</h2>
+  <ul>
+    <li><strong>Lead with the hook, never the hashtags.</strong> On Instagram and Facebook, only the first line or two shows before the “…more” cutoff. The generated captions put the hook first for a reason — keep it there, and move hashtags to the very end or the first comment so the opening stays punchy.</li>
+    <li><strong>Match the tone to the footage.</strong> A funny clip paired with an inspirational caption confuses viewers and quietly kills watch time. Use the Curiosity tone for videos with a payoff at the end, the Question tone when comments matter most, and Funny whenever the clip itself is the joke.</li>
+    <li><strong>One caption, one call to action.</strong> “Like, comment, share and follow” in a single post converts worse than one clear ask. Every generated caption carries exactly one CTA — resist the urge to stack more on top of it.</li>
+    <li><strong>Use Question captions on opinion-friendly posts.</strong> Questions are the cheapest engagement lever on social media. When you post one, reply to the first few comments within the hour — early replies keep the thread alive and signal the algorithm that the conversation is active.</li>
+    <li><strong>Make one detail specific.</strong> Before posting, swap in one concrete detail from your actual video — a name, a city, or the exact moment (“wait for the splash at 0:07”). Specific captions feel written, not generated, and viewers reward that with longer reads and more saves.</li>
+    <li><strong>Keep a winners file.</strong> When a caption outperforms your average, save its structure in a notes app. Hooks that worked once in your niche usually work again with new wording — build your own mini template library over time.</li>
+  </ul>
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <h3>Is this caption generator really free?</h3>
+    <p>Yes — completely free, with no sign-up, no credits and no watermark. You can generate unlimited caption sets, and everything runs in your browser, so nothing you type is uploaded or stored anywhere.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Which platforms does the caption generator support?</h3>
+    <p>Instagram, Facebook, TikTok and YouTube. The platform choice is not cosmetic: each platform gets its own call-to-action style, because a follow prompt that works on Instagram would feel wrong on Facebook, where shares drive reach, or on YouTube, where the goal is a subscription.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can I edit a generated caption before posting it?</h3>
+    <p>Absolutely — and you should. Treat every generated caption as a strong first draft. Add your own names, places, inside jokes or a reference to the exact moment in your video. The structure, hook and call to action are done for you; the personal details make it unmistakably yours.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Why do the captions include emojis?</h3>
+    <p>Emojis break up blocks of text, carry emotion faster than words, and make captions scannable on a small screen. The generator uses them sparingly — usually one to three per caption. If your brand voice is strictly plain text, delete them before posting; the caption still works without them.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How many captions can I generate at once?</h3>
+    <p>Each click generates five captions, and there is no limit on clicks. Most creators generate two or three sets (ten to fifteen captions), pick the strongest hook, and occasionally combine the opening line of one caption with the call to action of another.</p>
+  </div>
+</section>
+  <section class="related" aria-label="Related tools">
+    <h2>Related Tools</h2>
+    <div class="related-grid">
+      <a class="rel-card" href="/hashtag-generator/"><span class="r-ico" aria-hidden="true">#️⃣</span><span class="r-name">Hashtag Generator</span><span class="r-sub">25 tags sorted by reach</span><span class="r-go">Try Tool &rarr;</span></a>
+      <a class="rel-card" href="/reel-hook-generator/"><span class="r-ico" aria-hidden="true">🪝</span><span class="r-name">Reel Hook Generator</span><span class="r-sub">First lines that stop the scroll</span><span class="r-go">Try Tool &rarr;</span></a>
+      <a class="rel-card" href="/youtube-title-generator/"><span class="r-ico" aria-hidden="true">▶️</span><span class="r-name">YouTube Title Generator</span><span class="r-sub">10 clickable title ideas</span><span class="r-go">Try Tool &rarr;</span></a>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-in">
+    <div class="sf-tag">CreatorKit — A NumberBuzz USA Digital Product</div>
+    <nav aria-label="Footer">
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+    </nav>
+    <p class="sf-copy">&copy; 2026 CreatorKit by Shahiryar Munir. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+document.getElementById("nav-toggle").addEventListener("click", function(){
+  var nav = document.getElementById("site-nav");
+  var open = nav.classList.toggle("open");
+  this.setAttribute("aria-expanded", open ? "true" : "false");
+});
+</script>
+<script>
+/* ================= helpers ================= */
+function shuffle(arr){
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--){
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+function pick(arr, n){ return shuffle(arr).slice(0, n); }
+function cap1(s){ return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+function fill(tpl, map){
+  return tpl.replace(/\{(\w+)\}/g, function(m, k){ return (k in map) ? map[k] : m; });
+}
+function copyText(text, btn){
+  function done(){
+    if (!btn) return;
+    var old = btn.textContent;
+    btn.textContent = "Copied ✓";
+    btn.classList.add("copied");
+    setTimeout(function(){ btn.textContent = old; btn.classList.remove("copied"); }, 1600);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done, function(){ fallback(); });
+  } else { fallback(); }
+  function fallback(){
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch(e){}
+    document.body.removeChild(ta); done();
+  }
+}
+function renderResults(container, items){
+  container.innerHTML = "";
+  items.forEach(function(item){
+    var row = document.createElement("div");
+    row.className = "result-item";
+    var txt = document.createElement("div");
+    txt.className = "result-text";
+    if (item.format){
+      var f = document.createElement("span");
+      f.className = "fmt"; f.textContent = item.format;
+      txt.appendChild(f); txt.appendChild(document.createElement("br"));
+    }
+    txt.appendChild(document.createTextNode(item.text));
+    if (item.meta){
+      var m = document.createElement("span");
+      m.className = "meta"; m.textContent = item.meta;
+      txt.appendChild(m);
+    }
+    var btn = document.createElement("button");
+    btn.type = "button"; btn.className = "copy-btn"; btn.textContent = "Copy";
+    btn.setAttribute("aria-label", "Copy this result");
+    btn.addEventListener("click", function(){ copyText(item.copyText || item.text, btn); });
+    row.appendChild(txt); row.appendChild(btn);
+    container.appendChild(row);
+  });
+  container.classList.add("show");
+}
+
+/* ================= shared data ================= */
+var NICHES = ["funny animals","travel","nature facts","food","fitness","fashion","business","pets","gaming","motivation"];
+var NICHE_EMOJI = {
+  "funny animals":"🐾","travel":"✈️","nature facts":"🌿","food":"🍽️","fitness":"💪",
+  "fashion":"👗","business":"💼","pets":"🐶","gaming":"🎮","motivation":"🌟"
+};
+var NICHE_NOUN = {
+  "funny animals":"funny animal moments","travel":"travel moments","nature facts":"nature facts",
+  "food":"food moments","fitness":"fitness wins","fashion":"style moments","business":"business lessons",
+  "pets":"pet moments","gaming":"gaming moments","motivation":"mindset shifts"
+};
+["cap-niche","hook-niche","idea-niche"].forEach(function(id){
+  var sel = document.getElementById(id);
+  if (!sel) return;
+  NICHES.forEach(function(n){
+    var o = document.createElement("option");
+    o.value = n; o.textContent = cap1(n);
+    sel.appendChild(o);
+  });
+});
+
+/* ================= 1. Captions ================= */
+var CAPTION_TEMPLATES = {
+  funny: [
+    "Nobody warned me {noun} could be THIS entertaining 😂 {emoji}",
+    "I was having a normal day… then this happened 😭😂 {emoji}",
+    "POV: you opened this app for 5 minutes and now you're fully invested 😂 {emoji}",
+    "Zero budget. Zero planning. 100% comedy gold 😂 {emoji}",
+    "Tell me this isn't the most relatable thing you'll see today 😂 {emoji}",
+    "The way I watched this 6 times and it got funnier every time 🤣 {emoji}",
+    "Some people pay for entertainment. You just follow this page 😌😂 {emoji}",
+    "This is your sign to take a 10-second laugh break 😂 {emoji}"
+  ],
+  inspirational: [
+    "Small steps, every single day. That's how the big change happens ✨ {emoji}",
+    "You don't have to be perfect. You just have to start 🌱 {emoji}",
+    "One day you'll look back and be so glad you didn't quit 💛 {emoji}",
+    "Progress looks quiet from the outside. Keep going anyway 🌅 {emoji}",
+    "Your future self is watching this moment. Make them proud ✨ {emoji}",
+    "Dream it. Start it. Stay consistent. That's the whole formula 🔑 {emoji}",
+    "Somewhere between 'I can't' and 'I did' is one brave decision 💫 {emoji}",
+    "Let this be the reminder you needed today 🤍 {emoji}"
+  ],
+  curiosity: [
+    "Wait for the end… you won't see it coming 👀 {emoji}",
+    "Most people scroll past this. The ones who stop find out why 🤯 {emoji}",
+    "There's something in this video 90% of people miss. Did you catch it? 🔍 {emoji}",
+    "I bet you can't guess what happens next… watch till the end 👀 {emoji}",
+    "This starts normal. It does NOT end normal 😳 {emoji}",
+    "Fun fact: almost nobody knows this about {niche}. Watch closely 🧐 {emoji}",
+    "The last 3 seconds change everything. Don't blink ⏱️ {emoji}",
+    "Something here is not what it seems… can you spot it? 👀 {emoji}"
+  ],
+  question: [
+    "Okay, real question — would YOU try this? 👇 {emoji}",
+    "Be honest: team YES or team NO on this one? Drop it in the comments 💬 {emoji}",
+    "What's the first word that comes to your mind? 👇 {emoji}",
+    "Rate this from 1 to 10 — I'm reading every comment ⭐ {emoji}",
+    "Have you ever seen anything like this before? Tell me below 👇 {emoji}",
+    "If you could share this with one person, who gets it? Tag them 💬 {emoji}",
+    "Which one are you — the first type or the second type? 😄👇 {emoji}",
+    "What would YOU do in this situation? Best answer gets pinned 📌 {emoji}"
+  ]
+};
+var CAPTION_CTA = {
+  Instagram: ["Follow for daily {niche} ✨","Save this for later & follow for more 🔖","Follow along — new posts every day 💛"],
+  Facebook: ["Follow the page for more like this 👍","Share this with someone who needs to see it 🔁","Follow for a new one every day 🙌"],
+  TikTok: ["Follow for part 2 👀","Follow — I post every day 🔥","Stick around, it gets better from here 😏"],
+  YouTube: ["Subscribe for more — new videos every week ▶️","Watch the full video on the channel 🎬","Subscribe so you never miss one 🔔"]
+};
+document.getElementById("cap-gen").addEventListener("click", function(){
+  var platform = document.getElementById("cap-platform").value;
+  var niche = document.getElementById("cap-niche").value;
+  var tone = document.getElementById("cap-tone").value;
+  var map = { niche: niche, noun: NICHE_NOUN[niche], emoji: NICHE_EMOJI[niche] };
+  var ctas = shuffle(CAPTION_CTA[platform]);
+  var items = pick(CAPTION_TEMPLATES[tone], 5).map(function(t, i){
+    var body = fill(t, map);
+    var cta = fill(ctas[i % ctas.length], map);
+    return { text: body + "\n" + cta };
+  });
+  renderResults(document.getElementById("cap-results"), items);
+});
+</script>
+</body>
+</html>
