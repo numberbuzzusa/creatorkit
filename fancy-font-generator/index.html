@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="Free Fancy Font Generator — turn your text into 13 stylish Unicode fonts for Instagram bios, TikTok captions and usernames. Type, copy, paste. No sign-up." />
+<link rel="canonical" href="https://creatorkit.numberbuzzusa.xyz/fancy-font-generator/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F6C445'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='27' font-weight='800' fill='%2317201a' text-anchor='middle'%3ECK%3C/text%3E%3C/svg%3E" />
+<title>Fancy Font Generator — Stylish Text for Bios &amp; Captions | CreatorKit</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5963284443577039" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f6f7f4;
+    --surface:#ffffff;
+    --surface-2:#eef1ea;
+    --ink:#17201a;
+    --ink-2:#4c5a50;
+    --ink-3:#718075;
+    --line:#dde3da;
+    --coral:#e8492f;
+    --coral-dark:#c93a24;
+    --coral-soft:#fdeee9;
+    --teal:#0d7a6f;
+    --teal-soft:#e2f3f0;
+    --sun:#b97e0a;
+    --sun-soft:#fdf3da;
+    --radius:18px;
+    --shadow:0 10px 30px rgba(23,32,26,.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#101512;
+      --surface:#1a211c;
+      --surface-2:#232c25;
+      --ink:#eef3ee;
+      --ink-2:#b9c6bb;
+      --ink-3:#8b9a8e;
+      --line:#2e3a30;
+      --coral:#ff6a4d;
+      --coral-dark:#ff8266;
+      --coral-soft:#33201b;
+      --teal:#3ec2b2;
+      --teal-soft:#173330;
+      --sun:#f0b93e;
+      --sun-soft:#332a12;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-serif;line-height:1.12;margin:0}
+  a{color:var(--teal)}
+  button,[role="button"],select,input,summary{min-height:44px}
+  :focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:6px}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-in{
+    max-width:1120px;margin:0 auto;padding:10px 20px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .brand-mark{
+    width:42px;height:42px;flex:none;display:block;line-height:0;
+    filter:drop-shadow(0 6px 14px rgba(232,73,47,.28));
+  }
+  .brand-mark svg,.logo-hero svg{width:100%;height:100%;display:block}
+  .logo-hero{width:72px;height:72px;margin-bottom:18px;filter:drop-shadow(0 10px 22px rgba(232,73,47,.22))}
+  .brand-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;letter-spacing:-.01em}
+  .brand-by{font-size:12px;color:var(--ink-3);font-weight:600}
+  .topnav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  .topnav a{
+    color:var(--ink-2);text-decoration:none;font-size:13.5px;font-weight:700;
+    padding:10px 10px;border-radius:9px;min-height:44px;display:inline-flex;align-items:center;
+  }
+  .topnav a:hover{background:var(--surface-2);color:var(--ink)}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:52px 0 8px}
+  .hero h1{font-size:clamp(38px,6.5vw,62px);font-weight:800;letter-spacing:-.02em;max-width:14ch}
+  .hero h1 .hl{color:var(--coral)}
+  .hero p.lede{font-size:clamp(17px,2.4vw,20px);color:var(--ink-2);max-width:56ch;margin:16px 0 0}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;
+    background:var(--surface);border:1px solid var(--line);border-radius:999px;
+    padding:8px 14px;font-size:13.5px;font-weight:700;color:var(--ink);
+  }
+  .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex:none}
+  .chip:nth-child(2) .dot{background:var(--coral)}
+  .chip:nth-child(3) .dot{background:var(--sun)}
+  .hero-credit{margin-top:14px;font-size:14px;color:var(--ink-3);font-weight:600}
+  .hero-credit strong{color:var(--ink)}
+
+  /* quick jump grid */
+  .jump{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;
+    margin:34px 0 10px;
+  }
+  .jump a{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:14px;text-decoration:none;color:var(--ink);
+    display:flex;flex-direction:column;gap:6px;min-height:44px;
+  }
+  .jump a:hover{border-color:var(--coral)}
+  .jump .j-ico{font-size:22px;line-height:1}
+  .jump .j-name{font-weight:800;font-size:14.5px}
+  .jump .j-sub{font-size:12.5px;color:var(--ink-3);font-weight:600}
+
+  /* ---------- tool sections ---------- */
+  .tool{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px;margin:26px 0;scroll-margin-top:96px;
+  }
+  .tool-head{display:flex;gap:16px;align-items:flex-start}
+  .tool-num{
+    flex:none;width:44px;height:44px;border-radius:13px;
+    display:grid;place-items:center;font-size:22px;
+    background:var(--coral-soft);
+  }
+  .tool:nth-of-type(odd) .tool-num{background:var(--teal-soft)}
+  .tool h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.01em}
+  .tool-desc{color:var(--ink-2);margin:6px 0 0;max-width:62ch;font-size:15px}
+  .controls{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;
+    margin-top:20px;
+  }
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:13px;font-weight:800;letter-spacing:.02em;color:var(--ink-2);text-transform:uppercase}
+  .field select,.field input[type="text"]{
+    width:100%;padding:11px 13px;border-radius:11px;
+    border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+    font:inherit;font-size:15.5px;font-weight:600;
+  }
+  .field select:focus,.field input[type="text"]:focus{border-color:var(--teal);outline:none}
+  .gen-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;align-items:center}
+  .btn{
+    border:0;cursor:pointer;font:inherit;font-weight:800;font-size:15px;
+    border-radius:12px;padding:12px 22px;min-height:48px;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{background:var(--coral);color:#fff}
+  .btn-primary:hover{background:var(--coral-dark)}
+  .btn-ghost{background:var(--surface-2);color:var(--ink)}
+  .btn-ghost:hover{background:var(--line)}
+  .hint{font-size:13px;color:var(--ink-3);font-weight:600}
+  .error{font-size:14px;color:var(--coral);font-weight:700;display:none;margin-top:10px}
+  .error.show{display:block}
+
+  .results{margin-top:20px;display:none;flex-direction:column;gap:10px}
+  .results.show{display:flex}
+  .results-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3)}
+  .result-item{
+    display:flex;gap:10px;align-items:flex-start;
+    background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:14px 14px 14px 16px;
+  }
+  .result-text{flex:1;font-size:15.5px;font-weight:600;overflow-wrap:anywhere;white-space:pre-line}
+  .result-text .meta{display:block;margin-top:5px;font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .copy-btn{
+    flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);
+    font:inherit;font-size:13px;font-weight:800;border-radius:9px;
+    padding:8px 13px;cursor:pointer;min-height:40px;
+  }
+  .copy-btn:hover{border-color:var(--teal);color:var(--teal)}
+  .copy-btn.copied{background:var(--teal);border-color:var(--teal);color:#fff}
+
+  /* hashtag groups */
+  .tag-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+  .tag-group{background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:16px}
+  .tag-group h3{font-size:15px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .tag-group h3 .reach{font-size:11.5px;font-weight:800;padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em}
+  .reach-big{background:var(--coral-soft);color:var(--coral)}
+  .reach-med{background:var(--sun-soft);color:var(--sun)}
+  .reach-niche{background:var(--teal-soft);color:var(--teal)}
+  .tags{margin-top:10px;font-size:14.5px;font-weight:600;line-height:1.9;overflow-wrap:anywhere;color:var(--ink-2)}
+  .tags span{color:var(--ink)}
+  .tag-group .copy-btn{margin-top:12px}
+
+  /* format chip for ideas */
+  .fmt{
+    display:inline-block;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;
+    background:var(--sun-soft);color:var(--sun);border-radius:999px;padding:3px 9px;margin-bottom:6px;
+  }
+
+  /* best time */
+  .platform-picker{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  .plat-btn{
+    border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+    font:inherit;font-weight:800;font-size:14.5px;border-radius:999px;
+    padding:10px 18px;cursor:pointer;min-height:46px;
+  }
+  .plat-btn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .time-panel{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:18px}
+  .time-panel h3{font-size:19px;font-weight:800}
+  .time-panel .tz{font-size:13px;color:var(--ink-3);font-weight:700;margin-top:2px}
+  .time-rows{margin-top:14px;display:flex;flex-direction:column}
+  .time-row{
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    padding:11px 2px;border-top:1px solid var(--line);font-size:15px;
+  }
+  .time-row:first-child{border-top:0}
+  .time-row .when{font-weight:800}
+  .time-row .window{font-weight:700;color:var(--teal)}
+  .time-row .why{flex-basis:100%;font-size:13.5px;color:var(--ink-2)}
+  .best-days{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .best-days .bd-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-3)}
+  .day-pill{background:var(--teal-soft);color:var(--teal);font-weight:800;font-size:13.5px;border-radius:999px;padding:6px 12px}
+
+  /* thumbnails */
+  .thumb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:20px}
+  .thumb-grid:empty{display:none}
+  .thumb-card{background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:12px;display:flex;flex-direction:column;gap:10px}
+  .thumb-card img{width:100%;height:auto;border-radius:9px;display:block;background:var(--surface-2)}
+  .thumb-meta{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .thumb-size{font-weight:800;font-size:14.5px}
+  .thumb-dims{font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .dl-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    background:var(--teal);color:#fff;text-decoration:none;
+    font-weight:800;font-size:14px;border-radius:10px;padding:10px 16px;min-height:44px;
+  }
+  .dl-btn:hover{filter:brightness(1.08)}
+
+  /* fancy fonts */
+  .font-rows{margin-top:20px;display:none;flex-direction:column;gap:10px}
+  .font-rows.show{display:flex}
+  .font-row{
+    display:flex;gap:10px;align-items:center;
+    background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:12px 12px 12px 16px;
+  }
+  .font-style-name{
+    flex:none;width:104px;font-size:11.5px;font-weight:800;text-transform:uppercase;
+    letter-spacing:.04em;color:var(--ink-3);
+  }
+  .font-sample{flex:1;font-size:19px;font-weight:600;overflow-wrap:anywhere;min-width:0}
+  @media (max-width:640px){
+    .font-row{flex-wrap:wrap}
+    .font-style-name{width:100%}
+  }
+
+  /* ---------- hero visual / brand showcase ---------- */
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:40px;align-items:center}
+  .hero-visual{position:relative;min-height:460px}
+  .hero-visual-bg{position:absolute;inset:8px 0 0 18px;border-radius:28px;background:var(--teal-soft);border:1px solid var(--line)}
+  .hero-visual-bg::after{content:"";position:absolute;right:22px;top:18px;width:74px;height:74px;border-radius:50%;background:var(--sun-soft);border:1px solid var(--line)}
+  .phone-frame{position:absolute;left:50%;top:6px;transform:translateX(-58%);width:236px;height:430px;background:#111814;border-radius:34px;padding:10px;box-shadow:0 24px 50px rgba(23,32,26,.22);z-index:3}
+  .phone-screen{position:relative;height:100%;border-radius:26px;overflow:hidden;background:#1a211c;color:#fff;display:flex;flex-direction:column}
+  .phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:74px;height:18px;border-radius:999px;background:#111814;z-index:4}
+  .reel-art{position:relative;height:272px;flex:none;overflow:hidden;background:#f3c96b}
+  .reel-art svg{width:100%;height:100%;display:block}
+  .reel-live{position:absolute;top:28px;left:12px;background:var(--coral);color:#fff;font-size:10px;font-weight:800;letter-spacing:.08em;padding:4px 8px;border-radius:999px}
+  .reel-body{padding:12px 13px 10px;background:#fff;color:#17201a;flex:1}
+  @media (prefers-color-scheme: dark){.reel-body{background:#1e2821;color:#eef3ee}}
+  .reel-user{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800}
+  .reel-avatar{width:26px;height:26px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-size:12px;flex:none}
+  .reel-follow{margin-left:auto;background:var(--ink);color:var(--bg);font-size:11px;padding:5px 9px;border-radius:999px}
+  .reel-cap{font-size:12.8px;line-height:1.45;margin-top:8px;font-weight:600}
+  .reel-cap b{color:var(--coral)}
+  .reel-tags{font-size:11.5px;color:var(--teal);font-weight:700;margin-top:5px;line-height:1.5}
+  .reel-actions{display:flex;gap:14px;margin-top:9px;font-size:11px;font-weight:800;color:var(--ink-2)}
+  .float-chip{position:absolute;z-index:4;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:14px;padding:10px 12px;max-width:190px}
+  .float-chip .fc-label{font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+  .float-chip .fc-text{font-size:13px;font-weight:800;line-height:1.3;margin-top:3px}
+  .fc-hook{right:0;top:22px;transform:rotate(2deg)}
+  .fc-hook .fc-text{color:var(--coral)}
+  .fc-font{right:2px;bottom:92px;transform:rotate(-2deg)}
+  .fc-font .fc-text{font-size:16px;letter-spacing:.02em}
+  .fc-stat{left:0;bottom:18px}
+  .fc-stat .fc-num{font-family:"Bricolage Grotesque",sans-serif;font-size:22px;font-weight:800;line-height:1;color:var(--teal)}
+  .fc-stat .fc-sub{font-size:11.5px;font-weight:700;color:var(--ink-2);margin-top:3px}
+  .yt-mini{position:absolute;left:0;top:64px;width:168px;z-index:4;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(-3deg)}
+  .yt-mini-art{height:88px;background:var(--teal);color:#fff;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+  .yt-mini-art strong{font-family:"Bricolage Grotesque",sans-serif;font-size:15px;line-height:1.05}
+  .yt-mini-art span{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.9}
+  .yt-mini-play{position:absolute;right:10px;top:10px;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--teal);display:grid;place-items:center;font-size:11px}
+  .yt-mini-meta{padding:8px 10px 10px}
+  .yt-mini-meta div{height:7px;border-radius:99px;background:var(--surface-2)}
+  .yt-mini-meta div+div{margin-top:6px;width:68%}
+  .hero-visual-caption{position:absolute;left:50%;transform:translateX(-50%);bottom:-6px;z-index:5;background:var(--ink);color:var(--bg);font-size:12px;font-weight:800;padding:7px 12px;border-radius:999px;white-space:normal;text-align:center;width:max-content;max-width:94%}
+  /* ---------- in-tool examples ---------- */
+  .example-box{margin-top:20px;border:1px dashed var(--line);border-radius:14px;padding:14px;background:color-mix(in srgb, var(--surface-2) 55%, transparent)}
+  .example-head{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
+  .example-head::before{content:"";width:22px;height:3px;border-radius:99px;background:var(--coral);display:inline-block}
+  .example-post{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .example-post-art{width:86px;height:86px;border-radius:10px;flex:none;overflow:hidden;position:relative}
+  .example-post-art svg{width:100%;height:100%;display:block}
+  .example-post-body{min-width:0;flex:1}
+  .example-post-user{font-size:13px;font-weight:800;display:flex;gap:6px;align-items:center}
+  .example-post-user span{font-weight:600;color:var(--ink-3);font-size:12px}
+  .example-post-text{font-size:13.5px;line-height:1.5;font-weight:600;margin-top:4px}
+  .example-post-text em{color:var(--teal);font-style:normal;font-weight:800}
+  .sample-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .sample-thumb{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--surface);text-align:left}
+  .sample-thumb-art{aspect-ratio:16/9;padding:10px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+  .sample-thumb-art.coral{background:var(--coral)} .sample-thumb-art.teal{background:var(--teal)} .sample-thumb-art.ink{background:#243128}
+  .sample-thumb-art strong{font-family:"Bricolage Grotesque",sans-serif;font-size:15px;line-height:1.05;max-width:11ch}
+  .sample-thumb-art small{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.92;margin-bottom:4px}
+  .sample-thumb-art .play{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;background:#fff;color:#17201a;display:grid;place-items:center;font-size:10px}
+  .sample-thumb-meta{padding:8px 10px;font-size:12px;font-weight:700;line-height:1.35}
+  .sample-thumb-meta span{display:block;color:var(--ink-3);font-size:11px;font-weight:700;margin-top:2px}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-visual{max-width:520px;width:100%;margin:6px auto 0}}
+  @media (max-width:560px){.hero-visual{min-height:440px}.phone-frame{width:218px;height:408px;transform:translateX(-50%)}.yt-mini{display:none}.fc-hook{right:0;top:8px}.fc-font{bottom:76px}.fc-stat{bottom:6px}.sample-thumbs{grid-template-columns:1fr}.sample-thumb-art strong{font-size:17px;max-width:16ch}.example-post{flex-direction:column}.example-post-art{width:100%;height:110px}}
+
+  /* ---------- trust / legal pages ---------- */
+  .page-section{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin:26px 0;scroll-margin-top:96px}
+  .page-section h2{font-size:clamp(24px,3.6vw,32px);font-weight:800;letter-spacing:-.01em}
+  .page-section h3{font-size:17px;font-weight:800;margin:22px 0 6px}
+  .page-section p,.page-section li{color:var(--ink-2);font-size:15px}
+  .page-section p{margin:8px 0 0;max-width:72ch}
+  .page-section ul{margin:8px 0 0;padding-left:20px;max-width:72ch}
+  .page-section li{margin-top:5px}
+  .page-kicker{display:inline-flex;align-items:center;gap:7px;background:var(--teal-soft);color:var(--teal);font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;margin-bottom:12px}
+  .page-meta{font-size:13px;color:var(--ink-3);font-weight:700;margin-top:6px}
+  .contact-card{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .contact-card .cc-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3)}
+  .contact-card .cc-email{font-size:18px;font-weight:800;color:var(--ink);overflow-wrap:anywhere}
+  .back-tools{display:inline-flex;margin-top:20px;font-weight:800;font-size:14px;text-decoration:none}
+  .back-tools:hover{text-decoration:underline}
+
+  footer{border-top:1px solid var(--line);margin-top:44px;background:var(--surface)}
+  .footer-in{max-width:1120px;margin:0 auto;padding:34px 20px 40px;display:flex;flex-direction:column;gap:22px}
+  .footer-top{display:flex;gap:28px;flex-wrap:wrap;justify-content:space-between}
+  .footer-brand-wrap{max-width:300px}
+  .footer-brand-row{display:flex;align-items:center;gap:10px}
+  .footer-logo{width:36px;height:36px;flex:none}
+  .footer-logo svg{width:100%;height:100%;display:block}
+  .footer-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:19px}
+  .footer-in p{margin:8px 0 0;font-size:13.5px;color:var(--ink-3);max-width:70ch}
+  .footer-in .by{font-size:14px;color:var(--ink-2);font-weight:700}
+  .footer-cols{display:flex;gap:36px;flex-wrap:wrap}
+  .footer-col h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+  .footer-col a{display:flex;align-items:center;min-height:36px;color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;padding:2px 0}
+  .footer-col a:hover{color:var(--coral)}
+  .footer-bottom{border-top:1px solid var(--line);padding-top:16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;font-size:13px;color:var(--ink-3);font-weight:600}
+  .footer-bottom a{color:var(--ink-2);font-weight:800}
+
+  @media (max-width:640px){
+    .hero{padding-top:36px}
+    .tool{padding:20px 16px}
+    .topnav{display:none}
+    .result-item{flex-direction:column}
+    .copy-btn{align-self:flex-start}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+  }
+
+</style>
+
+<style>
+  :root{--gold:#F6C445}
+  /* ---------- shared header ---------- */
+  .ck-header{position:sticky;top:0;z-index:60;background:color-mix(in srgb, var(--bg) 90%, transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .ck-header-in{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:12px}
+  .ck-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+  .ck-brand-mark{width:40px;height:40px;flex:none;display:block;line-height:0}
+  .ck-brand-mark svg{width:100%;height:100%;display:block}
+  .ck-brand-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;letter-spacing:-.01em}
+  .pro-badge{background:var(--gold);color:#17201a;font-size:10.5px;font-weight:800;letter-spacing:.06em;padding:4px 8px;border-radius:999px;text-transform:uppercase;white-space:nowrap}
+  .ck-nav{margin-left:auto;display:flex;gap:4px}
+  .ck-nav a{color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:9px;min-height:44px;display:inline-flex;align-items:center}
+  .ck-nav a:hover{background:var(--surface-2);color:var(--ink)}
+  .nav-toggle{display:none;margin-left:auto;background:var(--surface);border:1.5px solid var(--line);border-radius:10px;width:46px;height:46px;min-height:46px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+  .nav-toggle span{display:block;width:20px;height:2.5px;background:var(--ink);border-radius:2px}
+  @media (max-width:720px){
+    .nav-toggle{display:flex}
+    .ck-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--line);flex-direction:column;padding:10px 20px 16px;gap:2px;box-shadow:var(--shadow)}
+    .ck-nav.open{display:flex}
+    .ck-nav a{width:100%}
+  }
+  /* ---------- page scaffolding ---------- */
+  .breadcrumb{font-size:13px;font-weight:700;color:var(--ink-3);margin:24px 0 0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .breadcrumb a{color:var(--ink-2);text-decoration:none}
+  .breadcrumb a:hover{color:var(--coral)}
+  .page-title{font-size:clamp(32px,5.4vw,46px);font-weight:800;letter-spacing:-.02em;margin:12px 0 0}
+  .page-intro{font-size:clamp(16px,2.2vw,18.5px);color:var(--ink-2);max-width:64ch;margin:12px 0 0}
+  .page-section ol{margin:8px 0 0;padding-left:22px;max-width:72ch}
+  .page-section ol li{margin-top:7px;color:var(--ink-2);font-size:15px}
+  .faq-item{border-top:1px solid var(--line);margin-top:16px;padding-top:4px}
+  .faq-item h3{margin-top:14px}
+  .related-heading{font-size:clamp(21px,3vw,26px);font-weight:800;margin:34px 0 0}
+  .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0 34px}
+  .related-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);display:block}
+  .related-card:hover{border-color:var(--gold)}
+  .related-card .rc-ico{font-size:24px;line-height:1}
+  .related-card .rc-name{font-weight:800;font-size:16px;margin-top:9px;font-family:"Bricolage Grotesque",sans-serif}
+  .related-card .rc-sub{font-size:13.5px;color:var(--ink-2);margin-top:4px;font-weight:600}
+  /* ---------- shared footer ---------- */
+  .ck-footer{border-top:1px solid var(--line);margin-top:44px;background:var(--surface)}
+  .ck-footer-in{max-width:1120px;margin:0 auto;padding:30px 20px 38px;display:flex;flex-direction:column;gap:12px}
+  .ck-footer-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:16.5px;color:var(--ink)}
+  .ck-footer-links{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:14px;font-weight:700;align-items:center}
+  .ck-footer-links a{color:var(--ink-2);text-decoration:none;min-height:36px;display:inline-flex;align-items:center}
+  .ck-footer-links a:hover{color:var(--coral)}
+  .ck-footer-links .sep{color:var(--ink-3)}
+  .ck-footer-copy{font-size:13px;color:var(--ink-3);font-weight:600;margin:0}
+  /* ---------- contact form ---------- */
+  .contact-form{margin-top:22px;display:flex;flex-direction:column;gap:14px;max-width:640px}
+  .contact-form .field input[type="email"]{width:100%;padding:11px 13px;border-radius:11px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:15.5px;font-weight:600}
+  .contact-form textarea{width:100%;padding:11px 13px;border-radius:11px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:15.5px;font-weight:600;min-height:130px;resize:vertical}
+  .contact-form textarea:focus,.contact-form .field input[type="email"]:focus{border-color:var(--teal);outline:none}
+</style>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZHDP05H6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ZHDP05H6B');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zevtiaah1y");
+</script>
+</head>
+<body>
+<header class="ck-header">
+  <div class="ck-header-in">
+    <a class="ck-brand" href="/" aria-label="CreatorKit home">
+      <span class="ck-brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" role="img" aria-label="CreatorKit logo"><rect width="48" height="48" rx="12" fill="#F6C445"/><text x="24" y="31.5" font-family="'Bricolage Grotesque',Arial,sans-serif" font-size="17" font-weight="800" fill="#17201a" text-anchor="middle">CK</text></svg></span>
+      <span class="ck-brand-name">CreatorKit</span>
+      <span class="pro-badge">Pro Suite</span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <nav class="ck-nav" id="site-nav" aria-label="Main">
+      <a href="/#tools">All Tools</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/#tools">Tools</a><span aria-hidden="true">/</span><span aria-current="page">Fancy Font Generator</span></nav>
+  <h1 class="page-title">Fancy Font Generator</h1>
+  <p class="page-intro">Type anything and watch it appear in 13 stylish Unicode fonts — bold, script, bubble, squared, small caps, upside-down and more. Copy the style you love and paste it into your bio, caption, display name or username, anywhere.</p>
+
+  <section class="tool" aria-label="Fancy Font Generator tool">
+    <div class="controls">
+      <div class="field">
+        <label for="font-input">Your text</label>
+        <input type="text" id="font-input" placeholder="Type here — styles update as you type" maxlength="80" />
+      </div>
+    </div>
+    <div class="font-rows" id="font-rows" aria-live="polite"></div>
+  </section>
+
+  <section class="page-section" id="guide">
+    <span class="page-kicker">Guide</span>
+    <h2>How to Use the Fancy Font Generator</h2>
+    <p>Plain text looks the same on every profile. This free fancy font generator converts your words into thirteen stylish Unicode fonts — bold, script, double-struck, bubble, squared, small caps, upside-down and more — that you can copy and paste into Instagram bios, TikTok captions, YouTube titles and usernames. Here is how to use it well.</p>
+    <ol>
+        <li><strong>Type your text in the box.</strong> Every style updates live as you type, so you can watch thirteen versions of your words appear at once — no generate button and no waiting.</li>
+        <li><strong>Scroll the style rows and compare.</strong> Bold and double-struck read well at small sizes, script and fraktur feel decorative, and bubble or squared styles are playful and very hard to miss.</li>
+        <li><strong>Tap Copy next to the style you want.</strong> The styled text is placed on your clipboard exactly as shown, ready to paste anywhere that accepts text.</li>
+        <li><strong>Paste it where it will be seen:</strong> the first line of your Instagram bio, your TikTok display name, a pinned comment, or the opening line of a caption.</li>
+        <li><strong>Preview before you save.</strong> Check the pasted text on your profile while logged out, or on a second device, because a few very old phones show empty boxes for rare characters.</li>
+    </ol>
+    <h2>Viral Tips: Use Fancy Text Like a Pro</h2>
+    <ul>
+        <li><strong>Style the headline, not the paragraph.</strong> One styled line — your name, your niche or your posting promise — stands out. A whole bio written in script font is hard to read and quietly costs you followers.</li>
+        <li><strong>Keep searchable words in plain text.</strong> Instagram and TikTok search reads normal letters; if your niche keyword, like “fitness coach” or “travel tips”, is written in fancy characters, people searching for it may never find you.</li>
+        <li><strong>Pair style with structure.</strong> A bold first line, plain descriptive lines underneath, then one emoji-led call to action is the layout most big creators use — build the matching text with our Bio Generator.</li>
+        <li><strong>Think about accessibility.</strong> Screen readers may read styled characters letter by letter, or skip them entirely, so never put essential information — prices, dates or contact details — in fancy text alone.</li>
+        <li><strong>Use upside-down and strikethrough for jokes, sparingly.</strong> They are perfect for a playful comment or a “mistakes” post caption, but they fight readability anywhere longer than a few words.</li>
+        <li><strong>Stay consistent across platforms.</strong> Using the same styled name treatment on Instagram, TikTok and YouTube makes your accounts instantly recognisable when followers cross from one app to another.</li>
+    </ul>
+    <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>Are these real fonts I need to install?</h3>
+        <p>No. This generator does not install anything. It swaps each letter for a matching Unicode character that already looks like a different font, which is why the styled text pastes into apps that do not allow custom fonts at all. Nothing is downloaded, and no files are added to your device.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Where can I paste fancy text?</h3>
+        <p>Almost anywhere that accepts text: Instagram bios and captions, TikTok names and captions, YouTube titles and comments, Facebook posts, X posts and WhatsApp statuses. A few places, like some username fields, reject special characters — if a paste fails there, that field only accepts plain letters and numbers.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why do some letters or numbers stay the same in certain styles?</h3>
+        <p>Unicode simply does not include every character in every style. Squared text, for example, has capital letters but no lowercase set, and some styles have no digits at all. The generator leaves any character unchanged when no styled version exists, so your text is never broken or lost.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is the fancy font generator free?</h3>
+        <p>Yes — completely free, with no sign-up, no watermark and no limit on how much text you convert. It runs entirely in your browser, and the words you type are never sent to or stored on a server.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can fancy text hurt my reach?</h3>
+        <p>Used lightly, no. Used everywhere, it can: styled keywords are invisible to platform search, and walls of decorative text reduce readability, which lowers the saves and shares that drive reach. One styled line per bio or caption is the sweet spot most successful creators stick to.</p>
+      </div>
+  </section>
+
+  <h2 class="related-heading">Related Tools</h2>
+  <div class="related-grid">
+      <a class="related-card" href="/bio-generator/"><span class="rc-ico" aria-hidden="true">👤</span><div class="rc-name">Bio Generator</div><div class="rc-sub">Bios that deserve a fancy first line</div></a>
+      <a class="related-card" href="/caption-generator/"><span class="rc-ico" aria-hidden="true">✍️</span><div class="rc-name">Caption Generator</div><div class="rc-sub">Captions to style and post</div></a>
+      <a class="related-card" href="/hashtag-generator/"><span class="rc-ico" aria-hidden="true">#️⃣</span><div class="rc-name">Hashtag Generator</div><div class="rc-sub">25 hashtags grouped by reach</div></a>
+  </div>
+</main>
+<footer class="ck-footer">
+  <div class="ck-footer-in">
+    <div class="ck-footer-brand">CreatorKit — A NumberBuzz USA Digital Product</div>
+    <nav class="ck-footer-links" aria-label="Footer">
+      <a href="/about.html">About</a><span class="sep" aria-hidden="true">·</span>
+      <a href="/contact.html">Contact</a><span class="sep" aria-hidden="true">·</span>
+      <a href="/privacy-policy.html">Privacy Policy</a><span class="sep" aria-hidden="true">·</span>
+      <a href="/terms.html">Terms</a><span class="sep" aria-hidden="true">·</span>
+      <a href="/disclaimer.html">Disclaimer</a>
+    </nav>
+    <p class="ck-footer-copy">© 2026 CreatorKit by Shahiryar Munir. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+document.getElementById("nav-toggle").addEventListener("click", function(){
+  var nav = document.getElementById("site-nav");
+  var open = nav.classList.toggle("open");
+  this.setAttribute("aria-expanded", open ? "true" : "false");
+});
+</script>
+<script>
+/* copy helper (shared with the main toolkit) */
+function copyText(text, btn){
+  function done(){
+    if (!btn) return;
+    var old = btn.textContent;
+    btn.textContent = "Copied ✓";
+    btn.classList.add("copied");
+    setTimeout(function(){ btn.textContent = old; btn.classList.remove("copied"); }, 1600);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done, function(){ fallback(); });
+  } else { fallback(); }
+  function fallback(){
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch(e){}
+    document.body.removeChild(ta); done();
+  }
+}
+/* ================= 9. Fancy fonts ================= */
+function mathMap(upperStart, lowerStart, digitStart, exceptions){
+  return function(text){
+    var out = "";
+    for (var i = 0; i < text.length; i++){
+      var ch = text.charAt(i), code = text.charCodeAt(i);
+      if (exceptions && exceptions[ch]){ out += exceptions[ch]; continue; }
+      if (code >= 65 && code <= 90 && upperStart) out += String.fromCodePoint(upperStart + code - 65);
+      else if (code >= 97 && code <= 122 && lowerStart) out += String.fromCodePoint(lowerStart + code - 97);
+      else if (code >= 48 && code <= 57 && digitStart) out += String.fromCodePoint(digitStart + code - 48);
+      else out += ch;
+    }
+    return out;
+  };
+}
+var SCRIPT_EXC = {"B":"ℬ","E":"ℰ","F":"ℱ","H":"ℋ","I":"ℐ","L":"ℒ","M":"ℳ","R":"ℛ","e":"ℯ","g":"ℊ","o":"ℴ"};
+var DS_EXC = {"C":"ℂ","H":"ℍ","N":"ℕ","P":"ℙ","Q":"ℚ","R":"ℝ","Z":"ℤ"};
+var ITALIC_EXC = {"h":"ℎ"};
+var SMALLCAPS_MAP = {"a":"ᴀ","b":"ʙ","c":"ᴄ","d":"ᴅ","e":"ᴇ","f":"ꜰ","g":"ɢ","h":"ʜ","i":"ɪ","j":"ᴊ","k":"ᴋ","l":"ʟ","m":"ᴍ","n":"ɴ","o":"ᴏ","p":"ᴘ","q":"ǫ","r":"ʀ","s":"ꜱ","t":"ᴛ","u":"ᴜ","v":"ᴠ","w":"ᴡ","x":"x","y":"ʏ","z":"ᴢ"};
+var FLIP_MAP = {"a":"ɐ","b":"q","c":"ɔ","d":"p","e":"ǝ","f":"ɟ","g":"ƃ","h":"ɥ","i":"ᴉ","j":"ɾ","k":"ʞ","l":"l","m":"ɯ","n":"u","o":"o","p":"d","q":"b","r":"ɹ","s":"s","t":"ʇ","u":"n","v":"ʌ","w":"ʍ","x":"x","y":"ʎ","z":"z","A":"∀","B":"𐐒","C":"Ɔ","D":"ᗡ","E":"Ǝ","F":"Ⅎ","G":"⅁","H":"H","I":"I","J":"ſ","K":"ʞ","L":"˥","M":"W","N":"N","O":"O","P":"Ԁ","Q":"Ό","R":"ᴚ","S":"S","T":"⊥","U":"∩","V":"Λ","W":"M","X":"X","Y":"⅄","Z":"Z","0":"0","1":"Ɩ","2":"ᄅ","3":"Ɛ","4":"ㄣ","5":"ϛ","6":"9","7":"ㄥ","8":"8","9":"6",".":"˙",",":"'","?":"¿","!":"¡","'":",","\"":"„","(" : ")"," ) ":"(",")":"(","[":"]","]":"[","{":"}","}":"{","<":">",">":"<","&":"⅋","_":"‾"};
+var FONT_STYLES = [
+  { name:"Bold", fn: mathMap(0x1D400, 0x1D41A, 0x1D7CE) },
+  { name:"Italic", fn: mathMap(0x1D434, 0x1D44E, null, ITALIC_EXC) },
+  { name:"Bold Italic", fn: mathMap(0x1D468, 0x1D482, null) },
+  { name:"Script", fn: mathMap(0x1D49C, 0x1D4B6, null, SCRIPT_EXC) },
+  { name:"Double-Struck", fn: mathMap(0x1D538, 0x1D552, 0x1D7D8, DS_EXC) },
+  { name:"Monospace", fn: mathMap(0x1D670, 0x1D68A, 0x1D7F6) },
+  { name:"Fraktur", fn: mathMap(0x1D504, 0x1D51E, null, {"C":"ℭ","H":"ℌ","I":"ℑ","R":"ℜ","Z":"ℨ"}) },
+  { name:"Bubble", fn: mathMap(0x24B6, 0x24D0, null) },
+  { name:"Squared", fn: mathMap(0x1F130, null, null) },
+  { name:"Small Caps", fn: function(t){ return t.split("").map(function(c){ return SMALLCAPS_MAP[c.toLowerCase()] && c.length === 1 && /[a-zA-Z]/.test(c) ? SMALLCAPS_MAP[c.toLowerCase()] : c; }).join(""); } },
+  { name:"Strikethrough", fn: function(t){ return t.split("").map(function(c){ return c + "̶"; }).join(""); } },
+  { name:"Underline", fn: function(t){ return t.split("").map(function(c){ return c + "̲"; }).join(""); } },
+  { name:"Upside Down", fn: function(t){ return t.split("").map(function(c){ return FLIP_MAP[c] || c; }).reverse().join(""); } }
+];
+/* Bubble digits need their own pass (circled numbers aren't in the letter ranges) */
+FONT_STYLES[7].fn = function(t){
+  var out = "";
+  for (var i = 0; i < t.length; i++){
+    var ch = t.charAt(i), code = t.charCodeAt(i);
+    if (code >= 65 && code <= 90) out += String.fromCodePoint(0x24B6 + code - 65);
+    else if (code >= 97 && code <= 122) out += String.fromCodePoint(0x24D0 + code - 97);
+    else if (ch === "0") out += "⓪";
+    else if (code >= 49 && code <= 57) out += String.fromCodePoint(0x2460 + code - 49);
+    else out += ch;
+  }
+  return out;
+};
+var fontRowsEl = document.getElementById("font-rows");
+var fontRowSamples = [];
+FONT_STYLES.forEach(function(style){
+  var row = document.createElement("div");
+  row.className = "font-row";
+  var label = document.createElement("span");
+  label.className = "font-style-name"; label.textContent = style.name;
+  var sample = document.createElement("div");
+  sample.className = "font-sample";
+  var btn = document.createElement("button");
+  btn.type = "button"; btn.className = "copy-btn"; btn.textContent = "Copy";
+  btn.setAttribute("aria-label", "Copy " + style.name + " style");
+  btn.addEventListener("click", function(){ copyText(sample.textContent, btn); });
+  row.appendChild(label); row.appendChild(sample); row.appendChild(btn);
+  fontRowsEl.appendChild(row);
+  fontRowSamples.push({ style: style, sample: sample });
+});
+function updateFonts(){
+  var raw = document.getElementById("font-input").value;
+  var text = raw.trim() ? raw : "Creator Kit";
+  fontRowSamples.forEach(function(r){ r.sample.textContent = r.style.fn(text); });
+  fontRowsEl.classList.add("show");
+}
+document.getElementById("font-input").addEventListener("input", updateFonts);
+updateFonts();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are these real fonts I need to install?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This generator does not install anything. It swaps each letter for a matching Unicode character that already looks like a different font, which is why the styled text pastes into apps that do not allow custom fonts at all. Nothing is downloaded, and no files are added to your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I paste fancy text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Almost anywhere that accepts text: Instagram bios and captions, TikTok names and captions, YouTube titles and comments, Facebook posts, X posts and WhatsApp statuses. A few places, like some username fields, reject special characters — if a paste fails there, that field only accepts plain letters and numbers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some letters or numbers stay the same in certain styles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unicode simply does not include every character in every style. Squared text, for example, has capital letters but no lowercase set, and some styles have no digits at all. The generator leaves any character unchanged when no styled version exists, so your text is never broken or lost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the fancy font generator free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — completely free, with no sign-up, no watermark and no limit on how much text you convert. It runs entirely in your browser, and the words you type are never sent to or stored on a server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can fancy text hurt my reach?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Used lightly, no. Used everywhere, it can: styled keywords are invisible to platform search, and walls of decorative text reduce readability, which lowers the saves and shares that drive reach. One styled line per bio or caption is the sweet spot most successful creators stick to."
+      }
+    }
+  ]
+}
+</script>
+</body>
+</html>
