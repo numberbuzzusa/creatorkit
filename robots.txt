@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://numberbuzzusa.xyz/sitemap.xml
+Sitemap: https://creatorkit.numberbuzzusa.xyz/sitemap.xml
