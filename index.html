@@ -23,39 +23,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#f6f7f4;
-    --surface:#ffffff;
-    --surface-2:#eef1ea;
-    --ink:#17201a;
-    --ink-2:#4c5a50;
-    --ink-3:#718075;
-    --line:#dde3da;
-    --gold:#F6C445;
-    --gold-soft:#fdf3da;
-    --coral:#E8492F;
-    --coral-dark:#c93a24;
-    --coral-soft:#fdeee9;
-    --teal:#0d7a6f;
-    --teal-soft:#e2f3f0;
+    --bg:#070B12;
+    --surface:#0B0F19;
+    --surface-2:#111A29;
+    --ink:#E8EEF6;
+    --ink-2:#A9BCD0;
+    --ink-3:#7E93A8;
+    --line:#1E2A3A;
+    --gold:#38BDF8;
+    --gold-soft:#0D2438;
+    --coral:#FF6A4D;
+    --coral-dark:#FF8266;
+    --coral-soft:#33201B;
+    --teal:#34D399;
+    --teal-soft:#0C2B21;
     --radius:18px;
-    --shadow:0 10px 30px rgba(23,32,26,.08);
-    --shadow-lg:0 22px 48px rgba(23,32,26,.14);
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+    --shadow-lg:0 22px 48px rgba(0,0,0,.45);
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#101512;
-      --surface:#1a211c;
-      --surface-2:#232c25;
-      --ink:#eef3ee;
-      --ink-2:#b9c6bb;
-      --ink-3:#8b9a8e;
-      --line:#2e3a30;
-      --gold-soft:#332a12;
+      --bg:#070B12;
+      --surface:#0B0F19;
+      --surface-2:#111A29;
+      --ink:#E8EEF6;
+      --ink-2:#A9BCD0;
+      --ink-3:#7E93A8;
+      --line:#1E2A3A;
+      --gold-soft:#0D2438;
       --coral:#ff6a4d;
       --coral-dark:#ff8266;
       --coral-soft:#33201b;
-      --teal:#3ec2b2;
-      --teal-soft:#173330;
+      --teal:#34D399;
+      --teal-soft:#0C2B21;
       --shadow:0 10px 30px rgba(0,0,0,.35);
       --shadow-lg:0 22px 48px rgba(0,0,0,.45);
     }
@@ -121,9 +121,9 @@
   .hero-credit strong{color:var(--ink)}
   .hero-visual{position:relative;min-height:460px}
   .hero-visual-bg{position:absolute;inset:8px 0 0 18px;border-radius:28px;background:var(--teal-soft);border:1px solid var(--line)}
-  .phone-frame{position:absolute;left:50%;top:6px;transform:translateX(-50%);width:236px;height:430px;background:#111814;border-radius:34px;padding:10px;box-shadow:0 24px 50px rgba(23,32,26,.22);z-index:3}
-  .phone-screen{position:relative;height:100%;border-radius:26px;overflow:hidden;background:#1a211c}
-  .phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:74px;height:18px;border-radius:999px;background:#111814;z-index:4}
+  .phone-frame{position:absolute;left:50%;top:6px;transform:translateX(-50%);width:236px;height:430px;background:#05080E;border-radius:34px;padding:10px;box-shadow:0 24px 50px rgba(23,32,26,.22);z-index:3}
+  .phone-screen{position:relative;height:100%;border-radius:26px;overflow:hidden;background:#0B0F19}
+  .phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:74px;height:18px;border-radius:999px;background:#05080E;z-index:4}
   .phone-screen video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
   .hero-visual-caption{position:absolute;left:50%;transform:translateX(-50%);bottom:-4px;z-index:5;background:var(--ink);color:var(--bg);font-size:12px;font-weight:800;padding:7px 12px;border-radius:999px;text-align:center;width:max-content;max-width:94%}
   @media (max-width:900px){
@@ -480,7 +480,15 @@
     </div>
   </section>
 
-</main>
+<section class="section" id="bidforge-promo">
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 28px">
+      <p style="margin:0 0 8px;font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--teal)">FROM THE MAKERS OF CREATORKIT</p>
+      <h2 style="margin:0 0 10px">BidForge Agency \u2014 B2B services for US companies</h2>
+      <p style="margin:0 0 18px;color:var(--ink-2)">Need more than free tools? Our agency writes ready-to-submit Micro-RFP proposals, installs 24/7 AI website receptionists and builds custom business automations \u2014 fixed published prices, executive service.</p>
+      <a href="https://bidforge.agency" target="_blank" rel="noopener" style="display:inline-block;background:var(--gold);color:#17201a;font-weight:800;font-size:15px;text-decoration:none;border-radius:12px;padding:11px 20px">Visit BidForge Agency \u2192</a>
+    </div>
+  </section>
+  </main>
 
 <footer>
   <div class="footer-in">
