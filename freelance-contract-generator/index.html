@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="Free freelance service contract generator. Define scope, deliverables, fees, payment terms and IP ownership, then download a clean contract PDF. No sign-up." />
+<link rel="canonical" href="https://creatorkit.numberbuzzusa.xyz/freelance-contract-generator/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F6C445'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='27' font-weight='800' fill='%2317201a' text-anchor='middle'%3ECK%3C/text%3E%3C/svg%3E" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5963284443577039" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<title>Freelance Contract Generator — Free Service Agreement PDF | CreatorKit</title>
+<style>
+  :root{
+    --bg:#f6f7f4;
+    --surface:#ffffff;
+    --surface-2:#eef1ea;
+    --ink:#17201a;
+    --ink-2:#4c5a50;
+    --ink-3:#718075;
+    --line:#dde3da;
+    --coral:#e8492f;
+    --coral-dark:#c93a24;
+    --coral-soft:#fdeee9;
+    --teal:#0d7a6f;
+    --teal-soft:#e2f3f0;
+    --sun:#b97e0a;
+    --sun-soft:#fdf3da;
+    --radius:18px;
+    --shadow:0 10px 30px rgba(23,32,26,.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#101512;
+      --surface:#1a211c;
+      --surface-2:#232c25;
+      --ink:#eef3ee;
+      --ink-2:#b9c6bb;
+      --ink-3:#8b9a8e;
+      --line:#2e3a30;
+      --coral:#ff6a4d;
+      --coral-dark:#ff8266;
+      --coral-soft:#33201b;
+      --teal:#3ec2b2;
+      --teal-soft:#173330;
+      --sun:#f0b93e;
+      --sun-soft:#332a12;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-serif;line-height:1.12;margin:0}
+  a{color:var(--teal)}
+  button,[role="button"],select,input,summary{min-height:44px}
+  :focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:6px}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-in{
+    max-width:1120px;margin:0 auto;padding:10px 20px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .brand-mark{
+    width:42px;height:42px;flex:none;display:block;line-height:0;
+    filter:drop-shadow(0 6px 14px rgba(232,73,47,.28));
+  }
+  .brand-mark svg,.logo-hero svg{width:100%;height:100%;display:block}
+  .logo-hero{width:72px;height:72px;margin-bottom:18px;filter:drop-shadow(0 10px 22px rgba(232,73,47,.22))}
+  .brand-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;letter-spacing:-.01em}
+  .brand-by{font-size:12px;color:var(--ink-3);font-weight:600}
+  .topnav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  .topnav a{
+    color:var(--ink-2);text-decoration:none;font-size:13.5px;font-weight:700;
+    padding:10px 10px;border-radius:9px;min-height:44px;display:inline-flex;align-items:center;
+  }
+  .topnav a:hover{background:var(--surface-2);color:var(--ink)}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:52px 0 8px}
+  .hero h1{font-size:clamp(38px,6.5vw,62px);font-weight:800;letter-spacing:-.02em;max-width:14ch}
+  .hero h1 .hl{color:var(--coral)}
+  .hero p.lede{font-size:clamp(17px,2.4vw,20px);color:var(--ink-2);max-width:56ch;margin:16px 0 0}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;
+    background:var(--surface);border:1px solid var(--line);border-radius:999px;
+    padding:8px 14px;font-size:13.5px;font-weight:700;color:var(--ink);
+  }
+  .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex:none}
+  .chip:nth-child(2) .dot{background:var(--coral)}
+  .chip:nth-child(3) .dot{background:var(--sun)}
+  .hero-credit{margin-top:14px;font-size:14px;color:var(--ink-3);font-weight:600}
+  .hero-credit strong{color:var(--ink)}
+
+  /* quick jump grid */
+  .jump{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;
+    margin:34px 0 10px;
+  }
+  .jump a{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:14px;text-decoration:none;color:var(--ink);
+    display:flex;flex-direction:column;gap:6px;min-height:44px;
+  }
+  .jump a:hover{border-color:var(--coral)}
+  .jump .j-ico{font-size:22px;line-height:1}
+  .jump .j-name{font-weight:800;font-size:14.5px}
+  .jump .j-sub{font-size:12.5px;color:var(--ink-3);font-weight:600}
+
+  /* ---------- tool sections ---------- */
+  .tool{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px;margin:26px 0;scroll-margin-top:96px;
+  }
+  .tool-head{display:flex;gap:16px;align-items:flex-start}
+  .tool-num{
+    flex:none;width:44px;height:44px;border-radius:13px;
+    display:grid;place-items:center;font-size:22px;
+    background:var(--coral-soft);
+  }
+  .tool:nth-of-type(odd) .tool-num{background:var(--teal-soft)}
+  .tool h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.01em}
+  .tool-desc{color:var(--ink-2);margin:6px 0 0;max-width:62ch;font-size:15px}
+  .controls{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;
+    margin-top:20px;
+  }
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:13px;font-weight:800;letter-spacing:.02em;color:var(--ink-2);text-transform:uppercase}
+  .field select,.field input[type="text"]{
+    width:100%;padding:11px 13px;border-radius:11px;
+    border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+    font:inherit;font-size:15.5px;font-weight:600;
+  }
+  .field select:focus,.field input[type="text"]:focus{border-color:var(--teal);outline:none}
+  .gen-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;align-items:center}
+  .btn{
+    border:0;cursor:pointer;font:inherit;font-weight:800;font-size:15px;
+    border-radius:12px;padding:12px 22px;min-height:48px;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{background:var(--coral);color:#fff}
+  .btn-primary:hover{background:var(--coral-dark)}
+  .btn-ghost{background:var(--surface-2);color:var(--ink)}
+  .btn-ghost:hover{background:var(--line)}
+  .hint{font-size:13px;color:var(--ink-3);font-weight:600}
+  .error{font-size:14px;color:var(--coral);font-weight:700;display:none;margin-top:10px}
+  .error.show{display:block}
+
+  .results{margin-top:20px;display:none;flex-direction:column;gap:10px}
+  .results.show{display:flex}
+  .results-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3)}
+  .result-item{
+    display:flex;gap:10px;align-items:flex-start;
+    background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:14px 14px 14px 16px;
+  }
+  .result-text{flex:1;font-size:15.5px;font-weight:600;overflow-wrap:anywhere;white-space:pre-line}
+  .result-text .meta{display:block;margin-top:5px;font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .copy-btn{
+    flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);
+    font:inherit;font-size:13px;font-weight:800;border-radius:9px;
+    padding:8px 13px;cursor:pointer;min-height:40px;
+  }
+  .copy-btn:hover{border-color:var(--teal);color:var(--teal)}
+  .copy-btn.copied{background:var(--teal);border-color:var(--teal);color:#fff}
+
+  /* hashtag groups */
+  .tag-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+  .tag-group{background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:16px}
+  .tag-group h3{font-size:15px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .tag-group h3 .reach{font-size:11.5px;font-weight:800;padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em}
+  .reach-big{background:var(--coral-soft);color:var(--coral)}
+  .reach-med{background:var(--sun-soft);color:var(--sun)}
+  .reach-niche{background:var(--teal-soft);color:var(--teal)}
+  .tags{margin-top:10px;font-size:14.5px;font-weight:600;line-height:1.9;overflow-wrap:anywhere;color:var(--ink-2)}
+  .tags span{color:var(--ink)}
+  .tag-group .copy-btn{margin-top:12px}
+
+  /* format chip for ideas */
+  .fmt{
+    display:inline-block;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;
+    background:var(--sun-soft);color:var(--sun);border-radius:999px;padding:3px 9px;margin-bottom:6px;
+  }
+
+  /* best time */
+  .platform-picker{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  .plat-btn{
+    border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+    font:inherit;font-weight:800;font-size:14.5px;border-radius:999px;
+    padding:10px 18px;cursor:pointer;min-height:46px;
+  }
+  .plat-btn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .time-panel{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:18px}
+  .time-panel h3{font-size:19px;font-weight:800}
+  .time-panel .tz{font-size:13px;color:var(--ink-3);font-weight:700;margin-top:2px}
+  .time-rows{margin-top:14px;display:flex;flex-direction:column}
+  .time-row{
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    padding:11px 2px;border-top:1px solid var(--line);font-size:15px;
+  }
+  .time-row:first-child{border-top:0}
+  .time-row .when{font-weight:800}
+  .time-row .window{font-weight:700;color:var(--teal)}
+  .time-row .why{flex-basis:100%;font-size:13.5px;color:var(--ink-2)}
+  .best-days{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .best-days .bd-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-3)}
+  .day-pill{background:var(--teal-soft);color:var(--teal);font-weight:800;font-size:13.5px;border-radius:999px;padding:6px 12px}
+
+  /* thumbnails */
+  .thumb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:20px}
+  .thumb-grid:empty{display:none}
+  .thumb-card{background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:12px;display:flex;flex-direction:column;gap:10px}
+  .thumb-card img{width:100%;height:auto;border-radius:9px;display:block;background:var(--surface-2)}
+  .thumb-meta{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .thumb-size{font-weight:800;font-size:14.5px}
+  .thumb-dims{font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .dl-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    background:var(--teal);color:#fff;text-decoration:none;
+    font-weight:800;font-size:14px;border-radius:10px;padding:10px 16px;min-height:44px;
+  }
+  .dl-btn:hover{filter:brightness(1.08)}
+
+  /* fancy fonts */
+  .font-rows{margin-top:20px;display:none;flex-direction:column;gap:10px}
+  .font-rows.show{display:flex}
+  .font-row{
+    display:flex;gap:10px;align-items:center;
+    background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:12px 12px 12px 16px;
+  }
+  .font-style-name{
+    flex:none;width:104px;font-size:11.5px;font-weight:800;text-transform:uppercase;
+    letter-spacing:.04em;color:var(--ink-3);
+  }
+  .font-sample{flex:1;font-size:19px;font-weight:600;overflow-wrap:anywhere;min-width:0}
+  @media (max-width:640px){
+    .font-row{flex-wrap:wrap}
+    .font-style-name{width:100%}
+  }
+
+  /* ---------- hero visual / brand showcase ---------- */
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:40px;align-items:center}
+  .hero-visual{position:relative;min-height:460px}
+  .hero-visual-bg{position:absolute;inset:8px 0 0 18px;border-radius:28px;background:var(--teal-soft);border:1px solid var(--line)}
+  .hero-visual-bg::after{content:"";position:absolute;right:22px;top:18px;width:74px;height:74px;border-radius:50%;background:var(--sun-soft);border:1px solid var(--line)}
+  .phone-frame{position:absolute;left:50%;top:6px;transform:translateX(-58%);width:236px;height:430px;background:#111814;border-radius:34px;padding:10px;box-shadow:0 24px 50px rgba(23,32,26,.22);z-index:3}
+  .phone-screen{position:relative;height:100%;border-radius:26px;overflow:hidden;background:#1a211c;color:#fff;display:flex;flex-direction:column}
+  .phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:74px;height:18px;border-radius:999px;background:#111814;z-index:4}
+  .reel-art video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .example-post-art.video-art{width:170px;height:302px;flex:none;padding:0;overflow:hidden;background:#111814}
+  .example-post-art.video-art video{width:100%;height:100%;object-fit:cover;display:block}
+  @media (max-width:560px){.example-post-art.video-art{width:100%;height:320px}}
+  .reel-art{position:relative;height:272px;flex:none;overflow:hidden;background:#f3c96b}
+  .reel-art svg{width:100%;height:100%;display:block}
+  .reel-live{position:absolute;top:28px;left:12px;background:var(--coral);color:#fff;font-size:10px;font-weight:800;letter-spacing:.08em;padding:4px 8px;border-radius:999px}
+  .reel-body{padding:12px 13px 10px;background:#fff;color:#17201a;flex:1}
+  @media (prefers-color-scheme: dark){.reel-body{background:#1e2821;color:#eef3ee}}
+  .reel-user{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800}
+  .reel-avatar{width:26px;height:26px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-size:12px;flex:none}
+  .reel-follow{margin-left:auto;background:var(--ink);color:var(--bg);font-size:11px;padding:5px 9px;border-radius:999px}
+  .reel-cap{font-size:12.8px;line-height:1.45;margin-top:8px;font-weight:600}
+  .reel-cap b{color:var(--coral)}
+  .reel-tags{font-size:11.5px;color:var(--teal);font-weight:700;margin-top:5px;line-height:1.5}
+  .reel-actions{display:flex;gap:14px;margin-top:9px;font-size:11px;font-weight:800;color:var(--ink-2)}
+  .float-chip{position:absolute;z-index:4;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:14px;padding:10px 12px;max-width:190px}
+  .float-chip .fc-label{font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+  .float-chip .fc-text{font-size:13px;font-weight:800;line-height:1.3;margin-top:3px}
+  .fc-hook{right:0;top:22px;transform:rotate(2deg)}
+  .fc-hook .fc-text{color:var(--coral)}
+  .fc-font{right:2px;bottom:92px;transform:rotate(-2deg)}
+  .fc-font .fc-text{font-size:16px;letter-spacing:.02em}
+  .fc-stat{left:0;bottom:18px}
+  .fc-stat .fc-num{font-family:"Bricolage Grotesque",sans-serif;font-size:22px;font-weight:800;line-height:1;color:var(--teal)}
+  .fc-stat .fc-sub{font-size:11.5px;font-weight:700;color:var(--ink-2);margin-top:3px}
+  .yt-mini{position:absolute;left:0;top:64px;width:168px;z-index:4;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(-3deg)}
+  .yt-mini-art{height:88px;background:var(--teal);color:#fff;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+  .yt-mini-art strong{font-family:"Bricolage Grotesque",sans-serif;font-size:15px;line-height:1.05}
+  .yt-mini-art span{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.9}
+  .yt-mini-play{position:absolute;right:10px;top:10px;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--teal);display:grid;place-items:center;font-size:11px}
+  .yt-mini-meta{padding:8px 10px 10px}
+  .yt-mini-meta div{height:7px;border-radius:99px;background:var(--surface-2)}
+  .yt-mini-meta div+div{margin-top:6px;width:68%}
+  .hero-visual-caption{position:absolute;left:50%;transform:translateX(-50%);bottom:-6px;z-index:5;background:var(--ink);color:var(--bg);font-size:12px;font-weight:800;padding:7px 12px;border-radius:999px;white-space:normal;text-align:center;width:max-content;max-width:94%}
+  /* ---------- in-tool examples ---------- */
+  .example-box{margin-top:20px;border:1px dashed var(--line);border-radius:14px;padding:14px;background:color-mix(in srgb, var(--surface-2) 55%, transparent)}
+  .example-head{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
+  .example-head::before{content:"";width:22px;height:3px;border-radius:99px;background:var(--coral);display:inline-block}
+  .example-post{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .example-post-art{width:86px;height:86px;border-radius:10px;flex:none;overflow:hidden;position:relative}
+  .example-post-art svg{width:100%;height:100%;display:block}
+  .example-post-body{min-width:0;flex:1}
+  .example-post-user{font-size:13px;font-weight:800;display:flex;gap:6px;align-items:center}
+  .example-post-user span{font-weight:600;color:var(--ink-3);font-size:12px}
+  .example-post-text{font-size:13.5px;line-height:1.5;font-weight:600;margin-top:4px}
+  .example-post-text em{color:var(--teal);font-style:normal;font-weight:800}
+  .sample-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .sample-thumb{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--surface);text-align:left}
+  .sample-thumb-art{aspect-ratio:16/9;padding:10px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+  .sample-thumb-art.coral{background:var(--coral)} .sample-thumb-art.teal{background:var(--teal)} .sample-thumb-art.ink{background:#243128}
+  .sample-thumb-art strong{font-family:"Bricolage Grotesque",sans-serif;font-size:15px;line-height:1.05;max-width:11ch}
+  .sample-thumb-art small{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.92;margin-bottom:4px}
+  .sample-thumb-art .play{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;background:#fff;color:#17201a;display:grid;place-items:center;font-size:10px}
+  .sample-thumb-meta{padding:8px 10px;font-size:12px;font-weight:700;line-height:1.35}
+  .sample-thumb-meta span{display:block;color:var(--ink-3);font-size:11px;font-weight:700;margin-top:2px}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-visual{max-width:520px;width:100%;margin:6px auto 0}}
+  @media (max-width:560px){.hero-visual{min-height:440px}.phone-frame{width:218px;height:408px;transform:translateX(-50%)}.yt-mini{display:none}.fc-hook{right:0;top:8px}.fc-font{bottom:76px}.fc-stat{bottom:6px}.sample-thumbs{grid-template-columns:1fr}.sample-thumb-art strong{font-size:17px;max-width:16ch}.example-post{flex-direction:column}.example-post-art{width:100%;height:110px}}
+
+  /* ---------- trust / legal pages ---------- */
+  .page-section{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin:26px 0;scroll-margin-top:96px}
+  .page-section h2{font-size:clamp(24px,3.6vw,32px);font-weight:800;letter-spacing:-.01em}
+  .page-section h3{font-size:17px;font-weight:800;margin:22px 0 6px}
+  .page-section p,.page-section li{color:var(--ink-2);font-size:15px}
+  .page-section p{margin:8px 0 0;max-width:72ch}
+  .page-section ul{margin:8px 0 0;padding-left:20px;max-width:72ch}
+  .page-section li{margin-top:5px}
+  .page-kicker{display:inline-flex;align-items:center;gap:7px;background:var(--teal-soft);color:var(--teal);font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;margin-bottom:12px}
+  .page-meta{font-size:13px;color:var(--ink-3);font-weight:700;margin-top:6px}
+  .contact-card{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .contact-card .cc-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3)}
+  .contact-card .cc-email{font-size:18px;font-weight:800;color:var(--ink);overflow-wrap:anywhere}
+  .back-tools{display:inline-flex;margin-top:20px;font-weight:800;font-size:14px;text-decoration:none}
+  .back-tools:hover{text-decoration:underline}
+
+  footer{border-top:1px solid var(--line);margin-top:44px;background:var(--surface)}
+  .footer-in{max-width:1120px;margin:0 auto;padding:34px 20px 40px;display:flex;flex-direction:column;gap:22px}
+  .footer-top{display:flex;gap:28px;flex-wrap:wrap;justify-content:space-between}
+  .footer-brand-wrap{max-width:300px}
+  .footer-brand-row{display:flex;align-items:center;gap:10px}
+  .footer-logo{width:36px;height:36px;flex:none}
+  .footer-logo svg{width:100%;height:100%;display:block}
+  .footer-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:19px}
+  .footer-in p{margin:8px 0 0;font-size:13.5px;color:var(--ink-3);max-width:70ch}
+  .footer-in .by{font-size:14px;color:var(--ink-2);font-weight:700}
+  .footer-cols{display:flex;gap:36px;flex-wrap:wrap}
+  .footer-col h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+  .footer-col a{display:flex;align-items:center;min-height:36px;color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;padding:2px 0}
+  .footer-col a:hover{color:var(--coral)}
+  .footer-bottom{border-top:1px solid var(--line);padding-top:16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;font-size:13px;color:var(--ink-3);font-weight:600}
+  .footer-bottom a{color:var(--ink-2);font-weight:800}
+
+  @media (max-width:640px){
+    .hero{padding-top:36px}
+    .tool{padding:20px 16px}
+    .topnav{display:none}
+    .result-item{flex-direction:column}
+    .copy-btn{align-self:flex-start}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- dedicated tool pages ---------- */
+  :root{ --gold:#F6C445; }
+  .site-header{position:sticky;top:0;z-index:60;background:color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .header-in{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:12px}
+  .ck-brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .ck-logo{width:42px;height:42px;flex:none;display:block;line-height:0;filter:drop-shadow(0 6px 14px rgba(246,196,69,.35))}
+  .ck-logo svg{width:100%;height:100%;display:block}
+  .ck-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:21px;letter-spacing:-.01em}
+  .pro-badge{flex:none;background:var(--gold);color:#17201a;font-size:10.5px;font-weight:800;letter-spacing:.07em;
+    padding:4px 9px;border-radius:999px;text-transform:uppercase}
+  .site-nav{margin-left:auto;display:flex;gap:4px;align-items:center}
+  .site-nav a{color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:9px;
+    min-height:44px;display:inline-flex;align-items:center}
+  .site-nav a:hover{background:var(--surface-2);color:var(--ink)}
+  .nav-toggle{display:none;margin-left:auto;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);
+    font-size:20px;line-height:1;border-radius:10px;padding:8px 13px;cursor:pointer;min-height:44px}
+  @media (max-width:760px){
+    .nav-toggle{display:inline-flex;align-items:center}
+    .site-nav{display:none;position:absolute;top:100%;left:12px;right:12px;flex-direction:column;align-items:stretch;
+      background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px}
+    .site-nav.open{display:flex}
+    .site-nav a{padding:12px}
+  }
+  .crumbs{font-size:13.5px;font-weight:700;color:var(--ink-3);padding:22px 0 0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .crumbs a{color:var(--teal);text-decoration:none}
+  .crumbs a:hover{text-decoration:underline}
+  .page-hero{padding:14px 0 2px}
+  .page-hero h1{font-size:clamp(30px,5vw,44px);font-weight:800;letter-spacing:-.02em;max-width:22ch}
+  .page-hero h1 .hl{color:var(--coral)}
+  .page-intro{font-size:clamp(16px,2.2vw,18.5px);color:var(--ink-2);max-width:64ch;margin:12px 0 0}
+  .guide{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:28px;margin:26px 0}
+  .guide h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.01em;margin-top:30px}
+  .guide h2:first-child{margin-top:0}
+  .guide p,.guide li{color:var(--ink-2);font-size:15.5px}
+  .guide ol,.guide ul{margin:10px 0 0;padding-left:22px;max-width:74ch}
+  .guide li{margin-top:8px}
+  .guide li strong,.guide p strong{color:var(--ink)}
+  .faq-item{border-top:1px solid var(--line);padding:16px 0 4px;margin-top:14px}
+  .faq-item h3{font-size:16.5px;font-weight:800}
+  .faq-item p{margin:6px 0 10px;max-width:74ch}
+  .related{margin:26px 0 6px}
+  .related h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.01em}
+  .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px}
+  .rel-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
+    padding:18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:6px}
+  .rel-card:hover{border-color:var(--coral)}
+  .rel-card .r-ico{font-size:24px;line-height:1}
+  .rel-card .r-name{font-weight:800;font-size:16px}
+  .rel-card .r-sub{font-size:13.5px;color:var(--ink-3);font-weight:600}
+  .rel-card .r-go{font-size:13.5px;font-weight:800;color:var(--coral);margin-top:4px}
+  .site-footer{border-top:1px solid var(--line);margin-top:44px;background:var(--surface)}
+  .site-footer-in{max-width:1120px;margin:0 auto;padding:30px 20px 36px}
+  .site-footer .sf-tag{font-weight:800;font-size:15.5px;color:var(--ink)}
+  .site-footer nav{display:flex;gap:6px 20px;flex-wrap:wrap;margin-top:14px}
+  .site-footer nav a{color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;min-height:36px;display:inline-flex;align-items:center}
+  .site-footer nav a:hover{color:var(--coral)}
+  .site-footer .sf-copy{margin-top:16px;font-size:13px;color:var(--ink-3);font-weight:600}
+  @media (max-width:640px){ .guide{padding:20px 16px} }
+
+
+
+  /* ---------- document generators (page-specific additions) ---------- */
+  .field input[type="date"],.field input[type="number"],.field input[type="email"],.field input[type="tel"],.field textarea{
+    width:100%;padding:11px 13px;border-radius:11px;
+    border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+    font:inherit;font-size:15.5px;font-weight:600;
+  }
+  .field textarea{resize:vertical;min-height:64px;font-weight:500;line-height:1.45}
+  .field input:focus,.field textarea:focus{border-color:var(--teal);outline:none}
+  .field .sub{font-size:12px;color:var(--ink-3);font-weight:600;text-transform:none;letter-spacing:0}
+  .doc-layout{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px;align-items:start}
+  @media (max-width:920px){.doc-layout{grid-template-columns:1fr}}
+  .doc-form .controls{margin-top:0;grid-template-columns:1fr 1fr}
+  @media (max-width:520px){.doc-form .controls{grid-template-columns:1fr}}
+  .form-sec{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--teal);margin:20px 0 2px}
+  .form-sec:first-child{margin-top:0}
+  .check-row{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:14.5px;font-weight:600;color:var(--ink-2)}
+  .check-row input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--teal)}
+  .doc-preview-wrap{position:sticky;top:86px}
+  @media (max-width:920px){.doc-preview-wrap{position:static}}
+  .preview-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3);margin-bottom:10px}
+  .paper{
+    background:#fff;color:#1a1a1a;border:1px solid var(--line);border-radius:8px;
+    box-shadow:0 14px 34px rgba(23,32,26,.13);
+    padding:34px 36px;font-family:Georgia,'Times New Roman',serif;font-size:13.5px;line-height:1.55;
+    max-height:760px;overflow:auto;
+  }
+  @media (max-width:640px){.paper{padding:24px 20px}}
+  .paper .d-title{font-family:Georgia,serif;font-size:19px;font-weight:700;text-align:center;letter-spacing:.04em;margin:0 0 4px;text-transform:uppercase}
+  .paper .d-sub{text-align:center;font-size:12.5px;color:#444;margin:0 0 14px}
+  .paper .d-h{font-size:13.5px;font-weight:700;margin:15px 0 4px;text-transform:uppercase;letter-spacing:.02em}
+  .paper p{margin:0 0 8px}
+  .paper .d-disc{margin-top:18px;padding-top:10px;border-top:1px solid #ccc;font-size:10.5px;font-style:italic;color:#555}
+  .paper table{width:100%;border-collapse:collapse;margin:8px 0 12px;font-size:12.5px}
+  .paper th{text-align:left;border-bottom:2px solid #1a1a1a;padding:5px 6px;font-size:11px;text-transform:uppercase;letter-spacing:.03em}
+  .paper td{border-bottom:1px solid #ddd;padding:5px 6px;vertical-align:top}
+  .paper td.r,.paper th.r{text-align:right}
+  .paper .tot-row{display:flex;justify-content:space-between;gap:12px;padding:3px 0;font-size:13px}
+  .paper .tot-row.grand{border-top:2px solid #1a1a1a;margin-top:5px;padding-top:7px;font-weight:700;font-size:14.5px}
+  .paper .sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 34px;margin-top:8px}
+  @media (max-width:560px){.paper .sig-grid{grid-template-columns:1fr}}
+  .paper .sig-line{border-bottom:1px solid #1a1a1a;height:30px}
+  .paper .sig-cap{font-size:11px;color:#444;margin:3px 0 12px}
+  .dl-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center}
+  .disc-note{margin-top:16px;font-size:12.5px;color:var(--ink-3);font-weight:600;line-height:1.55;max-width:74ch}
+  .items-head,.item-row{display:grid;grid-template-columns:1fr 62px 92px 34px;gap:8px;align-items:center}
+  .items-head{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-3);margin-top:6px}
+  .item-row{margin-top:8px}
+  .item-row input{width:100%;padding:9px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:14.5px;font-weight:600;min-height:42px}
+  .item-row input:focus{border-color:var(--teal);outline:none}
+  .row-del{border:1px solid var(--line);background:var(--surface);color:var(--coral);border-radius:9px;height:42px;font-size:16px;cursor:pointer;font-weight:800}
+  .row-del:hover{border-color:var(--coral)}
+  .totals-readout{margin-top:16px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px}
+  .totals-readout .tr{display:flex;justify-content:space-between;padding:2px 0;font-weight:600;color:var(--ink-2)}
+  .totals-readout .tr.grand{border-top:2px solid var(--line);margin-top:6px;padding-top:8px;font-weight:800;color:var(--ink);font-size:16px}
+
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZHDP05H6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ZHDP05H6B');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zevtiaah1y");
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this freelance contract really free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 completely free, no sign-up, and everything runs in your browser so your client details and rates never leave your device."}}, {"@type": "Question", "name": "Do I need a contract for a small freelance job?", "acceptedAnswer": {"@type": "Answer", "text": "For anything beyond a trivial favor, yes. A one-page agreement covering scope, price and payment timing prevents the two most common freelance problems: unpaid invoices and endless revisions."}}, {"@type": "Question", "name": "When does the client own the work?", "acceptedAnswer": {"@type": "Answer", "text": "Under this template, ownership of the final deliverables transfers when the client has paid in full. Before that, the work remains the freelancer's property."}}, {"@type": "Question", "name": "Can I use this contract in any state?", "acceptedAnswer": {"@type": "Answer", "text": "The template lets you pick the governing state. It is a general-purpose template, not legal advice \u2014 for large engagements or regulated industries, have an attorney review it."}}]}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-in">
+    <a class="ck-brand" href="/" aria-label="CreatorKit home">
+      <span class="ck-logo"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#F6C445"/><text x="32" y="43" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="800" fill="#17201a" text-anchor="middle">CK</text></svg></span>
+      <span class="ck-name">CreatorKit</span>
+    </a>
+    <span class="pro-badge">Pro Suite</span>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">&#9776;</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="/#tools">All Tools</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/#tools">Tools</a> <span aria-hidden="true">/</span> <span>Freelance Services Agreement</span></nav>
+  <div class="page-hero">
+    <h1>Freelance Contract Generator — <span class="hl">Free Service Agreement PDF</span></h1>
+    <p class="page-intro">Most freelance disputes start with one missing sentence — about scope, payment timing, or who owns the work. This generator turns the key deal points into a clean, standard freelance services agreement: deliverables, fees and schedule, revision limits, intellectual property that transfers on full payment, and a clear termination clause. Fill it in, preview it live, and download a ready-to-sign PDF. Everything runs in your browser.</p>
+  </div>
+<section class="tool" id="doc">
+    <div class="tool-head">
+      <span class="tool-num" aria-hidden="true">✒️</span>
+      <div>
+        <h2>Freelance Services Agreement</h2>
+        <p class="tool-desc">Type on the left — the agreement updates on the right as you go. Blank fields show as fill-in lines, so you can also print the PDF and complete it by hand.</p>
+      </div>
+    </div>
+    <div class="doc-layout">
+      <div class="doc-form" id="doc-form">
+
+      <div class="form-sec">The parties</div>
+      <div class="controls">
+        <div class="field"><label for="fr-name">Freelancer name / business</label><input type="text" id="fr-name" placeholder="e.g. Maya Chen Design LLC" /></div>
+        <div class="field"><label for="cl-name">Client name / business</label><input type="text" id="cl-name" placeholder="e.g. Brightpath Dental Group" /></div>
+      </div>
+      <div class="form-sec">The project</div>
+      <div class="controls">
+        <div class="field" style="grid-column:1/-1"><label for="pj-title">Project title</label><input type="text" id="pj-title" placeholder="e.g. New patient website redesign" /></div>
+        <div class="field" style="grid-column:1/-1"><label for="scope">Scope &amp; deliverables</label><textarea id="scope" placeholder="e.g. Design and build a 6-page WordPress website, including homepage, services, about, testimonials, blog and contact pages, with contact form setup."></textarea></div>
+        <div class="field"><label for="pj-start">Start date</label><input type="date" id="pj-start" /></div>
+        <div class="field"><label for="pj-deadline">Deadline</label><input type="date" id="pj-deadline" /></div>
+        <div class="field"><label for="revisions">Revision rounds included</label><input type="number" id="revisions" min="0" step="1" placeholder="2" /></div>
+      </div>
+      <div class="form-sec">Fees &amp; payment</div>
+      <div class="controls">
+        <div class="field"><label for="fee-type">Fee structure</label><select id="fee-type"><option value="fixed" selected>Fixed project fee</option><option value="hourly">Hourly rate</option></select></div>
+        <div class="field"><label for="fee">Total fee / hourly rate ($)</label><input type="number" id="fee" min="0" step="1" placeholder="2500" /></div>
+        <div class="field" style="grid-column:1/-1"><label for="pay-terms">Payment schedule &amp; terms</label><input type="text" id="pay-terms" placeholder="e.g. 50% upfront, 50% on final delivery; invoices due within 14 days" /></div>
+      </div>
+      <div class="form-sec">Legal terms</div>
+      <div class="controls">
+        <div class="field"><label for="term-days">Termination notice (days)</label><input type="number" id="term-days" min="0" step="1" placeholder="14" /></div>
+        <div class="field"><label for="gov-state">Governing state</label><select id="gov-state"><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option><option value="District of Columbia">District of Columbia</option></select></div>
+      </div>
+      <label class="check-row"><input type="checkbox" id="conf" checked /> <span>Include a confidentiality clause (both parties keep shared business information private)</span></label>
+        </div>
+      <div class="doc-preview-wrap">
+        <div class="preview-label">Live preview — your document</div>
+        <div class="paper" id="doc-paper" aria-live="polite"></div>
+        <div class="dl-row"><button class="btn btn-primary" id="dl-btn" type="button">Download PDF</button><span class="hint">Free — no sign-up, nothing is uploaded or stored.</span></div>
+        <p class="disc-note">Free template for general information only — not legal advice. Have an attorney review documents for your situation.</p>
+      </div>
+    </div>
+</section>
+<section class="guide" id="guide">
+
+  <h2>How to Use the Freelance Contract Generator</h2>
+  <ol>
+    <li><strong>Name both parties properly.</strong> Use the legal business name if either side works through an LLC or company — that is who is bound by the contract.</li>
+    <li><strong>Write the scope like a checklist.</strong> List exactly what will be delivered (pages, files, formats, rounds of edits). Anything not listed is not included — that single habit prevents most scope-creep arguments.</li>
+    <li><strong>Pin down the money.</strong> Fixed fee or hourly rate, when each payment is due, and how many revision rounds are included. A 50% deposit before work starts is standard for fixed-fee projects.</li>
+    <li><strong>Keep the IP clause.</strong> The template transfers ownership of the final deliverables when the client has paid in full — the freelancer's built-in protection against non-payment.</li>
+    <li><strong>Sign before you start.</strong> Download the PDF and have both parties sign and date it. A signed contract beats a long email thread every time.</li>
+  </ol>
+  <h2>Clauses Worth Understanding</h2>
+  <ul>
+    <li><strong>Change orders.</strong> Extra work must be agreed in writing before it starts — otherwise neither side can prove what was promised.</li>
+    <li><strong>Termination.</strong> Either side can end the agreement with written notice, and the client pays for work completed to that date.</li>
+    <li><strong>Independent contractor status.</strong> The clause confirms the freelancer is not an employee, which matters for taxes and benefits.</li>
+  </ul>
+  <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+    <h3>Is this freelance contract really free?</h3>
+    <p>Yes — completely free, no sign-up, and everything runs in your browser so your client details and rates never leave your device.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Do I need a contract for a small freelance job?</h3>
+    <p>For anything beyond a trivial favor, yes. A one-page agreement covering scope, price and payment timing prevents the two most common freelance problems: unpaid invoices and endless revisions.</p>
+  </div>
+  <div class="faq-item">
+    <h3>When does the client own the work?</h3>
+    <p>Under this template, ownership of the final deliverables transfers when the client has paid in full. Before that, the work remains the freelancer's property.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can I use this contract in any state?</h3>
+    <p>The template lets you pick the governing state. It is a general-purpose template, not legal advice — for large engagements or regulated industries, have an attorney review it.</p>
+  </div>
+</section>
+  <section class="related" aria-label="Related tools">
+    <h2>Related Tools</h2>
+    <div class="related-grid">
+      <a class="rel-card" href="/nda-generator/"><span class="r-ico" aria-hidden="true">🔒</span><span class="r-name">NDA Generator</span><span class="r-sub">One-way or mutual, in minutes</span><span class="r-go">Try Tool &rarr;</span></a>
+      <a class="rel-card" href="/contractor-invoice-generator/"><span class="r-ico" aria-hidden="true">🧾</span><span class="r-name">Contractor Invoice Generator</span><span class="r-sub">Line items, tax and balance due</span><span class="r-go">Try Tool &rarr;</span></a>
+      <a class="rel-card" href="/texas-lease-agreement-generator/"><span class="r-ico" aria-hidden="true">📄</span><span class="r-name">Texas Lease Agreement Generator</span><span class="r-sub">Standard TX residential lease</span><span class="r-go">Try Tool &rarr;</span></a>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-in">
+    <div class="sf-tag">CreatorKit — A NumberBuzz USA Digital Product</div>
+    <nav aria-label="Footer">
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+    </nav>
+    <p class="sf-copy">&copy; 2026 CreatorKit by Shahiryar Munir. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+document.getElementById("nav-toggle").addEventListener("click", function(){
+  var nav = document.getElementById("site-nav");
+  var open = nav.classList.toggle("open");
+  this.setAttribute("aria-expanded", open ? "true" : "false");
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+
+/* ================= Document generator core =================
+   Each page defines buildDoc() returning an array of blocks:
+   {k:'title'|'sub'|'h'|'p', x:text} {k:'table', head:[], rows:[[]], w:[fractions], r:[right-align col idx]}
+   {k:'tot', rows:[[label, value, isGrand]]} {k:'sig', cells:[[lineLabel, caption], ...]}
+   {k:'raw', html} (preview only; skipped in PDF) */
+var DocGen = (function(){
+  var DISCLAIMER = "Free template for general information only \u2014 not legal advice. Have an attorney review documents for your situation.";
+  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function renderHTML(blocks){
+    var out = "";
+    blocks.forEach(function(b){
+      if(b.k==="title") out += '<div class="d-title">'+esc(b.x)+'</div>';
+      else if(b.k==="sub") out += '<p class="d-sub">'+esc(b.x)+'</p>';
+      else if(b.k==="h") out += '<div class="d-h">'+esc(b.x)+'</div>';
+      else if(b.k==="p") out += '<p>'+esc(b.x)+'</p>';
+      else if(b.k==="table"){
+        out += '<table><thead><tr>';
+        b.head.forEach(function(h,i){ out += '<th'+(b.r&&b.r.indexOf(i)>=0?' class="r"':'')+'>'+esc(h)+'</th>'; });
+        out += '</tr></thead><tbody>';
+        b.rows.forEach(function(row){
+          out += '<tr>';
+          row.forEach(function(c,i){ out += '<td'+(b.r&&b.r.indexOf(i)>=0?' class="r"':'')+'>'+esc(c)+'</td>'; });
+          out += '</tr>';
+        });
+        out += '</tbody></table>';
+      }
+      else if(b.k==="tot"){
+        b.rows.forEach(function(r){
+          out += '<div class="tot-row'+(r[2]?' grand':'')+'"><span>'+esc(r[0])+'</span><span>'+esc(r[1])+'</span></div>';
+        });
+      }
+      else if(b.k==="sig"){
+        out += '<div class="sig-grid">';
+        b.cells.forEach(function(c){
+          out += '<div><div class="sig-line"></div><div class="sig-cap">'+esc(c[1])+'</div></div>';
+        });
+        out += '</div>';
+      }
+    });
+    out += '<p class="d-disc">'+esc(DISCLAIMER)+'</p>';
+    return out;
+  }
+  function makePDF(blocks, filename){
+    if(!window.jspdf){ alert("PDF library is still loading \u2014 please try again in a second."); return; }
+    var doc = new window.jspdf.jsPDF({unit:"mm", format:"letter"});
+    var PW = 215.9, PH = 279.4, ML = 20, MR = 20, MT = 20, MB = 22;
+    var W = PW - ML - MR, y = MT;
+    function footer(){
+      var n = doc.getNumberOfPages();
+      doc.setFont("times","italic"); doc.setFontSize(8); doc.setTextColor(110);
+      doc.text(DISCLAIMER, PW/2, PH-12, {align:"center"});
+      doc.setFont("times","normal");
+      doc.text("Page " + n, PW/2, PH-7, {align:"center"});
+      doc.setTextColor(0);
+    }
+    function ensure(h){ if(y + h > PH - MB){ footer(); doc.addPage(); y = MT; } }
+    function para(text, size, style, lh, align, gapAfter){
+      doc.setFont("times", style); doc.setFontSize(size);
+      var lines = doc.splitTextToSize(text, W);
+      lines.forEach(function(ln){
+        ensure(lh);
+        doc.text(ln, align==="center" ? PW/2 : ML, y, align==="center" ? {align:"center"} : undefined);
+        y += lh;
+      });
+      y += (gapAfter||0);
+    }
+    blocks.forEach(function(b){
+      if(b.k==="title"){ para(b.x, 16, "bold", 7.5, "center", 1); }
+      else if(b.k==="sub"){ para(b.x, 10.5, "normal", 5.4, "center", 3); }
+      else if(b.k==="h"){ y += 2.5; ensure(8); para(b.x, 12, "bold", 6, "left", 1); }
+      else if(b.k==="p"){ para(b.x, 11, "normal", 5.7, "left", 2.2); }
+      else if(b.k==="table"){
+        var cols = b.w.map(function(f){ return f * W; });
+        function rowH(cells, bold){
+          doc.setFont("times", bold ? "bold" : "normal"); doc.setFontSize(10.5);
+          var mx = 1;
+          cells.forEach(function(c,i){ mx = Math.max(mx, doc.splitTextToSize(String(c), cols[i]-3).length); });
+          return mx * 5.2 + 2.6;
+        }
+        ensure(rowH(b.head, true) + 2);
+        doc.setFont("times","bold"); doc.setFontSize(10.5);
+        var x = ML;
+        b.head.forEach(function(h,i){
+          var right = b.r && b.r.indexOf(i)>=0;
+          doc.text(String(h), right ? x + cols[i] - 1.5 : x + 1.5, y + 4.4, right ? {align:"right"} : undefined);
+          x += cols[i];
+        });
+        y += rowH(b.head, true);
+        doc.setLineWidth(0.5); doc.line(ML, y, ML + W, y); y += 1.6;
+        b.rows.forEach(function(row){
+          var h = rowH(row, false);
+          ensure(h + 1);
+          doc.setFont("times","normal"); doc.setFontSize(10.5);
+          var xx = ML;
+          row.forEach(function(c,i){
+            var right = b.r && b.r.indexOf(i)>=0;
+            var lines = doc.splitTextToSize(String(c), cols[i]-3);
+            lines.forEach(function(ln, li){
+              doc.text(ln, right ? xx + cols[i] - 1.5 : xx + 1.5, y + 4.4 + li*5.2, right ? {align:"right"} : undefined);
+            });
+            xx += cols[i];
+          });
+          y += h;
+          doc.setLineWidth(0.15); doc.setDrawColor(200); doc.line(ML, y, ML + W, y); doc.setDrawColor(0); y += 1.2;
+        });
+        y += 3;
+      }
+      else if(b.k==="tot"){
+        b.rows.forEach(function(r){
+          if(r[2]){ ensure(9); doc.setLineWidth(0.5); doc.line(ML, y, ML + W, y); y += 2.2; }
+          ensure(6.4);
+          doc.setFont("times", r[2] ? "bold" : "normal"); doc.setFontSize(r[2] ? 12 : 11);
+          doc.text(String(r[0]), ML, y + 4.6);
+          doc.text(String(r[1]), ML + W, y + 4.6, {align:"right"});
+          y += 6.4;
+        });
+        y += 2;
+      }
+      else if(b.k==="sig"){
+        var colW = (W - 12) / 2;
+        for(var i = 0; i < b.cells.length; i += 2){
+          ensure(20);
+          for(var j = 0; j < 2; j++){
+            var cell = b.cells[i + j]; if(!cell) break;
+            var cx = ML + j * (colW + 12);
+            doc.setLineWidth(0.3); doc.line(cx, y + 10, cx + colW, y + 10);
+            doc.setFont("times","normal"); doc.setFontSize(9.5); doc.setTextColor(80);
+            doc.text(String(cell[1]), cx, y + 15);
+            doc.setTextColor(0);
+          }
+          y += 21;
+        }
+      }
+    });
+    y += 4; ensure(12);
+    doc.setFont("times","italic"); doc.setFontSize(9); doc.setTextColor(90);
+    var dl = doc.splitTextToSize("Disclaimer: " + DISCLAIMER, W);
+    dl.forEach(function(ln){ ensure(4.6); doc.text(ln, ML, y); y += 4.6; });
+    doc.setTextColor(0);
+    footer();
+    doc.save(filename);
+  }
+  return { renderHTML: renderHTML, makePDF: makePDF, DISCLAIMER: DISCLAIMER };
+})();
+
+function dgVal(id){ var el = document.getElementById(id); return el ? el.value.trim() : ""; }
+function dgCheck(id){ var el = document.getElementById(id); return el ? el.checked : false; }
+function dgNum(id){ var v = parseFloat(dgVal(id)); return isNaN(v) ? 0 : v; }
+function dgMoney(n){
+  var neg = n < 0; n = Math.abs(Math.round(n * 100) / 100);
+  var parts = n.toFixed(2).split(".");
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return (neg ? "-$" : "$") + parts[0] + "." + parts[1];
+}
+function dgDate(id){
+  var v = dgVal(id); if(!v) return "____________";
+  var p = v.split("-"); if(p.length !== 3) return v;
+  var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  return months[parseInt(p[1],10)-1] + " " + parseInt(p[2],10) + ", " + p[0];
+}
+function dgDateShort(id){
+  var v = dgVal(id); if(!v) return "____________";
+  var p = v.split("-"); if(p.length !== 3) return v;
+  return parseInt(p[1],10) + "/" + parseInt(p[2],10) + "/" + p[0];
+}
+function dgOr(v, ph){ return v ? v : (ph || "____________"); }
+function dgInit(buildDoc, filename){
+  var paper = document.getElementById("doc-paper");
+  function render(){ paper.innerHTML = DocGen.renderHTML(buildDoc()); }
+  var form = document.getElementById("doc-form");
+  form.addEventListener("input", render);
+  form.addEventListener("change", render);
+  document.getElementById("dl-btn").addEventListener("click", function(){ DocGen.makePDF(buildDoc(), filename); });
+  render();
+  return render;
+}
+
+
+function buildDoc(){
+  var fr = dgOr(dgVal("fr-name")), cl = dgOr(dgVal("cl-name"));
+  var hourly = dgVal("fee-type") === "hourly";
+  var feeTxt = hourly ? (dgMoney(dgNum("fee")) + " per hour, billed for time actually worked")
+                      : (dgMoney(dgNum("fee")) + " as a fixed fee for the Project");
+  var b = [];
+  b.push({k:"title", x:"Freelance Services Agreement"});
+  b.push({k:"sub", x:"Independent Contractor Agreement"});
+  b.push({k:"p", x:"This Freelance Services Agreement (this \u201CAgreement\u201D) is entered into as of " + dgDate("pj-start") + ", by and between " + cl + " (\u201CClient\u201D) and " + fr + " (\u201CFreelancer\u201D). The parties agree as follows:"});
+  b.push({k:"h", x:"1. Services and Deliverables"});
+  b.push({k:"p", x:"Freelancer shall provide the following services and deliverables for the project titled \u201C" + dgOr(dgVal("pj-title"), "Untitled Project") + "\u201D (the \u201CProject\u201D): " + dgOr(dgVal("scope"), "services and deliverables to be described in writing by the parties") + ". Work outside this scope is a change order and must be agreed in writing before it begins."});
+  b.push({k:"h", x:"2. Timeline"});
+  b.push({k:"p", x:"Freelancer shall begin work on " + dgDate("pj-start") + " and shall deliver the completed Project by " + dgDate("pj-deadline") + ", provided Client supplies needed content, access, and approvals on time. Delays caused by Client extend the deadline day-for-day."});
+  b.push({k:"h", x:"3. Fees and Payment"});
+  b.push({k:"p", x:"Client shall pay Freelancer " + feeTxt + ". Payment schedule and terms: " + dgOr(dgVal("pay-terms"), "invoices are due within 14 days of the invoice date") + ". The fee includes up to " + (dgVal("revisions") || "2") + " round(s) of revisions to delivered work; additional revisions are billed at Freelancer's standard rate and agreed in advance."});
+  b.push({k:"h", x:"4. Independent Contractor"});
+  b.push({k:"p", x:"Freelancer is an independent contractor, not an employee or agent of Client. Freelancer is responsible for Freelancer's own taxes, insurance, tools, and expenses unless otherwise agreed in writing."});
+  b.push({k:"h", x:"5. Intellectual Property"});
+  b.push({k:"p", x:"Upon Client's payment in full of all amounts due under this Agreement, all right, title, and interest in the final deliverables transfers to Client. Until full payment, the deliverables remain the property of Freelancer and Client receives no license to use them. Freelancer retains ownership of pre-existing tools, code, templates, and know-how used in the Project, and may display the work in Freelancer's portfolio."});
+  var n = 6;
+  if(dgCheck("conf")){
+    b.push({k:"h", x:n + ". Confidentiality"}); n++;
+    b.push({k:"p", x:"Each party agrees to keep confidential any non-public business, technical, or customer information received from the other party in connection with the Project, and to use it only to perform or receive the services under this Agreement."});
+  }
+  b.push({k:"h", x:n + ". Termination"}); n++;
+  b.push({k:"p", x:"Either party may terminate this Agreement with at least " + (dgVal("term-days") || "14") + " days' written notice. On termination, Client shall pay for all work performed and deliverables completed through the termination date, and Freelancer shall hand over completed work for which payment has been received."});
+  b.push({k:"h", x:n + ". Governing Law"});
+  b.push({k:"p", x:"This Agreement is governed by the laws of the State of " + dgVal("gov-state") + ". It is the entire agreement between the parties for the Project and supersedes all prior discussions. Amendments must be in writing and signed by both parties."});
+  b.push({k:"h", x:"Signatures"});
+  b.push({k:"p", x:"By signing below, the parties agree to the terms of this Agreement."});
+  b.push({k:"sig", cells:[["x","Signature \u2014 Freelancer: " + fr],["x","Date"],["x","Signature \u2014 Client: " + cl],["x","Date"]]});
+  return b;
+}
+dgInit(buildDoc, "freelance-service-contract.pdf");
+  
+</script>
+</body>
+</html>
