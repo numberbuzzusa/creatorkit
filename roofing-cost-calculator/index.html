@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="Free roofing cost calculator for 12 US cities. Enter your home size, stories, roof pitch and material to get an instant roof replacement cost range with local permit fees included. No sign-up." />
+<link rel="canonical" href="https://creatorkit.numberbuzzusa.xyz/roofing-cost-calculator/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F6C445'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='27' font-weight='800' fill='%2317201a' text-anchor='middle'%3ECK%3C/text%3E%3C/svg%3E" />
+<title>Roofing Cost Calculator — Free Roof Replacement Cost Estimates by City | CreatorKit</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5963284443577039" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f6f7f4;
+    --surface:#ffffff;
+    --surface-2:#eef1ea;
+    --ink:#17201a;
+    --ink-2:#4c5a50;
+    --ink-3:#718075;
+    --line:#dde3da;
+    --coral:#e8492f;
+    --coral-dark:#c93a24;
+    --coral-soft:#fdeee9;
+    --teal:#0d7a6f;
+    --teal-soft:#e2f3f0;
+    --sun:#b97e0a;
+    --sun-soft:#fdf3da;
+    --radius:18px;
+    --shadow:0 10px 30px rgba(23,32,26,.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#101512;
+      --surface:#1a211c;
+      --surface-2:#232c25;
+      --ink:#eef3ee;
+      --ink-2:#b9c6bb;
+      --ink-3:#8b9a8e;
+      --line:#2e3a30;
+      --coral:#ff6a4d;
+      --coral-dark:#ff8266;
+      --coral-soft:#33201b;
+      --teal:#3ec2b2;
+      --teal-soft:#173330;
+      --sun:#f0b93e;
+      --sun-soft:#332a12;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-serif;line-height:1.12;margin:0}
+  a{color:var(--teal)}
+  button,[role="button"],select,input,summary{min-height:44px}
+  :focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:6px}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-in{
+    max-width:1120px;margin:0 auto;padding:10px 20px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .brand-mark{
+    width:42px;height:42px;flex:none;display:block;line-height:0;
+    filter:drop-shadow(0 6px 14px rgba(232,73,47,.28));
+  }
+  .brand-mark svg,.logo-hero svg{width:100%;height:100%;display:block}
+  .logo-hero{width:72px;height:72px;margin-bottom:18px;filter:drop-shadow(0 10px 22px rgba(232,73,47,.22))}
+  .brand-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;letter-spacing:-.01em}
+  .brand-by{font-size:12px;color:var(--ink-3);font-weight:600}
+  .topnav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  .topnav a{
+    color:var(--ink-2);text-decoration:none;font-size:13.5px;font-weight:700;
+    padding:10px 10px;border-radius:9px;min-height:44px;display:inline-flex;align-items:center;
+  }
+  .topnav a:hover{background:var(--surface-2);color:var(--ink)}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:52px 0 8px}
+  .hero h1{font-size:clamp(38px,6.5vw,62px);font-weight:800;letter-spacing:-.02em;max-width:14ch}
+  .hero h1 .hl{color:var(--coral)}
+  .hero p.lede{font-size:clamp(17px,2.4vw,20px);color:var(--ink-2);max-width:56ch;margin:16px 0 0}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;
+    background:var(--surface);border:1px solid var(--line);border-radius:999px;
+    padding:8px 14px;font-size:13.5px;font-weight:700;color:var(--ink);
+  }
+  .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex:none}
+  .chip:nth-child(2) .dot{background:var(--coral)}
+  .chip:nth-child(3) .dot{background:var(--sun)}
+  .hero-credit{margin-top:14px;font-size:14px;color:var(--ink-3);font-weight:600}
+  .hero-credit strong{color:var(--ink)}
+
+  /* quick jump grid */
+  .jump{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;
+    margin:34px 0 10px;
+  }
+  .jump a{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:14px;text-decoration:none;color:var(--ink);
+    display:flex;flex-direction:column;gap:6px;min-height:44px;
+  }
+  .jump a:hover{border-color:var(--coral)}
+  .jump .j-ico{font-size:22px;line-height:1}
+  .jump .j-name{font-weight:800;font-size:14.5px}
+  .jump .j-sub{font-size:12.5px;color:var(--ink-3);font-weight:600}
+
+  /* ---------- tool sections ---------- */
+  .tool{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px;margin:26px 0;scroll-margin-top:96px;
+  }
+  .tool-head{display:flex;gap:16px;align-items:flex-start}
+  .tool-num{
+    flex:none;width:44px;height:44px;border-radius:13px;
+    display:grid;place-items:center;font-size:22px;
+    background:var(--coral-soft);
+  }
+  .tool:nth-of-type(odd) .tool-num{background:var(--teal-soft)}
+  .tool h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.01em}
+  .tool-desc{color:var(--ink-2);margin:6px 0 0;max-width:62ch;font-size:15px}
+  .controls{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;
+    margin-top:20px;
+  }
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:13px;font-weight:800;letter-spacing:.02em;color:var(--ink-2);text-transform:uppercase}
+  .field select,.field input[type="text"]{
+    width:100%;padding:11px 13px;border-radius:11px;
+    border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+    font:inherit;font-size:15.5px;font-weight:600;
+  }
+  .field select:focus,.field input[type="text"]:focus{border-color:var(--teal);outline:none}
+  .gen-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;align-items:center}
+  .btn{
+    border:0;cursor:pointer;font:inherit;font-weight:800;font-size:15px;
+    border-radius:12px;padding:12px 22px;min-height:48px;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{background:var(--coral);color:#fff}
+  .btn-primary:hover{background:var(--coral-dark)}
+  .btn-ghost{background:var(--surface-2);color:var(--ink)}
+  .btn-ghost:hover{background:var(--line)}
+  .hint{font-size:13px;color:var(--ink-3);font-weight:600}
+  .error{font-size:14px;color:var(--coral);font-weight:700;display:none;margin-top:10px}
+  .error.show{display:block}
+
+  .results{margin-top:20px;display:none;flex-direction:column;gap:10px}
+  .results.show{display:flex}
+  .results-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3)}
+  .result-item{
+    display:flex;gap:10px;align-items:flex-start;
+    background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:14px 14px 14px 16px;
+  }
+  .result-text{flex:1;font-size:15.5px;font-weight:600;overflow-wrap:anywhere;white-space:pre-line}
+  .result-text .meta{display:block;margin-top:5px;font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .copy-btn{
+    flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);
+    font:inherit;font-size:13px;font-weight:800;border-radius:9px;
+    padding:8px 13px;cursor:pointer;min-height:40px;
+  }
+  .copy-btn:hover{border-color:var(--teal);color:var(--teal)}
+  .copy-btn.copied{background:var(--teal);border-color:var(--teal);color:#fff}
+
+  /* hashtag groups */
+  .tag-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+  .tag-group{background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:16px}
+  .tag-group h3{font-size:15px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .tag-group h3 .reach{font-size:11.5px;font-weight:800;padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em}
+  .reach-big{background:var(--coral-soft);color:var(--coral)}
+  .reach-med{background:var(--sun-soft);color:var(--sun)}
+  .reach-niche{background:var(--teal-soft);color:var(--teal)}
+  .tags{margin-top:10px;font-size:14.5px;font-weight:600;line-height:1.9;overflow-wrap:anywhere;color:var(--ink-2)}
+  .tags span{color:var(--ink)}
+  .tag-group .copy-btn{margin-top:12px}
+
+  /* format chip for ideas */
+  .fmt{
+    display:inline-block;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;
+    background:var(--sun-soft);color:var(--sun);border-radius:999px;padding:3px 9px;margin-bottom:6px;
+  }
+
+  /* best time */
+  .platform-picker{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  .plat-btn{
+    border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+    font:inherit;font-weight:800;font-size:14.5px;border-radius:999px;
+    padding:10px 18px;cursor:pointer;min-height:46px;
+  }
+  .plat-btn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .time-panel{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:18px}
+  .time-panel h3{font-size:19px;font-weight:800}
+  .time-panel .tz{font-size:13px;color:var(--ink-3);font-weight:700;margin-top:2px}
+  .time-rows{margin-top:14px;display:flex;flex-direction:column}
+  .time-row{
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    padding:11px 2px;border-top:1px solid var(--line);font-size:15px;
+  }
+  .time-row:first-child{border-top:0}
+  .time-row .when{font-weight:800}
+  .time-row .window{font-weight:700;color:var(--teal)}
+  .time-row .why{flex-basis:100%;font-size:13.5px;color:var(--ink-2)}
+  .best-days{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .best-days .bd-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-3)}
+  .day-pill{background:var(--teal-soft);color:var(--teal);font-weight:800;font-size:13.5px;border-radius:999px;padding:6px 12px}
+
+  /* thumbnails */
+  .thumb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:20px}
+  .thumb-grid:empty{display:none}
+  .thumb-card{background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:12px;display:flex;flex-direction:column;gap:10px}
+  .thumb-card img{width:100%;height:auto;border-radius:9px;display:block;background:var(--surface-2)}
+  .thumb-meta{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .thumb-size{font-weight:800;font-size:14.5px}
+  .thumb-dims{font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .dl-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    background:var(--teal);color:#fff;text-decoration:none;
+    font-weight:800;font-size:14px;border-radius:10px;padding:10px 16px;min-height:44px;
+  }
+  .dl-btn:hover{filter:brightness(1.08)}
+
+  /* fancy fonts */
+  .font-rows{margin-top:20px;display:none;flex-direction:column;gap:10px}
+  .font-rows.show{display:flex}
+  .font-row{
+    display:flex;gap:10px;align-items:center;
+    background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:12px 12px 12px 16px;
+  }
+  .font-style-name{
+    flex:none;width:104px;font-size:11.5px;font-weight:800;text-transform:uppercase;
+    letter-spacing:.04em;color:var(--ink-3);
+  }
+  .font-sample{flex:1;font-size:19px;font-weight:600;overflow-wrap:anywhere;min-width:0}
+  @media (max-width:640px){
+    .font-row{flex-wrap:wrap}
+    .font-style-name{width:100%}
+  }
+
+  /* ---------- hero visual / brand showcase ---------- */
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:40px;align-items:center}
+  .hero-visual{position:relative;min-height:460px}
+  .hero-visual-bg{position:absolute;inset:8px 0 0 18px;border-radius:28px;background:var(--teal-soft);border:1px solid var(--line)}
+  .hero-visual-bg::after{content:"";position:absolute;right:22px;top:18px;width:74px;height:74px;border-radius:50%;background:var(--sun-soft);border:1px solid var(--line)}
+  .phone-frame{position:absolute;left:50%;top:6px;transform:translateX(-58%);width:236px;height:430px;background:#111814;border-radius:34px;padding:10px;box-shadow:0 24px 50px rgba(23,32,26,.22);z-index:3}
+  .phone-screen{position:relative;height:100%;border-radius:26px;overflow:hidden;background:#1a211c;color:#fff;display:flex;flex-direction:column}
+  .phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:74px;height:18px;border-radius:999px;background:#111814;z-index:4}
+  .reel-art video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .example-post-art.video-art{width:170px;height:302px;flex:none;padding:0;overflow:hidden;background:#111814}
+  .example-post-art.video-art video{width:100%;height:100%;object-fit:cover;display:block}
+  @media (max-width:560px){.example-post-art.video-art{width:100%;height:320px}}
+  .reel-art{position:relative;height:272px;flex:none;overflow:hidden;background:#f3c96b}
+  .reel-art svg{width:100%;height:100%;display:block}
+  .reel-live{position:absolute;top:28px;left:12px;background:var(--coral);color:#fff;font-size:10px;font-weight:800;letter-spacing:.08em;padding:4px 8px;border-radius:999px}
+  .reel-body{padding:12px 13px 10px;background:#fff;color:#17201a;flex:1}
+  @media (prefers-color-scheme: dark){.reel-body{background:#1e2821;color:#eef3ee}}
+  .reel-user{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800}
+  .reel-avatar{width:26px;height:26px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-size:12px;flex:none}
+  .reel-follow{margin-left:auto;background:var(--ink);color:var(--bg);font-size:11px;padding:5px 9px;border-radius:999px}
+  .reel-cap{font-size:12.8px;line-height:1.45;margin-top:8px;font-weight:600}
+  .reel-cap b{color:var(--coral)}
+  .reel-tags{font-size:11.5px;color:var(--teal);font-weight:700;margin-top:5px;line-height:1.5}
+  .reel-actions{display:flex;gap:14px;margin-top:9px;font-size:11px;font-weight:800;color:var(--ink-2)}
+  .float-chip{position:absolute;z-index:4;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:14px;padding:10px 12px;max-width:190px}
+  .float-chip .fc-label{font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+  .float-chip .fc-text{font-size:13px;font-weight:800;line-height:1.3;margin-top:3px}
+  .fc-hook{right:0;top:22px;transform:rotate(2deg)}
+  .fc-hook .fc-text{color:var(--coral)}
+  .fc-font{right:2px;bottom:92px;transform:rotate(-2deg)}
+  .fc-font .fc-text{font-size:16px;letter-spacing:.02em}
+  .fc-stat{left:0;bottom:18px}
+  .fc-stat .fc-num{font-family:"Bricolage Grotesque",sans-serif;font-size:22px;font-weight:800;line-height:1;color:var(--teal)}
+  .fc-stat .fc-sub{font-size:11.5px;font-weight:700;color:var(--ink-2);margin-top:3px}
+  .yt-mini{position:absolute;left:0;top:64px;width:168px;z-index:4;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(-3deg)}
+  .yt-mini-art{height:88px;background:var(--teal);color:#fff;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+  .yt-mini-art strong{font-family:"Bricolage Grotesque",sans-serif;font-size:15px;line-height:1.05}
+  .yt-mini-art span{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.9}
+  .yt-mini-play{position:absolute;right:10px;top:10px;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--teal);display:grid;place-items:center;font-size:11px}
+  .yt-mini-meta{padding:8px 10px 10px}
+  .yt-mini-meta div{height:7px;border-radius:99px;background:var(--surface-2)}
+  .yt-mini-meta div+div{margin-top:6px;width:68%}
+  .hero-visual-caption{position:absolute;left:50%;transform:translateX(-50%);bottom:-6px;z-index:5;background:var(--ink);color:var(--bg);font-size:12px;font-weight:800;padding:7px 12px;border-radius:999px;white-space:normal;text-align:center;width:max-content;max-width:94%}
+  /* ---------- in-tool examples ---------- */
+  .example-box{margin-top:20px;border:1px dashed var(--line);border-radius:14px;padding:14px;background:color-mix(in srgb, var(--surface-2) 55%, transparent)}
+  .example-head{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
+  .example-head::before{content:"";width:22px;height:3px;border-radius:99px;background:var(--coral);display:inline-block}
+  .example-post{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .example-post-art{width:86px;height:86px;border-radius:10px;flex:none;overflow:hidden;position:relative}
+  .example-post-art svg{width:100%;height:100%;display:block}
+  .example-post-body{min-width:0;flex:1}
+  .example-post-user{font-size:13px;font-weight:800;display:flex;gap:6px;align-items:center}
+  .example-post-user span{font-weight:600;color:var(--ink-3);font-size:12px}
+  .example-post-text{font-size:13.5px;line-height:1.5;font-weight:600;margin-top:4px}
+  .example-post-text em{color:var(--teal);font-style:normal;font-weight:800}
+  .sample-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .sample-thumb{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--surface);text-align:left}
+  .sample-thumb-art{aspect-ratio:16/9;padding:10px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+  .sample-thumb-art.coral{background:var(--coral)} .sample-thumb-art.teal{background:var(--teal)} .sample-thumb-art.ink{background:#243128}
+  .sample-thumb-art strong{font-family:"Bricolage Grotesque",sans-serif;font-size:15px;line-height:1.05;max-width:11ch}
+  .sample-thumb-art small{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.92;margin-bottom:4px}
+  .sample-thumb-art .play{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;background:#fff;color:#17201a;display:grid;place-items:center;font-size:10px}
+  .sample-thumb-meta{padding:8px 10px;font-size:12px;font-weight:700;line-height:1.35}
+  .sample-thumb-meta span{display:block;color:var(--ink-3);font-size:11px;font-weight:700;margin-top:2px}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-visual{max-width:520px;width:100%;margin:6px auto 0}}
+  @media (max-width:560px){.hero-visual{min-height:440px}.phone-frame{width:218px;height:408px;transform:translateX(-50%)}.yt-mini{display:none}.fc-hook{right:0;top:8px}.fc-font{bottom:76px}.fc-stat{bottom:6px}.sample-thumbs{grid-template-columns:1fr}.sample-thumb-art strong{font-size:17px;max-width:16ch}.example-post{flex-direction:column}.example-post-art{width:100%;height:110px}}
+
+  /* ---------- trust / legal pages ---------- */
+  .page-section{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin:26px 0;scroll-margin-top:96px}
+  .page-section h2{font-size:clamp(24px,3.6vw,32px);font-weight:800;letter-spacing:-.01em}
+  .page-section h3{font-size:17px;font-weight:800;margin:22px 0 6px}
+  .page-section p,.page-section li{color:var(--ink-2);font-size:15px}
+  .page-section p{margin:8px 0 0;max-width:72ch}
+  .page-section ul{margin:8px 0 0;padding-left:20px;max-width:72ch}
+  .page-section li{margin-top:5px}
+  .page-kicker{display:inline-flex;align-items:center;gap:7px;background:var(--teal-soft);color:var(--teal);font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;margin-bottom:12px}
+  .page-meta{font-size:13px;color:var(--ink-3);font-weight:700;margin-top:6px}
+  .contact-card{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .contact-card .cc-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3)}
+  .contact-card .cc-email{font-size:18px;font-weight:800;color:var(--ink);overflow-wrap:anywhere}
+  .back-tools{display:inline-flex;margin-top:20px;font-weight:800;font-size:14px;text-decoration:none}
+  .back-tools:hover{text-decoration:underline}
+
+  footer{border-top:1px solid var(--line);margin-top:44px;background:var(--surface)}
+  .footer-in{max-width:1120px;margin:0 auto;padding:34px 20px 40px;display:flex;flex-direction:column;gap:22px}
+  .footer-top{display:flex;gap:28px;flex-wrap:wrap;justify-content:space-between}
+  .footer-brand-wrap{max-width:300px}
+  .footer-brand-row{display:flex;align-items:center;gap:10px}
+  .footer-logo{width:36px;height:36px;flex:none}
+  .footer-logo svg{width:100%;height:100%;display:block}
+  .footer-brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:19px}
+  .footer-in p{margin:8px 0 0;font-size:13.5px;color:var(--ink-3);max-width:70ch}
+  .footer-in .by{font-size:14px;color:var(--ink-2);font-weight:700}
+  .footer-cols{display:flex;gap:36px;flex-wrap:wrap}
+  .footer-col h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+  .footer-col a{display:flex;align-items:center;min-height:36px;color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;padding:2px 0}
+  .footer-col a:hover{color:var(--coral)}
+  .footer-bottom{border-top:1px solid var(--line);padding-top:16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;font-size:13px;color:var(--ink-3);font-weight:600}
+  .footer-bottom a{color:var(--ink-2);font-weight:800}
+
+  @media (max-width:640px){
+    .hero{padding-top:36px}
+    .tool{padding:20px 16px}
+    .topnav{display:none}
+    .result-item{flex-direction:column}
+    .copy-btn{align-self:flex-start}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- dedicated tool pages ---------- */
+  :root{ --gold:#F6C445; }
+  .site-header{position:sticky;top:0;z-index:60;background:color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .header-in{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:12px}
+  .ck-brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .ck-logo{width:42px;height:42px;flex:none;display:block;line-height:0;filter:drop-shadow(0 6px 14px rgba(246,196,69,.35))}
+  .ck-logo svg{width:100%;height:100%;display:block}
+  .ck-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:21px;letter-spacing:-.01em}
+  .pro-badge{flex:none;background:var(--gold);color:#17201a;font-size:10.5px;font-weight:800;letter-spacing:.07em;
+    padding:4px 9px;border-radius:999px;text-transform:uppercase}
+  .site-nav{margin-left:auto;display:flex;gap:4px;align-items:center}
+  .site-nav a{color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:9px;
+    min-height:44px;display:inline-flex;align-items:center}
+  .site-nav a:hover{background:var(--surface-2);color:var(--ink)}
+  .nav-toggle{display:none;margin-left:auto;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);
+    font-size:20px;line-height:1;border-radius:10px;padding:8px 13px;cursor:pointer;min-height:44px}
+  @media (max-width:760px){
+    .nav-toggle{display:inline-flex;align-items:center}
+    .site-nav{display:none;position:absolute;top:100%;left:12px;right:12px;flex-direction:column;align-items:stretch;
+      background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px}
+    .site-nav.open{display:flex}
+    .site-nav a{padding:12px}
+  }
+  .crumbs{font-size:13.5px;font-weight:700;color:var(--ink-3);padding:22px 0 0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .crumbs a{color:var(--teal);text-decoration:none}
+  .crumbs a:hover{text-decoration:underline}
+  .page-hero{padding:14px 0 2px}
+  .page-hero h1{font-size:clamp(30px,5vw,44px);font-weight:800;letter-spacing:-.02em;max-width:22ch}
+  .page-hero h1 .hl{color:var(--coral)}
+  .page-intro{font-size:clamp(16px,2.2vw,18.5px);color:var(--ink-2);max-width:64ch;margin:12px 0 0}
+  .guide{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:28px;margin:26px 0}
+  .guide h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.01em;margin-top:30px}
+  .guide h2:first-child{margin-top:0}
+  .guide p,.guide li{color:var(--ink-2);font-size:15.5px}
+  .guide ol,.guide ul{margin:10px 0 0;padding-left:22px;max-width:74ch}
+  .guide li{margin-top:8px}
+  .guide li strong,.guide p strong{color:var(--ink)}
+  .faq-item{border-top:1px solid var(--line);padding:16px 0 4px;margin-top:14px}
+  .faq-item h3{font-size:16.5px;font-weight:800}
+  .faq-item p{margin:6px 0 10px;max-width:74ch}
+  .related{margin:26px 0 6px}
+  .related h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.01em}
+  .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px}
+  .rel-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
+    padding:18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:6px}
+  .rel-card:hover{border-color:var(--coral)}
+  .rel-card .r-ico{font-size:24px;line-height:1}
+  .rel-card .r-name{font-weight:800;font-size:16px}
+  .rel-card .r-sub{font-size:13.5px;color:var(--ink-3);font-weight:600}
+  .rel-card .r-go{font-size:13.5px;font-weight:800;color:var(--coral);margin-top:4px}
+  .site-footer{border-top:1px solid var(--line);margin-top:44px;background:var(--surface)}
+  .site-footer-in{max-width:1120px;margin:0 auto;padding:30px 20px 36px}
+  .site-footer .sf-tag{font-weight:800;font-size:15.5px;color:var(--ink)}
+  .site-footer nav{display:flex;gap:6px 20px;flex-wrap:wrap;margin-top:14px}
+  .site-footer nav a{color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:700;min-height:36px;display:inline-flex;align-items:center}
+  .site-footer nav a:hover{color:var(--coral)}
+  .site-footer .sf-copy{margin-top:16px;font-size:13px;color:var(--ink-3);font-weight:600}
+  @media (max-width:640px){ .guide{padding:20px 16px} }
+
+
+  /* ---------- roofing cost calculator (page-specific additions) ---------- */
+  .field input[type="number"]{
+    width:100%;padding:11px 13px;border-radius:11px;
+    border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+    font:inherit;font-size:15.5px;font-weight:600;
+  }
+  .field input[type="number"]:focus{border-color:var(--teal);outline:none}
+  .answer-box{
+    margin-top:22px;background:var(--teal-soft);border:1px solid var(--line);
+    border-radius:14px;padding:18px 20px;
+  }
+  .answer-box .ab-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--teal)}
+  .answer-box .ab-text{font-size:clamp(18px,2.6vw,22px);font-weight:800;line-height:1.35;margin-top:5px}
+  .answer-box .ab-text .ab-range{color:var(--coral)}
+  .bd-total{
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline;
+    margin-top:14px;padding-top:14px;border-top:2px solid var(--line);
+  }
+  .bd-total .bt-label{font-size:15px;font-weight:800}
+  .bd-total .bt-range{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(24px,3.6vw,32px);font-weight:800;color:var(--coral)}
+  .bd-total .bt-mid{flex-basis:100%;font-size:13.5px;color:var(--ink-2);font-weight:700}
+  .permit-panel{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:18px}
+  .permit-panel h3{font-size:17px;font-weight:800}
+  .permit-panel p{margin:7px 0 0;font-size:14.5px;color:var(--ink-2)}
+  .permit-panel .src{margin-top:9px;font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .city-table-wrap{margin-top:18px;overflow-x:auto}
+  .city-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px}
+  .city-table th{
+    text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3);
+    padding:9px 10px;border-bottom:2px solid var(--line);
+  }
+  .city-table td{padding:10px;border-bottom:1px solid var(--line);font-weight:600;color:var(--ink-2)}
+  .city-table td.c-city{font-weight:800;color:var(--ink)}
+  .city-table td.c-total{font-weight:800;color:var(--ink);white-space:nowrap}
+  .city-table tr.sel td{background:var(--sun-soft)}
+  .data-note{margin-top:14px;font-size:12.5px;color:var(--ink-3);font-weight:600;line-height:1.6}
+</style>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZHDP05H6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ZHDP05H6B');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zevtiaah1y");
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Yes — completely free, with no sign-up and no quote requests sold to contractors. Everything runs in your browser: your home details never leave your device, and nobody will call you because you used it."},"name":"Is this roofing cost calculator really free?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"It is a researched range, not a bid. Each city's rate comes from published contractor pricing and municipal fee schedules (researched November 2026), and published sources disagree by ±20–30% for the same city — which is exactly why the calculator always shows a low–high range. Deck condition, roof access and code upgrades can move a real bid within, or occasionally beyond, the range."},"name":"How accurate is the estimate?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"It depends entirely on your city. Chicago exempts residential re-roofs at a 2:12 pitch or steeper, Phoenix and Seattle exempt like-for-like replacements, and Austin exempts asphalt-for-asphalt swaps — while Miami and Houston always require a permit. Pick your city in the calculator and the permit panel shows its actual rule and typical fee."},"name":"Do I need a permit to replace my roof?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"3-tab asphalt shingle is the cheapest common option — in this calculator it prices at 0.78× the architectural shingle rate, roughly 22% less. Architectural shingle is the mid-point most quotes are built on; metal runs about 1.9× and tile about 2.3× the architectural price, though both last considerably longer."},"name":"What is the cheapest roofing material?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Mostly labor and code. Roofing is labor-heavy, and New York metro crew rates are among the highest in the country, while Charlotte's are among the lowest of the cities tracked here. Local rules add the rest: hurricane product approvals in Miami, valuation-based permit fees in Los Angeles and Denver, and snow or wind requirements all push bids up or down."},"name":"Why does the same roof cost so much more in New York than in Charlotte?"}]}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-in">
+    <a class="ck-brand" href="/" aria-label="CreatorKit home">
+      <span class="ck-logo"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#F6C445"/><text x="32" y="43" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="800" fill="#17201a" text-anchor="middle">CK</text></svg></span>
+      <span class="ck-name">CreatorKit</span>
+    </a>
+    <span class="pro-badge">Pro Suite</span>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">&#9776;</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="/#tools">All Tools</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/#tools">Tools</a> <span aria-hidden="true">/</span> <span>Roofing Cost Calculator</span></nav>
+  <div class="page-hero">
+    <h1>Roofing Cost Calculator — <span class="hl">Free Roof Estimates</span> for 12 US Cities</h1>
+    <p class="page-intro">A new roof is one of the biggest checks a homeowner ever writes — and the price swings wildly by city. CreatorKit's free roofing cost calculator uses researched local rates for 12 US cities: pick your city, home size, roof pitch and material, and get an instant low–high estimate with the local permit fee already included. No sign-up and no sales calls — just a straight range before you talk to a roofer.</p>
+  </div>
+<section class="tool" id="roofing">
+    <div class="tool-head">
+      <span class="tool-num" aria-hidden="true">🏠</span>
+      <div>
+        <h2>Roofing Cost Calculator</h2>
+        <p class="tool-desc">Set your city and roof details — the estimate updates instantly. Rates are installed architectural asphalt shingle prices researched in November 2026, adjusted for your material, roof pitch and tear-off, with the city's permit fee added on top.</p>
+      </div>
+    </div>
+    <div class="answer-box" aria-live="polite">
+      <div class="ab-label">Typical cost</div>
+      <div class="ab-text" id="roof-answer">Pick your city and roof details to see your estimate.</div>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="roof-city">City</label>
+        <select id="roof-city"></select>
+      </div>
+      <div class="field">
+        <label for="roof-area">Home size (living area, sq ft)</label>
+        <input type="number" id="roof-area" value="2000" min="400" max="10000" step="50" inputmode="numeric" />
+      </div>
+      <div class="field">
+        <label for="roof-stories">Stories</label>
+        <select id="roof-stories">
+          <option value="1" selected>1 story</option>
+          <option value="2">2 stories</option>
+          <option value="3">3 stories</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="roof-pitch">Roof pitch</label>
+        <select id="roof-pitch">
+          <option value="1.08">Low slope</option>
+          <option value="1.15" selected>Standard</option>
+          <option value="1.30">Steep</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="roof-material">Material</label>
+        <select id="roof-material">
+          <option value="0.78">3-tab shingle (budget)</option>
+          <option value="1" selected>Architectural shingle</option>
+          <option value="1.9">Metal roofing</option>
+          <option value="2.3">Tile roofing</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="roof-tearoff">Old roof tear-off</label>
+        <select id="roof-tearoff">
+          <option value="1" selected>One layer (included)</option>
+          <option value="2">Two layers (+$0.75 / sq ft)</option>
+        </select>
+      </div>
+    </div>
+    <div class="gen-row">
+      <button class="btn btn-primary" id="roof-calc" type="button">Calculate my estimate</button>
+      <span class="hint">The estimate also updates as you change any option.</span>
+    </div>
+    <div class="results show" id="roof-results">
+      <div class="results-label">Your estimate breakdown</div>
+      <div class="time-rows" id="roof-breakdown"></div>
+      <div class="bd-total">
+        <span class="bt-label">Estimated total</span>
+        <span class="bt-range" id="roof-total"></span>
+        <span class="bt-mid" id="roof-mid"></span>
+      </div>
+      <div class="permit-panel">
+        <h3 id="roof-permit-title">Permit rules</h3>
+        <p id="roof-permit-note"></p>
+        <p class="src" id="roof-permit-src"></p>
+      </div>
+      <div class="results-label" style="margin-top:22px">Same roof, all 12 cities</div>
+      <div class="city-table-wrap">
+        <table class="city-table" id="roof-compare">
+          <thead>
+            <tr><th>City</th><th>Rate / sq ft</th><th>Permit</th><th>Estimated total</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="data-note">Ranges researched November 2026 from published contractor pricing and municipal fee schedules — sources include RoofingCalc, RoofCostLookup, PermitCalculator, The Roofing Brief, EstimateHomeCosts, HomePermitGuide and the Roofing Almanac. Published sources disagree by ±20–30% for the same city, so this calculator always shows a range, never a single price. This is an estimate, not a quote: your roofer's bid also depends on deck condition, roof access, flashing and local code.</p>
+    </div>
+    <div class="example-box" aria-label="Example roof estimate">
+      <div class="example-head">Example — a standard Houston roof</div>
+      <div class="example-post">
+        <div class="example-post-body">
+          <p class="example-post-text">A 2,000 sq ft, one-story Houston home with a standard-pitch architectural shingle roof works out to about 2,300 sq ft of roof area. At Houston's researched $5.50–$7.50 per sq ft plus the $200–$400 city permit, the estimate is <em>$12,850–$17,650</em> — try it above with the default settings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="guide" id="guide">
+  <h2>How to Use the Roofing Cost Calculator</h2>
+  <ol>
+    <li><strong>Pick your city.</strong> The calculator loads that city's researched installed rate per square foot and its real permit fee range — a roof in New York is priced from New York data, not a national average.</li>
+    <li><strong>Enter your home's living area and stories.</strong> Roof area is estimated from your footprint (living area ÷ stories) times a pitch factor, the same method published cost calculators use. A 2,000 sq ft one-story home has roughly 2,300 sq ft of roof at a standard pitch.</li>
+    <li><strong>Choose pitch and material.</strong> Steeper roofs need more material and slower, safer labor. Material is the biggest single lever: 3-tab shingles run about 22% below architectural, while metal is roughly 1.9× and tile about 2.3× the architectural price.</li>
+    <li><strong>Set the tear-off.</strong> One old layer is included in the base rate. A second layer adds $0.75 per sq ft for the extra removal and disposal.</li>
+    <li><strong>Read the range, then the permit note.</strong> Your total is a low–high range with the permit fee shown as its own line — and the permit panel explains your city's actual rule, because in several cities a standard re-roof needs no permit at all.</li>
+  </ol>
+  <h2>What Moves a Roof Quote</h2>
+  <ul>
+    <li><strong>Material choice.</strong> Nothing swings the total like material. On a 2,300 sq ft roof, moving from architectural shingle to metal can add five figures; 3-tab is the budget option but typically carries a shorter lifespan and warranty.</li>
+    <li><strong>Local labor rates.</strong> Roofing is labor-heavy, so metro wage levels drive the per-square-foot rate — the main reason the same roof costs roughly $9,100–$14,400 in Charlotte and $18,600–$24,950 in New York at the settings above.</li>
+    <li><strong>Pitch and complexity.</strong> Steep pitches, multiple valleys, dormers, skylights and chimneys all slow the crew down and add flashing work. The calculator's pitch factor covers the area effect; unusual complexity pushes bids toward the top of the range.</li>
+    <li><strong>Deck condition.</strong> Rotten or sagging decking is only visible after tear-off. Contractors charge per replaced sheet, so a contingency of a few hundred dollars is realistic on older homes.</li>
+    <li><strong>Code upgrades.</strong> Hurricane zones, snow-load regions and wildfire areas can require upgraded underlayment, fasteners or ventilation that a basic quote elsewhere never includes.</li>
+  </ul>
+  <h2>Permit Rules Worth Knowing</h2>
+  <p>Permit rules are the part national calculators usually skip — and they are genuinely local. A few from the cities in this calculator:</p>
+  <ul>
+    <li><strong>Chicago:</strong> no building permit for a residential re-roof at a pitch of 2:12 or steeper on buildings up to 4 stories; low-slope or structural work is a different story ($475 per area up to 5,000 sq ft from January 2027).</li>
+    <li><strong>Phoenix &amp; Seattle:</strong> a like-for-like re-roof with the same material typically needs no permit; changing material or structure triggers one.</li>
+    <li><strong>Austin:</strong> asphalt shingles replacing asphalt shingles are exempt, as is any covering that does not affect the structure; when a permit is needed, the Express Permit runs about $87 plus $136 plan review.</li>
+    <li><strong>Miami:</strong> a permit is always required, and Miami-Dade is a High-Velocity Hurricane Zone — every component needs a Notice of Acceptance product approval, with wind-code inspections on top.</li>
+    <li><strong>New York:</strong> covering replacement above the deck is often exempt as an ordinary repair (1 RCNY 101-14); replace deck or structure and a DOB filing applies, with fees of $200–$800.</li>
+    <li><strong>Los Angeles:</strong> a permit is required, but LADBS issues most re-roofs as Express Permits with no plan check; the fee is valuation-based, about $284 on a $12,000 job.</li>
+  </ul>
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <h3>Is this roofing cost calculator really free?</h3>
+    <p>Yes — completely free, with no sign-up and no quote requests sold to contractors. Everything runs in your browser: your home details never leave your device, and nobody will call you because you used it.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How accurate is the estimate?</h3>
+    <p>It is a researched range, not a bid. Each city's rate comes from published contractor pricing and municipal fee schedules (researched November 2026), and published sources disagree by ±20–30% for the same city — which is exactly why the calculator always shows a low–high range. Deck condition, roof access and code upgrades can move a real bid within, or occasionally beyond, the range.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Do I need a permit to replace my roof?</h3>
+    <p>It depends entirely on your city. Chicago exempts residential re-roofs at a 2:12 pitch or steeper, Phoenix and Seattle exempt like-for-like replacements, and Austin exempts asphalt-for-asphalt swaps — while Miami and Houston always require a permit. Pick your city in the calculator and the permit panel shows its actual rule and typical fee.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is the cheapest roofing material?</h3>
+    <p>3-tab asphalt shingle is the cheapest common option — in this calculator it prices at 0.78× the architectural shingle rate, roughly 22% less. Architectural shingle is the mid-point most quotes are built on; metal runs about 1.9× and tile about 2.3× the architectural price, though both last considerably longer.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Why does the same roof cost so much more in New York than in Charlotte?</h3>
+    <p>Mostly labor and code. Roofing is labor-heavy, and New York metro crew rates are among the highest in the country, while Charlotte's are among the lowest of the cities tracked here. Local rules add the rest: hurricane product approvals in Miami, valuation-based permit fees in Los Angeles and Denver, and snow or wind requirements all push bids up or down.</p>
+  </div>
+</section>
+  <section class="related" aria-label="Related tools">
+    <h2>Related Tools</h2>
+    <div class="related-grid">
+      <a class="rel-card" href="/hashtag-generator/"><span class="r-ico" aria-hidden="true">#️⃣</span><span class="r-name">Hashtag Generator</span><span class="r-sub">25 tags sorted by reach</span><span class="r-go">Try Tool &rarr;</span></a>
+      <a class="rel-card" href="/reel-hook-generator/"><span class="r-ico" aria-hidden="true">🪝</span><span class="r-name">Reel Hook Generator</span><span class="r-sub">First lines that stop the scroll</span><span class="r-go">Try Tool &rarr;</span></a>
+      <a class="rel-card" href="/youtube-title-generator/"><span class="r-ico" aria-hidden="true">▶️</span><span class="r-name">YouTube Title Generator</span><span class="r-sub">10 clickable title ideas</span><span class="r-go">Try Tool &rarr;</span></a>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-in">
+    <div class="sf-tag">CreatorKit — A NumberBuzz USA Digital Product</div>
+    <nav aria-label="Footer">
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+    </nav>
+    <p class="sf-copy">&copy; 2026 CreatorKit by Shahiryar Munir. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+document.getElementById("nav-toggle").addEventListener("click", function(){
+  var nav = document.getElementById("site-nav");
+  var open = nav.classList.toggle("open");
+  this.setAttribute("aria-expanded", open ? "true" : "false");
+});
+</script>
+<script>
+/* ================= Roofing Cost Calculator =================
+   Engine per Track 10 design doc: roof area = (living area / stories) x pitch factor;
+   material multipliers vs architectural baseline; +$0.75/sq ft for a second tear-off
+   layer; city permit range added on top. Output is always a range. */
+var CITIES = [
+  { name:"New York", state:"NY", low:8.00, high:10.50, pLow:200, pHigh:800,
+    note:"Permit often NOT required for covering replacement above the deck (1 RCNY 101-14 ordinary-repair exemption); DOB filing needed if deck/structural work is replaced - fees then run $200-$800",
+    source:"https://www.roofingcalc.com/roof-replacement-cost/" },
+  { name:"Los Angeles", state:"CA", low:7.00, high:10.00, pLow:280, pHigh:610,
+    note:"Permit required; LADBS issues most re-roofs as Express Permits with no plan check (Class A/B coverings). Fee is valuation-based - about $284 on a $12,000 job (PermitCalculator 2026.Q4)",
+    source:"https://www.roofingcalc.com/roof-replacement-cost/" },
+  { name:"Chicago", state:"IL", low:6.00, high:8.00, pLow:0, pHigh:475,
+    note:"NO building permit for a residential re-roof at pitch 2:12 or steeper on buildings up to 4 stories (Chicago DOB rule). Low-slope or structural work needs a permit - replacement fee $475 per area up to 5,000 sq ft from Jan 2027",
+    source:"https://theroofingbrief.com/roof-permit-cost-and-process/" },
+  { name:"Houston", state:"TX", low:5.50, high:7.50, pLow:200, pHigh:400,
+    note:"RF roofing permit required inside city limits; fee is valuation/size based, typically $200-$400 for a standard home (large roofs run higher - a 5,800 sq ft re-roof permit cost $684 in 2026)",
+    source:"https://www.estimatehomecosts.com/texas/houston/cost/roof-replacement/" },
+  { name:"Dallas", state:"TX", low:5.00, high:6.90, pLow:175, pHigh:325,
+    note:"Building permit required for full re-roofs; online application via Dallas Development Services; typical fee $175-$325",
+    source:"https://www.estimatehomecosts.com/texas/dallas/cost/roof-replacement/" },
+  { name:"Phoenix", state:"AZ", low:5.50, high:7.50, pLow:0, pHigh:300,
+    note:"NO permit for a like-for-like re-roof using the same material; permit ($150-$300, often same-day) required if material or structure changes",
+    source:"https://theroofingbrief.com/roof-permit-cost-and-process/" },
+  { name:"Miami", state:"FL", low:7.00, high:9.00, pLow:160, pHigh:550,
+    note:"Permit always required. Miami-Dade is a High-Velocity Hurricane Zone: every component needs a Notice of Acceptance (NOA) product approval; base fee about $160 plus Florida surcharge, $250-$550 typical with wind-code inspections",
+    source:"https://permitcalculator.com/cities/" },
+  { name:"Atlanta", state:"GA", low:5.10, high:6.95, pLow:150, pHigh:350,
+    note:"Permit required (City of Atlanta / Fulton & DeKalb); Georgia re-roof fees typically $150-$350, Atlanta-area trends to the higher end",
+    source:"https://www.roofingalmanac.com/blog/roof-replacement-permit-requirements" },
+  { name:"Denver", state:"CO", low:5.40, high:7.40, pLow:150, pHigh:400,
+    note:"Permit required; Denver metro fees are valuation-based, typically $150-$400 for residential re-roofs",
+    source:"https://www.roofingalmanac.com/blog/roof-replacement-permit-requirements" },
+  { name:"Seattle", state:"WA", low:5.95, high:8.10, pLow:0, pHigh:550,
+    note:"NO permit for a standard like-for-like house re-roof; structural changes need a permit - Washington fees typically $250-$550",
+    source:"https://theroofingbrief.com/roof-permit-cost-and-process/" },
+  { name:"Charlotte", state:"NC", low:3.90, high:6.10, pLow:150, pHigh:350,
+    note:"Permit required in Mecklenburg County for full replacements; North Carolina fees typically $150-$350 and the county runs an online portal",
+    source:"https://www.roofingalmanac.com/blog/roof-replacement-permit-requirements" },
+  { name:"Austin", state:"TX", low:4.30, high:6.70, pLow:0, pHigh:136,
+    note:"Often NO permit: Austin exempts asphalt shingles replacing asphalt shingles and any covering that does not affect the structure. When needed, Express Permit is about $87 plus $136 plan review (FY2026)",
+    source:"https://homepermitguide.com/trades/roofing-permit/" }
+];
+var MATERIAL_NAMES = { "0.78":"3-tab shingle", "1":"architectural shingle", "1.9":"metal", "2.3":"tile" };
+
+function money(n){ return "$" + Math.round(n).toLocaleString("en-US"); }
+function range(a, b){ return money(a) + "–" + money(b); }
+
+function roofCalc(city, living, stories, pitch, mult, layers){
+  var area = Math.round((living / stories) * pitch);
+  var tear = (layers === 2) ? area * 0.75 : 0;
+  var roofLow = area * city.low * mult;
+  var roofHigh = area * city.high * mult;
+  return {
+    area: area,
+    roofLow: roofLow, roofHigh: roofHigh, tear: tear,
+    totalLow: roofLow + tear + city.pLow,
+    totalHigh: roofHigh + tear + city.pHigh
+  };
+}
+
+function readInputs(){
+  var living = parseFloat(document.getElementById("roof-area").value);
+  if (isNaN(living)) living = 2000;
+  living = Math.max(400, Math.min(10000, living));
+  return {
+    cityIdx: parseInt(document.getElementById("roof-city").value, 10),
+    living: living,
+    stories: parseInt(document.getElementById("roof-stories").value, 10),
+    pitch: parseFloat(document.getElementById("roof-pitch").value),
+    mult: parseFloat(document.getElementById("roof-material").value),
+    matKey: document.getElementById("roof-material").value,
+    layers: parseInt(document.getElementById("roof-tearoff").value, 10)
+  };
+}
+
+function renderRoof(){
+  var inp = readInputs();
+  var city = CITIES[inp.cityIdx];
+  var r = roofCalc(city, inp.living, inp.stories, inp.pitch, inp.mult, inp.layers);
+  var matName = MATERIAL_NAMES[inp.matKey] || "architectural shingle";
+
+  document.getElementById("roof-answer").innerHTML =
+    "A " + inp.living.toLocaleString("en-US") + " sq ft " + matName + " roof in " + city.name +
+    " typically costs <span class=\"ab-range\">" + range(r.totalLow, r.totalHigh) +
+    "</span> installed, permit included.";
+
+  var rows = "";
+  rows += "<div class=\"time-row\"><span class=\"when\">Estimated roof area</span><span class=\"window\">" +
+          r.area.toLocaleString("en-US") + " sq ft</span></div>";
+  rows += "<div class=\"time-row\"><span class=\"when\">Roof replacement — " + matName + " at " +
+          money(city.low * inp.mult) + "–" + money(city.high * inp.mult) + " / sq ft</span><span class=\"window\">" +
+          range(r.roofLow, r.roofHigh) + "</span></div>";
+  if (inp.layers === 2){
+    rows += "<div class=\"time-row\"><span class=\"when\">Second tear-off layer (+$0.75 / sq ft)</span><span class=\"window\">+" +
+            money(r.tear) + "</span></div>";
+  }
+  rows += "<div class=\"time-row\"><span class=\"when\">Permit — " + city.name + ", " + city.state +
+          "</span><span class=\"window\">" + (city.pLow === 0 && city.pHigh === 0 ? "$0" : range(city.pLow, city.pHigh)) +
+          "</span></div>";
+  document.getElementById("roof-breakdown").innerHTML = rows;
+
+  document.getElementById("roof-total").textContent = range(r.totalLow, r.totalHigh);
+  document.getElementById("roof-mid").textContent =
+    "Midpoint " + money((r.totalLow + r.totalHigh) / 2) + " · " +
+    money(r.totalLow / r.area) + "–" + money(r.totalHigh / r.area) + " per sq ft of roof, all-in";
+
+  document.getElementById("roof-permit-title").textContent = "Permit rules in " + city.name;
+  document.getElementById("roof-permit-note").textContent = city.note;
+  document.getElementById("roof-permit-src").innerHTML =
+    "Rate &amp; permit data source: <a href=\"" + city.source + "\" target=\"_blank\" rel=\"noopener\">" +
+    city.source.replace(/^https?:\/\//, "").replace(/\/$/, "") + "</a> · Researched Nov 2026";
+
+  var sorted = CITIES.map(function(c, i){
+    var cr = roofCalc(c, inp.living, inp.stories, inp.pitch, inp.mult, inp.layers);
+    return { city: c, idx: i, totalLow: cr.totalLow, totalHigh: cr.totalHigh };
+  }).sort(function(a, b){ return a.totalLow - b.totalLow; });
+
+  var tbody = "";
+  sorted.forEach(function(row){
+    var c = row.city;
+    tbody += "<tr" + (row.idx === inp.cityIdx ? " class=\"sel\"" : "") + ">" +
+      "<td class=\"c-city\">" + c.name + ", " + c.state + "</td>" +
+      "<td>" + money(c.low) + "–" + money(c.high) + "</td>" +
+      "<td>" + (c.pLow === 0 && c.pHigh === 0 ? "$0" : range(c.pLow, c.pHigh)) + "</td>" +
+      "<td class=\"c-total\">" + range(row.totalLow, row.totalHigh) + "</td></tr>";
+  });
+  document.querySelector("#roof-compare tbody").innerHTML = tbody;
+}
+
+(function(){
+  var sel = document.getElementById("roof-city");
+  CITIES.forEach(function(c, i){
+    var o = document.createElement("option");
+    o.value = i; o.textContent = c.name + ", " + c.state;
+    sel.appendChild(o);
+  });
+  sel.value = "3"; /* Houston — the worked example */
+  ["roof-city","roof-area","roof-stories","roof-pitch","roof-material","roof-tearoff"].forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener("change", renderRoof);
+    el.addEventListener("input", renderRoof);
+  });
+  document.getElementById("roof-calc").addEventListener("click", renderRoof);
+  renderRoof();
+})();
+</script>
+</body>
+</html>
